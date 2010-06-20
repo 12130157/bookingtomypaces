@@ -1,0 +1,105 @@
+.do1tabs .ui-wrapper { border: 1px solid #50A029; }
+.do1tabs .ui-wrapper input, .do1tabs .ui-wrapper textarea { border: 0; }
+
+/* Caution! Ensure accessibility in print and other media types... */
+@media projection, screen { /* Use class for showing/hiding tab content, so that visibility can be better controlled in different media types... */
+    .do1tabs .ui-tabs-hide {
+        display: none !important;
+    }
+}
+
+/* Hide useless elements in print layouts... */
+@media print {
+    .do1tabs .ui-tabs-nav {
+        display: none;
+    }
+}
+
+/* Skin */
+.do1tabs .ui-tabs-nav, .do1tabs .ui-tabs-panel {
+    font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+.do1tabs .ui-tabs-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 3px;
+}
+.do1tabs .ui-tabs-nav:after { /* clearing without presentational markup, IE gets extra treatment */
+    display: block;
+    clear: both;
+    content: " ";
+}
+.do1tabs .ui-tabs-nav li {
+    float: left;
+    margin: 0 0 0 2px;
+    font-weight: bold;
+}
+.do1tabs .ui-tabs-nav a, .do1tabs .ui-tabs-nav a span {
+    float: left; /* fixes dir=ltr problem and other quirks IE */
+    padding: 0 12px;
+    background: url(../images/do1.tabs.png) no-repeat;
+}
+.do1tabs .ui-tabs-nav a {
+    margin: 5px 0 0; /* position: relative makes opacity fail for disabled tab in IE */
+    padding-left: 0;
+    background-position: 100% 0;
+    text-decoration: none;
+    white-space: nowrap; /* @ IE 6 */
+    outline: 0; /* @ Firefox, prevent dotted border after click */    
+}
+.do1tabs .ui-tabs-nav a:link, .do1tabs .ui-tabs-nav a:visited {
+    color: #fff;
+}
+.do1tabs .ui-tabs-nav .ui-tabs-selected a {
+    position: relative;
+    top: 1px;
+    z-index: 2;
+    margin-top: 0;
+    background-position: 100% -23px;
+}
+.do1tabs .ui-tabs-nav a span {
+    padding-top: 1px;
+    padding-right: 0;
+    height: 20px;
+    background-position: 0 0;
+    line-height: 20px;
+}
+.do1tabs .ui-tabs-nav .ui-tabs-selected a span {
+    padding-top: 0;
+    height: 27px;
+    background-position: 0 -23px;
+    line-height: 27px;
+}
+.do1tabs .ui-tabs-nav .ui-tabs-selected a:link, .do1tabs .ui-tabs-nav .ui-tabs-selected a:visited,
+.do1tabs .ui-tabs-nav .ui-tabs-disabled a:link, .do1tabs .ui-tabs-nav .ui-tabs-disabled a:visited { /* @ Opera, use pseudo classes otherwise it confuses cursor... */
+    cursor: text;
+}
+.do1tabs .ui-tabs-nav a:hover, .do1tabs .ui-tabs-nav a:focus, .do1tabs .ui-tabs-nav a:active,
+.do1tabs .ui-tabs-nav .ui-tabs-unselect a:hover, .do1tabs .ui-tabs-nav .ui-tabs-unselect a:focus, .do1tabs .ui-tabs-nav .ui-tabs-unselect a:active { /* @ Opera, we need to be explicit again here now... */
+    cursor: pointer;
+}
+.do1tabs .ui-tabs-disabled {
+    opacity: .4;
+    filter: alpha(opacity=40);
+}
+.do1tabs .ui-tabs-nav .ui-tabs-disabled a:link, .do1tabs .ui-tabs-nav .ui-tabs-disabled a:visited {
+    color: #000;
+}
+.do1tabs .ui-tabs-panel {
+    border: 1px solid #9FD6FF;
+    padding: 10px;
+    background: #fff; /* declare background color for container to avoid distorted fonts in IE while fading */
+}
+/*.do1tabs .ui-tabs-loading em {
+    padding: 0 0 0 20px;
+    background: url(loading.gif) no-repeat 0 50%;
+}*/
+
+/* Additional IE specific bug fixes... */
+* html .do1tabs .ui-tabs-nav { /* auto clear @ IE 6 & IE 7 Quirks Mode */
+    display: inline-block;
+}
+*:first-child+html .do1tabs .ui-tabs-nav  { /* auto clear @ IE 7 Standards Mode - do not group selectors, otherwise IE 6 will ignore complete rule (because of the unknown + combinator)... */
+    display: inline-block;
+}

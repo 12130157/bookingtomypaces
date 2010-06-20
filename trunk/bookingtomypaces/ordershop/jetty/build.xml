@@ -1,0 +1,14 @@
+<project name="kjetty" default="jetty">
+	<target name="jetty">
+		<delete dir="./classes" />
+		<mkdir dir="./classes" />
+		<javac srcdir="./src" destdir="./classes" encoding="utf-8">
+			<classpath>
+				<fileset dir="./lib">
+					<include name="**/*.jar" />
+					<include name="**/*.zip" />
+				</fileset>
+			</classpath>
+		</javac>
+	</target>
+</project>

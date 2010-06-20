@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><!--每个页面的编码用UTF-8-->
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+<!--
+var origCols;
+document.onclick=function (){
+	var contentFrameset = parent.document.getElementById('contentFrameset');
+	if(origCols){
+		contentFrameset.cols = origCols;
+		origCols = null;
+		document.body.className="expanded";
+	}
+	else {
+		origCols = contentFrameset.cols;
+		contentFrameset.cols = "0"+origCols.substr(origCols.indexOf(','));
+		document.body.className="collapsed";
+	}
+};
+//-->
+</script>
+</head>
+<body id="admin_resize" class="expanded"></body>
+</html>

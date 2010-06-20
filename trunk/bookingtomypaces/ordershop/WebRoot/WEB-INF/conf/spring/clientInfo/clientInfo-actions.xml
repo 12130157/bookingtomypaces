@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+
+<beans>
+	
+	<!--客户-->
+	<bean id="clientInfoAction" class="com.king.web.clientmanage.clientInfo.action.ClientInfoAction">
+		<property name="clientInfoService" ref="clientInfoService"/>
+	</bean>
+</beans>

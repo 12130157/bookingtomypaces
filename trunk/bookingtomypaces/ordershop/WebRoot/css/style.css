@@ -1,0 +1,668 @@
+body
+{
+	margin:0px;
+}
+td
+{
+	font-size:11px;
+	font-family:verdana;
+	line-height:18px;
+	color:#064E88;
+}
+form
+{
+	margin:0px;
+}
+/*---左边菜单最外边的TD---*/
+.lefttable
+{
+	padding:2px 0 4px 5px;
+}
+/*---底部版权信息的TD---*/
+.foottd
+{
+	background-image:url(../images/footbg.gif);
+	text-align:center;
+	color:#034F8B;
+	height:27px;
+}
+/*---左边登录信息---*/
+.leftloginmsgtalbe
+{
+	border:1px solid #74B5F9;
+	background-image:url(../images/leftloginmsgbg.gif);
+	background-position:top;
+	background-repeat:repeat-x;
+	padding:3px 7px 3px 7px;
+}
+/*---文字颜色——红、蓝、灰、橙---*/
+.fontred
+{
+	color:#ee0000;
+}
+.fontblue
+{
+	color:#0A83DE;
+}
+.fontgray
+{
+	color:#999999;
+}
+.fontorange
+{
+	color:#ff6600;
+}
+/*---左边菜单外边的TD---*/
+.leftmenutable
+{
+	background-color:#F2FAFD;
+	border:1px solid #74B5F9;
+}
+/*---左边一级菜单样式---*/
+.leftmenutd
+{
+	behavior:url(../js/leftmenubg.htc);
+	background-image:url(../images/leftmenubg.gif);
+	height:32px;
+	color:#59A8F3;
+	padding-left:7px;
+	padding-top:4px;
+	cursor:hand;
+}
+/*---左边一级菜单鼠标指向时样式---*/
+.leftmenutd0
+{
+	behavior:url(../js/leftmenubg.htc);
+	background-image:url(../images/leftmenubg0.gif);
+	height:32px;
+	color:#0265CB;
+	padding-left:7px;
+	padding-top:4px;
+	cursor:hand;
+}
+/*---左边当前一级菜单样式---*/
+.leftmenutd_o
+{
+	background-image:url(../images/leftmenubg_o.gif);
+	height:32px;
+	color:#0265CB;
+	font-weight:bold;
+	padding-left:7px;
+	padding-top:4px;
+	cursor:hand;
+}
+/*---左边二级菜单TD样式---*/
+.leftsubmenutable
+{
+	padding:5px;
+	text-align:center;
+	border-bottom:1px solid #9EC9DA;
+}
+/*---主页面BODY样式---*/
+.maintable
+{
+	padding:4px 8px 4px 8px;
+}
+/*---列表标题行和查询条标题行样式---*/
+.title
+{
+	background-image:url(../images/titlebg.gif);
+	height:24px;
+	border-top:1px solid #9FD6FF;
+	border-right:1px solid #9FD6FF;
+	border-left:1px solid #9FD6FF;
+}
+/*---列表头---*/
+.listhead
+{
+	 background-color:#C1DDF8;
+	 height:25px;
+	 border-left:1px solid #ffffff;
+	 border-right:1px solid #C8E2FB;
+	 border-top:1px solid #ffffff;
+	 text-align:center;
+	 color:#033767;
+}
+/*---列表单行样式---*/
+.listtd1
+{
+	 behavior:url(../js/listtd.htc);
+	 background-color:#ffffff;
+	 height:23px;
+	 border-left:1px solid #ffffff;
+	 border-top:1px solid #ffffff;
+	 padding:2px 5px 2px 5px;
+	 color:#033767;
+}
+/*---列表双行样式---*/
+.listtd2
+{
+	 behavior:url(../js/listtd.htc);
+	 background-color:#ECF5FC;
+	 height:23px;
+	 border-left:1px solid #ffffff;
+	 border-top:1px solid #ffffff;
+	 padding:2px 5px 2px 5px;
+	 color:#033767;
+}
+/*---列表单行鼠标指向时样式---*/
+.listtd1_o
+{
+	 behavior:url(../js/listtd.htc);;
+	 background-color:#D7EBFA;
+	 height:23px;
+	 border-left:1px solid #ffffff;
+	 border-top:1px solid #ffffff;
+	 padding:2px 5px 2px 5px;
+	 color:#033767;
+}
+/*---列表双行鼠标指向时样式---*/
+.listtd2_o
+{
+	 behavior:url(../js/listtd.htc);;
+	 background-color:#D7EBFA;
+	 height:23px;
+	 border-left:1px solid #ffffff;
+	 border-top:1px solid #ffffff;
+	 padding:2px 5px 2px 5px;
+	 color:#033767;
+}
+/*---翻页行样式---*/
+.pagetd
+{
+	background-color:#F3FAFF;
+	text-align:right;
+	padding:5px 8px 5px 8px;
+	color:#666666;
+}
+/*---查询行样式---*/
+.searchtd
+{
+	background-color:#F2F9FF;
+	border-bottom:1px solid #9FD6FF;
+	border-left:1px solid #9FD6FF;
+	border-right:1px solid #9FD6FF;
+	padding:3px 10px 3px 12px;
+	color:#0065CA;
+}
+/*---查询条中的文本框---*/
+.inputsearch
+{
+	border:1px solid #5F8FB3;
+	color:#5F8FB3;
+	font-size:11px;
+	font-family:verdana;
+	width:100px;
+	height:18px;
+}
+/*---查询条中的下拉框---*/
+.inputselect
+{
+	border:1px solid #5F8FB3;
+	color:#5F8FB3;
+	font-size:11px;
+	font-family:verdana;
+	height:18px;
+}
+/*---普通表单中的文本框---*/
+.inputform
+{
+	border:1px solid #5F8FB3;
+	color:#0067CE;
+	font-size:11px;
+	font-family:verdana;
+	width:160px;
+	height:18px;
+}
+/*---普通表单中的长文本框（如录入地址等）---*/
+.inputformadd
+{
+	border:1px solid #5F8FB3;
+	color:#0067CE;
+	font-size:11px;
+	font-family:verdana;
+	width:552px;
+	height:18px;
+}
+/*---普通表单中的录入数字的文本框---*/
+.inputformdate
+{
+	border:1px solid #5F8FB3;
+	color:#0067CE;
+	font-size:11px;
+	font-family:verdana;
+	width:40px;
+	height:18px;
+	text-align:right;
+}
+/*---普通表单中的录入数字的文本框2---*/
+.inputformdate2
+{
+	border:1px solid #5F8FB3;
+	color:#0067CE;
+	font-size:11px;
+	font-family:verdana;
+	width:70px;
+	height:18px;
+	text-align:right;
+}
+/*---普通表单中的录入时间日期的文本框---*/
+.inputformtime
+{
+	border:1px solid #5F8FB3;
+	color:#0067CE;
+	font-size:11px;
+	font-family:verdana;
+	width:70px;
+	height:18px;
+}
+/*---普通表单中的文本域---*/
+.inputformtext
+{
+	border:1px solid #5F8FB3;
+	color:#0067CE;
+	font-size:11px;
+	font-family:verdana;
+	width:553px;
+	height:80px;
+}
+/*---查询条中的时间日期文本框---*/
+.inputsearchtime
+{
+	border:1px solid #5F8FB3;
+	color:#0067CE;
+	font-size:11px;
+	font-family:verdana;
+	width:70px;
+	height:18px;
+}
+/*---翻页条中的页码文本框---*/
+.inputpage
+{
+	border:1px solid #999999;
+	color:#666666;
+	font-size:11px;
+	font-family:verdana;
+	width:26px;
+	height:16px;
+	text-align:right;
+}
+/*---表单中字段名称TD---*/
+.formtitle
+{
+	background-color:#F2F9FF;
+	color:#044F88;
+	padding:5px 5px 5px 15px;
+}
+/*---表单中字段内容TD---*/
+.formtd
+{
+	background-color:#ffffff;
+	padding:3px 5px 3px 5px;
+	color:#044F88;
+	word-wrap:break-word;
+	word-break:break-all;
+}
+/*---表单中按钮行---*/
+.formbtntd
+{
+	background-color:#ffffff;
+	padding:8px;
+}
+/*---链接文字颜色——橙、蓝、灰---*/
+a.linkorange:link,a.linkorange:visited,a.linkorange:active
+{
+	font-size:11px;
+	font-family:verdana;
+	color:#ff6600;
+	text-decoration:underline;
+}
+a.linkorange:hover
+{
+	font-size:11px;
+	font-family:verdana;
+	color:#cc0000;
+	text-decoration:underline;
+}
+a.linkblue:link,a.linkblue:visited,a.linkblue:active
+{
+	font-size:11px;
+	font-family:verdana;
+	color:#0071A7;
+	text-decoration:none;
+}
+a.linkblue:hover
+{
+	font-size:11px;
+	font-family:verdana;
+	color:#ff6600;
+	text-decoration:none;
+}
+a.linkgray:link,a.linkgray:visited,a.linkgray:active
+{
+	font-size:11px;
+	font-family:verdana;
+	color:#666666;
+	text-decoration:underline;
+}
+a.linkgray:hover
+{
+	font-size:11px;
+	font-family:verdana;
+	color:#999999;
+	text-decoration:underline;
+}
+/*---左边二级菜单的文字链接样式---*/
+a.linkleftmenu:link,a.linkleftmenu:visited,a.linkleftmenu:active
+{
+	font-size:11px;
+	font-family:verdana;
+	color:#59A8F3;
+	text-decoration:none;
+}
+a.linkleftmenu:hover
+{
+	font-size:11px;
+	font-family:verdana;
+	color:#0265CB;
+	text-decoration:none;
+}
+/*---左边当前二级菜单的文字链接样式---*/
+a.linkleftmenu_o:link,a.linkleftmenu_o:visited,a.linkleftmenu_o:active
+{
+	font-size:11px;
+	font-family:verdana;
+	color:#0265CB;
+	text-decoration:none;
+}
+a.linkleftmenu_o:hover
+{
+	font-size:11px;
+	font-family:verdana;
+	color:#0265CB;
+	text-decoration:none;
+}
+/*---弹出窗口的背景渐变样式---*/
+.opentable
+{
+	filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#FFE7F3DF,endcolorstr=#FFffffff,gradientType=0);
+	padding:0px 8px 0px 8px;
+}
+/*---操作按钮行样式---*/
+.tip
+{
+	background-color:#F2F9FF;
+	height:40px;
+	border-top:1px solid #9FD6FF;
+	border-right:1px solid #9FD6FF;
+	border-left:1px solid #9FD6FF;
+	padding:6px;
+}
+/*---备注行样式---*/
+.fontshow
+{
+	border:1px solid #41965D;
+	color:#41965D;
+	line-height:20px;
+	padding:5px 10px 5px 10px;
+}
+/*---标签行样式---*/
+.tabtable
+{
+	border-bottom:1px solid #55839A;
+}
+/*---标签样式---*/
+.tab
+{
+	background-image:url(../images/tab1bg.gif);
+	height:21px;
+	width:78px;
+	text-align:center;
+	color:#0071A7;
+	cursor:hand;
+	padding-top:3px;
+}
+/*---当前标签样式---*/
+.tab_o
+{
+	background-image:url(../images/tab2bg.gif);
+	height:21px;
+	width:78px;
+	text-align:center;
+	color:#ffffff;
+	font-weight:bold;
+	cursor:hand;
+	padding-top:3px;
+}
+/*---日历样式---*/
+.calendarhead1
+{
+	background-color:#C8E2FB;
+	 height:25px;
+	 border-left:1px solid #ffffff;
+	 border-top:1px solid #ffffff;
+	 text-align:center;
+	 color:#000000;
+}
+.calendarhead2
+{
+	background-color:#FFDFC3;
+	 height:25px;
+	 border-left:1px solid #ffffff;
+	 border-top:1px solid #ffffff;
+	 text-align:center;
+	 color:#ee0000;
+}
+.calendartable
+{
+	background-color:#ffffff;
+}
+.calendartd1
+{
+	background-image:url(../images/calendartd1.gif);
+	height:16px;
+	color:#033767;
+	border-top:1px solid #ffffff;
+	border-left:1px solid #ffffff;
+	border-bottom:1px solid #6694D0;
+	text-align:center;
+	line-height:15px;
+}
+.calendartd1_o
+{
+	background-image:url(../images/calendartd1_o.gif);
+	height:16px;
+	color:#033767;
+	font-weight:bold;
+	border:1px solid #ff6600;
+	text-align:center;
+	line-height:15px;
+}
+.calendartd2
+{
+	background-color:ffffff;
+	color:#033767;
+	text-align:center;
+	line-height:30px;
+}
+.calendartd2_o
+{
+	background-color:F4F4D3;
+	border-right:1px solid #ff6600;
+	border-left:1px solid #ff6600;
+	border-bottom:1px solid #ff6600;
+	color:#033767;
+	text-align:center;
+	line-height:30px;
+}
+.calendartd3
+{
+	background-image:url(../images/calendartd3.gif);
+	height:16px;
+	color:#898989;
+	border-top:1px solid #ffffff;
+	border-left:1px solid #ffffff;
+	border-bottom:1px solid #999999;
+	text-align:center;
+	line-height:15px;
+}
+.btn_blue
+{
+	background-image:url(../images/btn_blue.gif);
+	background-position:top;
+	background-repeat:no-repeat;
+	height:18px;
+	width:89px;
+	text-align:center;
+	border:0px;
+	font-size:12px;
+	color:#064E88;
+	padding-top:2px;
+	background-color:#ffffff;
+}
+.btn_red
+{
+	background-image:url(../images/btn_red.gif);
+	background-position:top;
+	background-repeat:no-repeat;
+	height:18px;
+	width:89px;
+	text-align:center;
+	border:0px;
+	font-size:12px;
+	color:#902E77;
+	padding-top:2px;
+	background-color:#ffffff;
+}
+.btn_green
+{
+	background-image:url(../images/btn_green.gif);
+	background-position:top;
+	background-repeat:no-repeat;
+	height:18px;
+	background-color:#ffffff;
+	width:89px;
+	text-align:center;
+	border:0px;
+	font-size:12px;
+	color:#42892D;
+	padding-top:2px;
+}
+
+/*---按钮样式---*/
+.btn1
+{
+	background-image:url(../images/btn_bg1.gif);
+	width:76px;
+	height:20px;
+	text-align:center;
+	color:#419760;
+	cursor:hand;
+	border:0px;
+	padding-top:3px;
+	font-size:12px;
+}
+.btn1_no
+{
+	background-image:url(../images/btn_bg1_no.gif);
+	width:76px;
+	height:20px;
+	text-align:center;
+	color:#cccccc;
+	cursor:hand;
+	border:0px;
+	padding-top:3px;
+	font-size:12px;
+}
+.btn2
+{
+	background-image:url(../images/btn_bg2.gif);
+	width:100px;
+	height:20px;
+	text-align:center;
+	color:#419760;
+	cursor:hand;
+	border:0px;
+	padding-top:3px;
+	font-size:12px;
+}
+.btn2_no
+{
+	background-image:url(../images/btn_bg2_no.gif);
+	width:100px;
+	height:20px;
+	text-align:center;
+	color:#cccccc;
+	cursor:hand;
+	border:0px;
+	padding-top:3px;
+	font-size:12px;
+}
+/*---登录页面文本框样式---*/
+.inputlogin
+{
+	background-image:url(../images/inputbg.gif);
+	height:19px;
+	font-family:verdana;
+	font-size:12px;
+	width:140px;
+}
+
+body{
+	font-size: 12px;
+	color: #0065CA;
+	}
+div.search
+{
+	padding: 0.2em 0.6em;
+}
+
+div.actions
+{
+	padding: 0.6em;
+}
+form {
+	display: inline;
+}
+
+img {
+	border: 0;
+}
+
+a:link,a:visited {
+	color: #0000EE;
+	text-decoration: none;
+}
+
+a:hover,a:active {
+	color: #0000EE;
+	text-decoration: underline;
+}
+
+a.action:link,a.action:visited,a.action:hover,a.action:active {
+	color: orange;
+}
+/* resize
+==========================================================================*/
+/*
+body#admin_resize {
+	height: 100%;
+	cursor: pointer;
+}
+*/
+body#admin_resize {
+	height:500px;
+	max-height:none;
+	cursor: pointer;
+}
+
+body#admin_resize.expanded {
+	background:  url(../images/resize/resize-arrow-left.gif)
+		no-repeat 0 50%;
+}
+
+/*IE 6对选择器body#admin_resize.collapsed的支持有问题, 这里用折中做法.*/
+body.collapsed {
+	background: url(../images/resize/resize-arrow-right.gif)
+		no-repeat 0 50%;
+}

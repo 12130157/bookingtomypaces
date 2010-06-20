@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<errordic>
+  <!--<section name="gmit.gsf.tool.hibernate.PersistentTool">
+    <item code="errcode001" name="Hibernate读取配置文件错误" cause="未知" solution="未知" />	
+    <item code="errcode002" name="Hibernate创建Session实例错误" cause="未知" solution="未知" />	
+    <item code="ibatisDao-queryForObjectList-unsurpport" name="参数设置错误" cause="queryMap被设置" solution="queryMap 设置为null" />	
+    
+  </section>
+--></errordic>
+

@@ -1,0 +1,29 @@
+<public:component>
+<Public:Property Name="listtype" InternalName="listtype"></Pulbic:Property>
+<PUBLIC:ATTACH EVENT="onmouseover" ONEVENT="List_Over()"   />
+<PUBLIC:ATTACH EVENT="onmouseout" ONEVENT="List_Out()"   />
+
+
+<Script language="JavaScript">
+
+//naming：xxx_c (click)  |   xxx_o  (over)  
+
+var classname = this.className;
+
+function List_Over()
+{
+	this.className = classname+"_o";
+}
+
+function List_Out()
+{ 
+	
+	this.className = classname;
+}
+
+
+
+</Script>
+
+</public:component>
+

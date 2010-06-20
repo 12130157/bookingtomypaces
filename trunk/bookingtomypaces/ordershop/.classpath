@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="jetty/src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/syslib"/>
+	<classpathentry kind="lib" path="jetty/lib/core-3.1.1.jar"/>
+	<classpathentry kind="lib" path="jetty/lib/jetty-6.1.12rc1.jar"/>
+	<classpathentry kind="lib" path="jetty/lib/jetty-util-6.1.12rc1.jar"/>
+	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
+</classpath>
