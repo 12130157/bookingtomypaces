@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+
+<beans>
+	<!--登陆-->
+	<bean id="indexAction" class="com.king.web.usermanage.login.action.IndexAction">
+		<property name="userService" ref="userService"/>
+	</bean>
+	<bean id="loginAction" class="com.king.web.usermanage.login.action.LoginAction">
+		<property name="userService" ref="userService"/>
+	</bean>
+</beans>

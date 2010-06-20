@@ -1,0 +1,29 @@
+<public:component>
+<Public:Property Name="leftmenutype" InternalName="leftmenutype"></Pulbic:Property>
+<PUBLIC:ATTACH EVENT="onmouseover" ONEVENT="Btn_Over()"   />
+<PUBLIC:ATTACH EVENT="onmouseout" ONEVENT="Btn_Out()"   />
+
+
+<Script language="JavaScript">
+
+//naming：xxx_o (click)  |   xxx0  (over)  
+
+var classname = this.className;
+
+function Btn_Over()
+{
+	this.className = classname+"0";
+}
+
+function Btn_Out()
+{ 
+	
+	this.className = classname;
+}
+
+
+
+</Script>
+
+</public:component>
+

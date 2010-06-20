@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<errordic>
+	<item cause="功能已满" code="TreeTooLongException" name="添加用户异常" solution="请清除废弃功能"/>
+	<item cause="用户名称[userName]已经存在" code="UserNameIsExistException" name="添加用户异常" solution="请修改用户名后继续"/>
+	<item cause="测试异常" code="test_exception" name="异常啊" solution="异常解决方案在哪里"/>
+	<item cause="未配置异常原因" code="SpringDAOHelper_executeSQL" name="未配置异常名称" solution="未配置异常解决方案"/>
+	<item cause="未配置异常原因" code="SpringDAOHelper_queryForList" name="未配置异常名称" solution="未配置异常解决方案"/>
+	<item cause="未配置异常原因" code="hibernateHelper_search_sql" name="未配置异常名称" solution="未配置异常解决方案"/>
+	<item cause="未配置异常原因" code="hibernateHelper_search_page" name="未配置异常名称" solution="未配置异常解决方案"/>
+	<item cause="未配置异常原因" code="hibernateHelper_loadAll" name="未配置异常名称" solution="未配置异常解决方案"/>
+	<item cause="未配置异常原因" code="HibernateHelper_save" name="未配置异常名称" solution="未配置异常解决方案"/>
+	<item cause="未配置异常原因" code="Hibernate_update" name="未配置异常名称" solution="未配置异常解决方案"/>
+	<item cause="未配置异常原因" code="Page_roll" name="未配置异常名称" solution="未配置异常解决方案"/>
+	<item cause="未配置异常原因" code="HibernateHelper_load" name="未配置异常名称" solution="未配置异常解决方案"/>
+	<item cause="未配置异常原因" code="JdbcDao_executeSQL" name="未配置异常名称" solution="未配置异常解决方案"/>
+	<item cause="未配置异常原因" code="JdbcDao_queryForList" name="未配置异常名称" solution="未配置异常解决方案"/>
+	<item cause="未配置异常原因" code="addNewTimerTaskError" name="未配置异常名称" solution="未配置异常解决方案"/>
+	<item cause="未配置异常原因" code="HibernateHelper_update" name="未配置异常名称" solution="未配置异常解决方案"/>
+	<item cause="未配置异常原因" code="HibernateHelper_delete" name="未配置异常名称" solution="未配置异常解决方案"/>
+<item cause="" code="hibernate_search_hql" name="" solution=""/><item cause="" code="Hibernate_load" name="" solution=""/><item cause="" code="HibernateHelper_load" name="" solution=""/><item cause="" code="Hibernate_load" name="" solution=""/><item cause="" code="HibernateHelper_load" name="" solution=""/><item cause="" code="Hibernate_load" name="" solution=""/><item cause="" code="HibernateHelper_load" name="" solution=""/><item cause="" code="Hibernate_load" name="" solution=""/><item cause="" code="HibernateHelper_load" name="" solution=""/><item cause="" code="hibernate_search_hql" name="" solution=""/><item cause="" code="hibernate_search_hql" name="" solution=""/><item cause="" code="hibernate_search_sql_update" name="" solution=""/><item cause="" code="hibernate_search_hql" name="" solution=""/><item cause="" code="hibernate_search_sql_update" name="" solution=""/><item cause="" code="hibernate_search_hql" name="" solution=""/><item cause="" code="hibernate_search_hql" name="" solution=""/><item cause="" code="hibernate_search_hql" name="" solution=""/><item cause="" code="hibernate_search_sql_update" name="" solution=""/><item cause="" code="hibernate_search_sql_update" name="" solution=""/><item cause="" code="hibernate_search_sql_page" name="" solution=""/><item cause="" code="hibernate_search_sql_update" name="" solution=""/><item cause="" code="hibernate_search_hql" name="" solution=""/></errordic>

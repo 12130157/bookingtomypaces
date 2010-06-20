@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+   <bean id="dataCache" class="com.king.common.cache.DataCache" singleton="true">
+    	<property name="cacheFile" value="/cache/data/data.xml"/>
+   </bean>
+   
+  <bean id="dbCache" class="com.king.common.cache.DBCache" singleton="true">
+    	<property name="cacheFile" value="/cache/db/db.xml"/>
+    	<property name="daoFactory">
+            <ref bean="daoFactory"/>
+        </property>
+   </bean>  
+   <bean id="paraCache" class="com.king.common.cache.ParaCache" singleton="true">
+   </bean>
+   <bean id="exceptionCache" class="com.king.common.cache.ExceptionCache" singleton="true">
+   </bean>
+	<!--建立两个缓冲区，配置文件在ehcache中-->
+
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation">
+			<value>/WEB-INF/conf/ehcache/ehcache.xml</value>
+		</property>
+	</bean>
+	
+</beans>

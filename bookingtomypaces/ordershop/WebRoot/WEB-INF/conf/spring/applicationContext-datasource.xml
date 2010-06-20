@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <!-- 事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+    </bean>
+    <!--hibernate属性配置-->
+    <bean id="hibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean"> 
+	  <property name="properties"> 
+		<props> 
+			<!--<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>   -->
+			<!--<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>   -->
+			<!--<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>  -->
+			<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop> 
+			<prop key="hibernate.show_sql">true</prop>
+			<prop key="hibernate.hbm2ddl.auto">update</prop>
+ 		</props> 
+      </property> 
+    </bean> 
+    
+    <!-- 手动关闭session的过滤器
+    <bean id="hibernateInterceptor" class="org.springframework.orm.hibernate3.HibernateInterceptor">
+         <property name="sessionFactory">
+           <ref bean="sessionFactory"/>
+         </property>
+    </bean> -->
+    
+    <!-- hibernate通用路径配置-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource"/>
+		</property>
+		<property name="annotatedClasses">
+			<list>
+				<!-- 用户 -->
+				<value>com.king.web.usermanage.dept.data.DeptData</value>
+				<value>com.king.web.usermanage.role.data.RoleData</value>
+				<value>com.king.web.usermanage.role.data.RoleFunctionData</value>
+				<value>com.king.web.usermanage.systemfunction.data.SystemFunctionData</value>
+				<value>com.king.web.usermanage.user.data.UserData</value>
+				<value>com.king.web.usermanage.user.data.UserRoleData</value>
+				<value>com.king.web.clientmanage.clientInfo.data.ClientInfoData</value>
+			</list>
+		</property>
+		
+		<!--此处定义hibernate的属性配置。-->	 
+		<property name="hibernateProperties"> 
+			<ref bean="hibernateProperties" /> 
+		</property>
+        
+    </bean>
+    <bean id="hibernate" class="com.king.base.HibernateDao">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+     <bean id="jdbc" class="com.king.base.JdbcDao">
+    	<property name="dataSource">
+      		<ref bean="dataSource"></ref>
+    	</property>
+    </bean>
+       
+  <bean id="daoFactory" class="com.king.base.DaoFactory">
+        <property name="daoMap">
+            <map>
+                <entry key="hibernate">
+                		<ref bean="hibernate"/>
+                </entry>
+                <entry key="jdbc">
+                    <ref bean="jdbc"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+    <!--事务管理器，在以Business为后缀的接口里运行-->
+    <bean id="transPropagation"
+		class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager" ref="transactionManager" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+    <bean id="transactionProxy"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="interceptorNames">
+			<value>transPropagation</value>
+		</property>
+		<property name="beanNames">
+			<value>*Service</value>
+		</property>
+	</bean>
+</beans>

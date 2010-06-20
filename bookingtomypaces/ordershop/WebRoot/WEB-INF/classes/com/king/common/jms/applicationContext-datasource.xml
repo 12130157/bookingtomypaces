@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	  <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+	  <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/> 
+      <property name="url" value="jdbc:sqlserver://127.0.0.1:1433;databaseName=booking"/>
+      <property name="username" value="sa"/> 
+      <property name="password" value="12341234"/> 
+      <property name="maxActive">   
+  		<value>30</value>   
+  	  </property>   
+  	  <property name="initialSize">   
+  		<value>10</value>   
+  	  </property>   
+  	  <property name="maxWait">   
+  		<value>20000</value>   
+  	  </property>   
+  	  <property name="minIdle">
+			<value>10</value>
+	  </property>
+    </bean> 
+    
+    <!-- 事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+    </bean>
+    <!--hibernate属性配置-->
+    <bean id="hibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean"> 
+	  <property name="properties"> 
+		<props> 
+			<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop> 
+			<prop key="hibernate.show_sql">true</prop>
+ 		</props> 
+      </property> 
+    </bean> 
+    
+    <!-- hibernate通用路径配置-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource"/>
+		</property>
+		<property name="annotatedClasses">
+			<list>
+				<value>com.king.common.jms.JMSLog</value>
+				<value>com.king.common.jms.JMSDeskTop</value>
+			</list>
+		</property>
+		
+		<!--此处定义hibernate的属性配置。-->	 
+		<property name="hibernateProperties"> 
+			<ref bean="hibernateProperties" /> 
+		</property>
+        
+    </bean>
+    <bean id="hibernate" class="com.king.base.HibernateDao">
+        <property name="sessionFactory">
+            <ref bean="sessionFactory"/>
+        </property>
+    </bean>
+    
+     <bean id="jdbc" class="com.king.base.JdbcDao">
+    	<property name="dataSource">
+      		<ref bean="dataSource"></ref>
+    	</property>
+    </bean>
+       
+  <bean id="daoFactory" class="com.king.base.DaoFactory">
+        <property name="daoMap">
+            <map>
+                <entry key="hibernate">
+                		<ref bean="hibernate"/>
+                </entry>
+                <entry key="jdbc">
+                    <ref bean="jdbc"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
+</beans>

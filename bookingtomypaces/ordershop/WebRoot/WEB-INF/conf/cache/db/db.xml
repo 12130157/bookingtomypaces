@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dbdic>
+<!--与框架相关的信息-->
+<!--<section name="">
+	<object  Name="Frames" Table="Frames" Where="status=1">
+		<item  Type="KEY" Column="FRAMENAME" Name="框架名称"/>
+		<item Type="VALUE" Column="FRAMENAME" Name="框架路径"/>
+		<item Type="VALUE" Column="FRAMEPATH" Name="框架路径"/>
+	</object>
+	<object  Name="Modules" Table="modules" >
+		<item  Type="KEY" Column="MODULENAME" Name="模块名称"/>
+		<item Type="VALUE" Column="JSPPATH" Name="jsp路径"/>
+		<item Type="VALUE" Column="STRUTSFILE" Name="struts文件"/>
+		<item Type="VALUE" Column="SPRINGFILE" Name="spring文件"/>
+		<item Type="VALUE" Column="LIB" Name="jars"/>
+		<item Type="VALUE" Column="STATUS" Name="状态"/>
+	</object>
+ </section>	
+
+--><!--列名称全是大写-->
+<!--
+<section name="">
+	<object  Name="OrgUser" Table="OrgUser" Where="">
+		<item  Type="KEY" Column="USEROID" Name="用户代码"/>
+		<item Type="VALUE" Column="USERNAME" Name="用户名称"/>
+	</object>
+ </section>	
+ 
+<section name="">
+	 <object  Name="FUNCTIONTYPE" Table="SYSFUNCTIONTYPE" where="">
+		<item  Type="KEY" Column="FUNCTIONTYPEOID" Name="功能序号"/>
+		<item Type="VALUE" Column="TYPENAME" Name="功能名称"/>
+	</object>
+	<object  Name="SYSFUNCTION" Table="SYSFUNCTION" where="">
+		<item  Type="KEY" Column="FUNCTIONOID" Name="功能序号"/>
+		<item Type="VALUE" Column="FUNCTIONNAME" Name="功能名称"/>
+	</object>
+	<object  Name="SYSFUNCTION/FUNCTIONTYPE" Size="10" Table="/MULTI/">
+		<item  Type="KEY" Column="FUNCTIONOID+FUNCTIONTYPEOID" Name="功能类型" Size="10" Table="SYSFUNCTION"/>
+		<item  Type="VALUE" Column="FUNCTIONTYPEOID" Name="功能类型" Size="10" Table="SYSFUNCTION"/>
+		
+	</object>
+</section>
+-->
+ 
+<!--<section name="">
+	 <object  Name="BRAND" Table="BRAND" where="">
+		<item  Type="KEY" Column="BRANDOID" Name="品牌主键"/>
+		<item Type="VALUE" Column="BRANDNAME" Name="品牌名称"/>
+	</object>
+	<object  Name="SPEC" Table="SPEC" where="">
+		<item  Type="KEY" Column="SPECOID" Name="规格主键"/>
+		<item Type="VALUE" Column="SPECNAME" Name="规格名称"/>
+	</object>
+</section>
+
+--><!--<section name="">
+	 <object  Name="TOBACCOLEAF" Table="TOBACCOLEAF" where="">
+		<item  Type="KEY" Column="TOBACCOLEAFOID" Name="烟叶主键"/>
+		<item Type="VALUE" Column="TOBACCOLEAFNAME" Name="烟叶名称"/>
+	 </object>
+	 <object  Name="TOBACCOPED" Table="TOBACCOPED" where="">
+		<item  Type="KEY" Column="TOBACCOPEDUNCLEOID" Name="烟梗主键"/>
+		<item Type="VALUE" Column="TOBACCOPEDNAME" Name="烟梗名称"/>
+	 </object>
+	 <object  Name="SUGARSTUFF" Table="SUGARSTUFF" where="">
+		<item  Type="KEY" Column="SUGARSTUFFOID" Name="香糖料主键"/>
+		<item Type="VALUE" Column="SUGARSTUFFNAME" Name="香糖料名称"/>
+	 </object>
+	 <object  Name="TOBACCOMINORSTUFF" Table="TOBACCOMINORSTUFF" where="">
+		<item  Type="KEY" Column="TOBACCOMINORSTUFFOID" Name="规格主键"/>
+		<item Type="VALUE" Column="STUFFSPEC" Name="规格"/>
+	 </object>
+	 <object  Name="TOBACCOMINORSTUFF1" Table="TOBACCOMINORSTUFF" where="">
+		<item  Type="KEY" Column="TOBACCOMINORSTUFFOID" Name="材料名称主键"/>
+		<item Type="VALUE" Column="STUFFNAME" Name="材料名称"/>
+	 </object>
+	<object  Name="PRODUCTSITE" Table="PRODUCTSITE" where="">
+		<item  Type="KEY" Column="PRODUCTSITEOID" Name="烟叶主键"/>
+		<item Type="VALUE" Column="PRODUCTSITENAME" Name="烟叶名称"/>
+	 </object>
+	 <object  Name="DEPOSITORY" Table="DEPOSITORY" where="">
+		<item  Type="KEY" Column="DEPOSITORYOID" Name="烟叶主键"/>
+		<item Type="VALUE" Column="DEPOSITORYNAME" Name="烟叶名称"/>
+	 </object>
+</section>
+
+-->
+<!-- <section name="">
+	<object  Name="User" Table="IUSER" where="">
+		<item  Type="KEY" Column="USEROID" Name="用户表主键"/>
+		<item Type="VALUE" Column="USERNAME" Name="用户名称"/>
+	 </object>   
+</section>   -->
+</dbdic>
