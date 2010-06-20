@@ -3,13 +3,20 @@
 <%@ page isELIgnored="false"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
+<script type='text/javascript' src='<%=request.getContextPath()%>/dwr/engine.js'></script>
+<script type='text/javascript' src='<%=request.getContextPath()%>/dwr/util.js'></script>
+
+<script type='text/javascript' src='<%=request.getContextPath()%>/dwr/interface/UserData.js'></script>
+<script type='text/javascript' src='<%=request.getContextPath()%>/view/user/user.js'></script>
 <jsp:include page="../../head.jsp" />
 <title>人员资料增加</title>
 </head>
 
 <body class="maintable">
-<s:form action="addUserInfo"  method="post" namespace="/popedom" theme="simple" onsubmit="return check(this);">
+<s:form action="addUserInfo"  method="post"  theme="simple" onsubmit="return check(this);">
+<input id="_isexist" type="hidden" value="0" />
 <div class="dclass_container" >
 	<div class="dclass_container_header" >    	
         <div class="dclass_container_title">人员资料增加</div>
@@ -19,8 +26,8 @@
          
 		   <tr>
             <td class="formtitle">姓名:<span class="fontred">*</span></td>
-            <td class="formtd" colspan="3"> <input name="userdata.userName" type="text" class="inputformadd" value="">
-            	
+            <td class="formtd" colspan="3"> <input id="userName" name="userName" type="text" class="inputformadd"  onBlur="javascript:isExistName();">
+            	<div id="_userName" ><font color="red">*</font> 由字母、数字、下划线组成(4-20位)</div>
             </td>
           </tr>
 		   <tr>           

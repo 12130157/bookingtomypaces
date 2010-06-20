@@ -78,7 +78,7 @@ public class UserService extends FrmService implements IUserService{
 		String CountSQL = "select count(*) " + hql.toString();
 		pageRoll.setCountSQL(CountSQL);
 		pageRoll.setSearchSQL(hql.toString());
-		List list = userDao.searchlist(pageRoll,"");
+		List list = userDao.searchlist(pageRoll,withhql);
 		System.out.println("-----list.size()="+list.size());
 		return list;
 	}
