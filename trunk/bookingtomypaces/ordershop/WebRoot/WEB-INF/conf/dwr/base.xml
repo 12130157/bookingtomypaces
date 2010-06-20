@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dwr>
 	<allow>
-		<convert match="com.king.web.usermanage.user.data.UserData" converter="bean" />
-		
+		<convert match="com.king.web.usermanage.user.data.UserData" converter="bean" />		
 		<!-- 会员-->
 		<create javascript="UserData" creator="spring">
 			<param name="beanName" value="userAction" />
 			<include method="findByProperty" />
-		</create>
-		
-		
+		</create>		
+	</allow>
+	<allow>
+		<convert match="com.king.web.clientmanage.clientInfo.data.ClientInfoData" converter="bean" />		
+		<!-- 客户-->
+		<create javascript="ClientInfoData" creator="spring">
+			<param name="beanName" value="clientInfoAction" />
+			<include method="findByProperty" />
+		</create>		
 	</allow>
 </dwr>
 
