@@ -54,4 +54,27 @@
     </filter-mapping>
     
     
+    <!-- dwr -->
+	 <servlet>
+		<servlet-name>dwr</servlet-name>
+		<servlet-class>
+			org.directwebremoting.servlet.DwrServlet
+		</servlet-class>
+		<init-param>
+			<param-name>config-1</param-name>
+			<param-value>				
+				/WEB-INF/conf/dwr/base.xml	
+							
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+    <servlet-mapping>
+		<servlet-name>dwr</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
 </web-app>

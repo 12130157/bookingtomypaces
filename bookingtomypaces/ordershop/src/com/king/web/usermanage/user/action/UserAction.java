@@ -111,6 +111,17 @@ public class UserAction extends FrmAction{
 		ServletActionContext.getRequest().setAttribute("url", urlStr);
 		return "list";
 	}
+	
+	public Integer findByProperty(String name)throws KINGException{
+		System.out.println("findByProperty.name=="+name);
+		PageRoll p =new PageRoll();
+		p.setPageSize(Constants.PAGE_SIZE);
+		p.setStartRow(1);
+		userList =userService.searchUsersList(p, " where 1=1 and status = 0 and userName='"+name+"' ");
+		System.out.println("findByProperty.count=="+p.getTotalRows()+":::"+userList.size());
+		return p.getTotalRows();
+	}
+	
 	/**---------------------------get()-set()-----------------------------**/	
 
 	public List<UserData> getUserList() {

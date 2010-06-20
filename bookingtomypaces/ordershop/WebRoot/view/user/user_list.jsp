@@ -7,13 +7,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <jsp:include page="../../head.jsp" />
-<title>人員資料管理</title>
+<title>用戶資料管理</title>
 </head>
 
 <body class="maintable">
 <div class="dclass_container dclass_container_collapsible" >
 	<div class="dclass_container_header" >    	
-        <div class="dclass_container_title">人員資料列表</div>
+        <div class="dclass_container_title">用戶資料列表</div>
     </div>
     <div class="dclass_container_content">
 	<div class="search">
