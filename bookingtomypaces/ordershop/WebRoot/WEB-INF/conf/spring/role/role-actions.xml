@@ -4,6 +4,10 @@
 
 <beans>
 	
-	<!--用户-->
-
+	<!--用户組權限-->
+	<bean id="roleAction" class="com.king.web.usermanage.role.action.RoleAction">
+		<property name="roleService" ref="roleService"/>
+		<property name="roleFunctionService" ref="roleFunctionService"/>
+		<property name="systemFunctionService" ref="systemFunctionService"/>
+	</bean>
 </beans>
