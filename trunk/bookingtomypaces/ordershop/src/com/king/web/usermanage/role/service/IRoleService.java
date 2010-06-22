@@ -56,4 +56,13 @@ public interface IRoleService {
 	 * @throws KINGException
 	 */
 	public List<RoleData> searchRoles(PageRoll pageRoll,JSONObject jsonu) throws KINGException;
+	
+	/**
+	 * 查询角色信息
+	 * @param pageRoll 分页所需要的对象
+	 * @param withsql
+	 * @return 角色信息集合
+	 * @throws KINGException
+	 */
+	public List<RoleData> searchRoles(PageRoll pageRoll,String withsql) throws KINGException;
 }

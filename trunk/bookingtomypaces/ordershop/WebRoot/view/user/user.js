@@ -1,8 +1,8 @@
 //检查登陆用户名是否重复
 function isExistName(){
-	alert();
+	//alert();
 	var name=document.getElementById("userName").value;
-	alert(name);
+	//alert(name);
 	if(name!=""){
 		UserData.findByProperty(name,function (count) {
 			if(count>0){
