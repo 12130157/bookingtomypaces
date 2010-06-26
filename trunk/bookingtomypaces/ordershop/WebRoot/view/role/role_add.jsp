@@ -35,18 +35,18 @@ document.getElementById("cdata").innerHTML = s;
 	<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#9FD6FF">
          
 		  <tr>
-              <td width="10%" bgcolor="#FFFFFF" class="backwhite">角色名稱</td>
+              <td width="10%" bgcolor="#FFFFFF" align="center" class="backwhite">角色名稱</td>
               <td width="90%" bgcolor="#FFFFFF" class="backwhite">
                 <input type="text" name="name" /><div id="cdata" style="display:none"></div>              </td>
               </tr>
             <tr>
-              <td bgcolor="#FFFFFF" class="backwhite">角色說明</td>
+              <td bgcolor="#FFFFFF" class="backwhite" align="center">角色說明</td>
               <td bgcolor="#FFFFFF" class="backwhite"><label>
                 <textarea name="memo" cols="30" rows="3"></textarea>
               </label></td>
               </tr>
             <tr>
-              <td valign="top" bgcolor="#FFFFFF" class="backwhite">功能列表</td>
+              <td valign="top" bgcolor="#FFFFFF" class="backwhite" align="center">功能列表</td>
               <td bgcolor="#FFFFFF" class="backwhite">
 			  <input type="checkbox" id="all" value="0" onclick="checkbox.select('all');setValue();" />全部功能<br /><br />
               <s:iterator id="f" value="funList.{?#this.perfunc==0}">

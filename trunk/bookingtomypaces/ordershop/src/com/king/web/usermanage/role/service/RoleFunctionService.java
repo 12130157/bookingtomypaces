@@ -4,11 +4,14 @@ import java.util.List;
 
 import net.sf.json.JSONObject;
 
+import com.king.base.DaoFactory;
 import com.king.base.FrmService;
+import com.king.base.HibernateDao;
 import com.king.common.exception.KINGException;
 import com.king.tools.PageRoll;
 import com.king.web.usermanage.role.dao.IRoleFunctionDAO;
 import com.king.web.usermanage.role.data.RoleFunctionData;
+import com.king.web.usermanage.role.data.RoleFunctionData1;
 
 public class RoleFunctionService extends FrmService implements IRoleFunctionService{
 
@@ -66,6 +69,18 @@ public class RoleFunctionService extends FrmService implements IRoleFunctionServ
 		return (RoleFunctionData) roleFunctionDao.search(hql).get(0);
 	}
 	
+	
+	/**
+	 * 查询角色功能信息
+	 * @param roleId
+	 * @return 角色功能信息集合
+	 * @throws KINGException
+	 */
+	public List<RoleFunctionData1> getUserRole(String roleId)throws KINGException{
+		String hql = "from RoleFunctionData1 u where u.roleId = '" +roleId+ "'";
+		
+		return  (List<RoleFunctionData1>)((HibernateDao) DaoFactory.getDao("hibernate")).search(hql);
+	}
 	/**
 	 * 查询角色功能信息
 	 * @param pageRoll 分页所需要的对象
@@ -83,6 +98,23 @@ public class RoleFunctionService extends FrmService implements IRoleFunctionServ
 		return list;
 	}
 
+	/**
+	 * 查询角色功能信息
+	 * @param pageRoll 分页所需要的对象
+	 * @param withsql
+	 * @return 角色功能信息集合
+	 * @throws KINGException
+	 */
+	public List<RoleFunctionData> searchRoleFunctions(PageRoll pageRoll,String withsql) throws KINGException{
+		StringBuffer hql  = new StringBuffer();
+		hql.append("from RoleFunctionData ");
+		String CountSQL = "select count(*) " + hql.toString();
+		pageRoll.setCountSQL(CountSQL);
+		pageRoll.setSearchSQL(hql.toString());
+		List list = roleFunctionDao.searchlist(pageRoll,withsql);
+		return list;
+	}
+	
 	public IRoleFunctionDAO getRoleFunctionDao() {
 		return roleFunctionDao;
 	}

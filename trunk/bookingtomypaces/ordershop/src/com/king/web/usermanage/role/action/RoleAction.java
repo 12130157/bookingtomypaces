@@ -1,6 +1,7 @@
 package com.king.web.usermanage.role.action;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,6 +19,7 @@ import com.king.tools.Constants;
 import com.king.tools.PageRoll;
 import com.king.web.usermanage.role.data.RoleData;
 import com.king.web.usermanage.role.data.RoleFunctionData;
+import com.king.web.usermanage.role.data.RoleFunctionData1;
 import com.king.web.usermanage.role.service.IRoleFunctionService;
 import com.king.web.usermanage.role.service.IRoleService;
 import com.king.web.usermanage.systemfunction.data.SystemFunctionData;
@@ -30,7 +32,8 @@ import com.tag.PageVo;
 	@Result(name="index", location="view/role/role_list.jsp"),
 	@Result(name="home", location="user/key/home",type="redirectAction"),
 	@Result(name="login", location="view/user/login.jsp"),
-	@Result(name="addview", location="view/role/role_add.jsp")
+	@Result(name="addview", location="view/role/role_add.jsp"),
+	@Result(name="editview", location="view/role/role_edit.jsp")
 })
 
 public class RoleAction extends FrmAction{
@@ -41,8 +44,22 @@ public class RoleAction extends FrmAction{
 	private String funId;
 	private List<SystemFunctionData> funList;
 	private ISystemFunctionService systemFunctionService;
+	private RoleData role =new RoleData();
+	private HashMap ht = new HashMap();
 	
 	
+	public HashMap getHt() {
+		return ht;
+	}
+	public void setHt(HashMap ht) {
+		this.ht = ht;
+	}
+	public RoleData getRole() {
+		return role;
+	}
+	public void setRole(RoleData role) {
+		this.role = role;
+	}
 	public ISystemFunctionService getSystemFunctionService() {
 		return systemFunctionService;
 	}
@@ -111,35 +128,86 @@ public class RoleAction extends FrmAction{
 		if(null==getFrmUser()){
 			return "home";
 		}else {
-			Set<RoleFunctionData> fun = new HashSet();
+			List<RoleFunctionData> fun = new ArrayList<RoleFunctionData>();
 			RoleData r = new RoleData();
 			r.setName(request.getParameter("name"));
 			r.setMemo(request.getParameter("memo"));
-			roleService.addRole(r);
+			
 			// r.setAccountSetId(this.checkUser().getAccountSetId());
 			// Integer[] fId = getFunId();
 			if (null != getFunId()) {
 				String[] fId = getFunId().split(",");
-				RoleFunctionData rf = null;
+				
 				Integer uId = 0;
 				for (String id : fId) {
 					uId = Integer.parseInt(id);
+					System.out.println("------------->>>"+uId);
 					if (0 < uId) {// 去掉checkbox值为0的选项
-						rf = new RoleFunctionData();
+						RoleFunctionData rf = new RoleFunctionData();
 						rf.setFunctionId(uId);
-						rf.setRoleId(Integer.parseInt(r.getId()));
-						roleFunctionService.addRoleFunction(rf);
+						rf.setRoleData(r);
+						fun.add(rf);
+						//roleFunctionService.addRoleFunction(rf);
 					}
 				}
+				for(int i=0;i<fun.size();i++){
+					System.out.println("getId=======>>"+fun.get(i).getId());
+					System.out.println("getRoleId=======>>"+fun.get(i).getRoleData().getId());
+					System.out.println("getFunctionId=======>>"+fun.get(i).getFunctionId());
+				}
+				r.setRfdata(fun);
 			}
-			
+			roleService.addRole(r);
 			return this.list();
 		}
 	}
 	
+	/**
+	 * 修改角色
+	 * 
+	 * @return
+	 * @throws WebException
+	 */
+	public String editRole() throws KINGException {
+		if(null==getFrmUser()){
+			return "home";
+		}else {
+			List<RoleFunctionData> fun = new ArrayList<RoleFunctionData>();
+			RoleData r =roleService.retrieveRole(request.getParameter("id"));
+			r.setName(request.getParameter("name"));
+			r.setMemo(request.getParameter("memo"));
+			
+			// r.setAccountSetId(this.checkUser().getAccountSetId());
+			// Integer[] fId = getFunId();
+			if (null != getFunId()) {
+				String[] fId = getFunId().split(",");
+				
+				Integer uId = 0;
+				for (String id : fId) {
+					uId = Integer.parseInt(id);
+					System.out.println("------------->>>"+uId);
+					if (0 < uId) {// 去掉checkbox值为0的选项
+						RoleFunctionData rf = new RoleFunctionData();
+						rf.setFunctionId(uId);
+						rf.setRoleData(r);
+						fun.add(rf);
+						//roleFunctionService.addRoleFunction(rf);
+					}
+				}
+				for(int i=0;i<fun.size();i++){
+					System.out.println("getId=======>>"+fun.get(i).getId());
+					System.out.println("getRoleId=======>>"+fun.get(i).getRoleData().getId());
+					System.out.println("getFunctionId=======>>"+fun.get(i).getFunctionId());
+				}
+				r.setRfdata(fun);
+			}
+			roleService.updateRole(r);
+			return this.list();
+		}
+	}
 	
 	/**
-	 * 增加角色
+	 * 增加角色JSP頁面
 	 * 
 	 * @return
 	 * @throws WebException
@@ -153,4 +221,27 @@ public class RoleAction extends FrmAction{
 		}
 	}
 	
+	
+	/**
+	 * 修改角色JSP頁面
+	 * 
+	 * @return
+	 * @throws WebException
+	 */
+	public String editjsp() throws KINGException {
+		if(null==getFrmUser()){
+			return "home";
+		}else {
+			System.out.println("=======>>");
+			role =roleService.retrieveRole(request.getParameter("id"));
+			List<RoleFunctionData1> list=roleFunctionService.getUserRole(request.getParameter("id"));
+			for(RoleFunctionData1 rf:list){
+				System.out.println("=======>>"+rf.getFunctionId());
+				ht.put(rf.getFunctionId(), rf.getFunctionId()+"");//注意數據類型，頁面可能對比不了
+			}
+			
+			funList=systemFunctionService.getSysFun();
+			return "editview";
+		}
+	}
 }
