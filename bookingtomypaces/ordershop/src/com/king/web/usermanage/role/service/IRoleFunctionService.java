@@ -7,6 +7,7 @@ import net.sf.json.JSONObject;
 import com.king.common.exception.KINGException;
 import com.king.tools.PageRoll;
 import com.king.web.usermanage.role.data.RoleFunctionData;
+import com.king.web.usermanage.role.data.RoleFunctionData1;
 
 public interface IRoleFunctionService {
 
@@ -56,4 +57,21 @@ public interface IRoleFunctionService {
 	 * @throws KINGException
 	 */
 	public List<RoleFunctionData> searchRoleFunctions(PageRoll pageRoll,JSONObject jsonu) throws KINGException;
+	
+	/**
+	 * 查询角色功能信息
+	 * @param pageRoll 分页所需要的对象
+	 * @param withsql
+	 * @return 角色功能信息集合
+	 * @throws KINGException
+	 */
+	public List<RoleFunctionData> searchRoleFunctions(PageRoll pageRoll,String withsql) throws KINGException;
+	
+	/**
+	 * 查询角色功能信息
+	 * @param roleId
+	 * @return 角色功能信息集合
+	 * @throws KINGException
+	 */
+	public List<RoleFunctionData1> getUserRole(String roleId)throws KINGException;
 }

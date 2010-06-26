@@ -39,6 +39,7 @@
 				<value>com.king.web.usermanage.dept.data.DeptData</value>
 				<value>com.king.web.usermanage.role.data.RoleData</value>
 				<value>com.king.web.usermanage.role.data.RoleFunctionData</value>
+				<value>com.king.web.usermanage.role.data.RoleFunctionData1</value>
 				<value>com.king.web.usermanage.systemfunction.data.SystemFunctionData</value>
 				<value>com.king.web.usermanage.user.data.UserData</value>
 				<value>com.king.web.usermanage.user.data.UserRoleData</value>

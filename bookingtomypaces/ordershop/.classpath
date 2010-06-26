@@ -6,6 +6,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/syslib"/>
 	<classpathentry kind="lib" path="jetty/lib/core-3.1.1.jar"/>
 	<classpathentry kind="lib" path="jetty/lib/jetty-6.1.12rc1.jar"/>
-	<classpathentry kind="lib" path="jetty/lib/jetty-util-6.1.12rc1.jar"/>
+	<classpathentry kind="lib" path="jetty/lib/jetty-util-6.1.12rc1.jar" sourcepath="C:/Documents and Settings/Administrator/.m2/repository/org/mortbay/jetty/jetty-util/6.1.12rc1/jetty-util-6.1.12rc1-sources.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

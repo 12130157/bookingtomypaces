@@ -82,11 +82,11 @@
 </body>
 <script>
 function edit_jsp(id){
-		var url_str="role/key/editjsp?id="+id;
+		var url_str="<%=request.getContextPath()%>/role/key/editjsp?id="+id;
 		goURL3(url_str);
 	}
 function del_jsp(id){
-	var url_str="role/key/deljsp?id="+id;
+	var url_str="<%=request.getContextPath()%>/role/key/deljsp?id="+id;
 		goURL3(url_str);
 	}
 </script>

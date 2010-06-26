@@ -8,10 +8,15 @@
 */
 package com.king.web.usermanage.role.data;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.king.base.FrmData;
@@ -23,6 +28,9 @@ public class RoleData extends FrmData {
 
 	private String name;//名字
 	private String memo;//描述
+	
+	
+	private java.util.List<RoleFunctionData> rfdata;//角色权限
 	/**
 	 * @return the name
 	 */
@@ -48,6 +56,15 @@ public class RoleData extends FrmData {
 	 */
 	public void setMemo(String memo) {
 		this.memo = memo;
+	}
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,targetEntity= RoleFunctionData.class)
+	@JoinColumn(name = "ROLEID")
+	public java.util.List<RoleFunctionData> getRfdata() {
+		return rfdata;
+	}
+	public void setRfdata(java.util.List<RoleFunctionData> rfdata) {
+		this.rfdata = rfdata;
 	}
 	
 	
