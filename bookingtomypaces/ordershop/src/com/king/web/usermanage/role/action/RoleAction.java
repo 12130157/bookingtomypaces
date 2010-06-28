@@ -113,7 +113,7 @@ public class RoleAction extends FrmAction{
 		
 		roleList =roleService.searchRoles(p, "");
 		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
-		String urlStr = "/booking/role/key/index?curPage=";
+		String urlStr = "/ordershop/role/key/list?curPage=";
 		ServletActionContext.getRequest().setAttribute("url", urlStr);
 		
 		return "index";
@@ -132,8 +132,8 @@ public class RoleAction extends FrmAction{
 		}else {
 			List<RoleFunctionData> fun = new ArrayList<RoleFunctionData>();
 			RoleData r = new RoleData();
-			r.setName(common.Convert(request.getParameter("name")));
-			r.setMemo(common.Convert(request.getParameter("memo")));
+			r.setName(request.getParameter("name"));
+			r.setMemo(request.getParameter("memo"));
 			
 			// r.setAccountSetId(this.checkUser().getAccountSetId());
 			// Integer[] fId = getFunId();
@@ -177,8 +177,8 @@ public class RoleAction extends FrmAction{
 			List<RoleFunctionData> fun = new ArrayList<RoleFunctionData>();
 			RoleData r =roleService.retrieveRole(request.getParameter("id"));
 			System.out.println("-----name-------->>>"+request.getParameter("name"));
-			r.setName(common.Convert(request.getParameter("name")));
-			r.setMemo(common.Convert(request.getParameter("memo")));
+			r.setName(request.getParameter("name"));
+			r.setMemo(request.getParameter("memo"));
 			
 			// r.setAccountSetId(this.checkUser().getAccountSetId());
 			// Integer[] fId = getFunId();
