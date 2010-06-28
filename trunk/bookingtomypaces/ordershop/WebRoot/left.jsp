@@ -75,7 +75,7 @@ function showlinks(obj) {
 				</tr>
 				 </s:iterator>
      			<!-- end -->
-     			
+     			<!--
      			 <tr>
                   <td class="leftmenutd" onclick="showlinks(this);"><img src="<%=request.getContextPath()%>/images/leftmenuicon.gif" width="12" height="9">&nbsp;&nbsp;订单管理</td>
                 </tr>
@@ -123,7 +123,7 @@ function showlinks(obj) {
 					</td>
 				</tr>
 				
-				
+				-->
 				
 				
               </table>
