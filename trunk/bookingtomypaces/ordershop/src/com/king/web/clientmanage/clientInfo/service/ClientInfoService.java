@@ -76,7 +76,7 @@ public class ClientInfoService extends FrmService implements IClientInfoService{
 		String CountSQL = "select count(*) " + hql.toString();
 		pageRoll.setCountSQL(CountSQL);
 		pageRoll.setSearchSQL(hql.toString());
-		List list = clientInfoDao.searchlist(pageRoll,"");
+		List list = clientInfoDao.searchlist(pageRoll,withhql);
 		System.out.println("-----list.size()="+list.size());
 		return list;
 	}
