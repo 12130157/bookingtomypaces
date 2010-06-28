@@ -15,7 +15,7 @@ import com.king.base.FrmData;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class ClientInfoData  extends FrmData{
 	
-	//private String id;
+//	private String id;
 	private String client_num;
 	private String company_name;
 	private String company_shortname;
@@ -33,8 +33,8 @@ public class ClientInfoData  extends FrmData{
 	private String address_two;
 	private String area_name;
 	private String remark;
-	private String prompt;
-	private String rebate;
+	private int prompt;
+	private double rebate;
 	private String functionary;
 	
 	private String state;
@@ -159,20 +159,8 @@ public class ClientInfoData  extends FrmData{
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	@Column(name = "prompt",nullable = true)
-	public String getPrompt() {
-		return prompt;
-	}
-	public void setPrompt(String prompt) {
-		this.prompt = prompt;
-	}
-	@Column(name = "rebate",nullable = true)
-	public String getRebate() {
-		return rebate;
-	}
-	public void setRebate(String rebate) {
-		this.rebate = rebate;
-	}
+	
+	
 	@Column(name = "functionary",nullable = true)
 	public String getFunctionary() {
 		return functionary;
@@ -194,6 +182,22 @@ public class ClientInfoData  extends FrmData{
 	public void setCreate_time(Date createTime) {
 		create_time = createTime;
 	}
+	@Column(name = "prompt",nullable = true)
+	public int getPrompt() {
+		return prompt;
+	}
+	public void setPrompt(int prompt) {
+		this.prompt = prompt;
+	}
+	@Column(name = "rebate",nullable = true)
+	public double getRebate() {
+		return rebate;
+	}
+	public void setRebate(double rebate) {
+		this.rebate = rebate;
+	}
+	
+
 	
 	
 
