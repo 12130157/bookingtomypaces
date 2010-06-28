@@ -48,6 +48,14 @@ public class RoleFunctionService extends FrmService implements IRoleFunctionServ
 	}
 	
 	/**
+	 * 批量删除某个角色所带功能信息
+	 * @param roleId 角色ID
+	 * @throws KINGException
+	 */
+	public void deleteRoleFunction(String roleId) throws KINGException{
+		roleFunctionDao.executeSQL("delete from RoleFunction where roleId = '"+roleId+"'");
+	}
+	/**
 	 * 修改角色功能信息
 	 * @param u 角色功能信息
 	 * @return 角色功能信息

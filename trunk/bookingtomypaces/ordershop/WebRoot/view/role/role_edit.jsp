@@ -1,7 +1,5 @@
-<%@ page language="java"  contentType="text/html; charset=utf-8"%>
-<%@ page isELIgnored="false"%> 
+<%@ page language="java"  contentType="text/html; charset=UTF-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -26,8 +24,8 @@ document.getElementById("cdata").innerHTML = s;
 <title>用戶組權限修改</title>
 </head>
 
-<body class="maintable" onload="setValue();">
-<s:form action="addRole"  method="post"  theme="simple" onsubmit="return check(this);">
+<body class="maintable" >
+<s:form  method="post"  theme="simple" onsubmit="return check(this);">
 <input type="hidden" name="id" value="<s:property value='role.id' />" />
 <div class="dclass_container" >
 	<div class="dclass_container_header" >    	
