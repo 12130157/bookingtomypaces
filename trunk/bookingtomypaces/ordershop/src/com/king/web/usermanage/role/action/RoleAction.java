@@ -15,6 +15,7 @@ import org.apache.struts2.convention.annotation.Results;
 
 import com.king.base.FrmAction;
 import com.king.common.exception.KINGException;
+import com.king.tools.Common;
 import com.king.tools.Constants;
 import com.king.tools.PageRoll;
 import com.king.web.usermanage.role.data.RoleData;
@@ -46,6 +47,7 @@ public class RoleAction extends FrmAction{
 	private ISystemFunctionService systemFunctionService;
 	private RoleData role =new RoleData();
 	private HashMap ht = new HashMap();
+	public Common common=new Common();
 	
 	
 	public HashMap getHt() {
@@ -130,8 +132,8 @@ public class RoleAction extends FrmAction{
 		}else {
 			List<RoleFunctionData> fun = new ArrayList<RoleFunctionData>();
 			RoleData r = new RoleData();
-			r.setName(request.getParameter("name"));
-			r.setMemo(request.getParameter("memo"));
+			r.setName(common.Convert(request.getParameter("name")));
+			r.setMemo(common.Convert(request.getParameter("memo")));
 			
 			// r.setAccountSetId(this.checkUser().getAccountSetId());
 			// Integer[] fId = getFunId();
@@ -175,8 +177,8 @@ public class RoleAction extends FrmAction{
 			List<RoleFunctionData> fun = new ArrayList<RoleFunctionData>();
 			RoleData r =roleService.retrieveRole(request.getParameter("id"));
 			System.out.println("-----name-------->>>"+request.getParameter("name"));
-			r.setName(request.getParameter("name"));
-			r.setMemo(request.getParameter("memo"));
+			r.setName(common.Convert(request.getParameter("name")));
+			r.setMemo(common.Convert(request.getParameter("memo")));
 			
 			// r.setAccountSetId(this.checkUser().getAccountSetId());
 			// Integer[] fId = getFunId();
