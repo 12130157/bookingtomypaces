@@ -49,6 +49,19 @@ function openLink_m(link){
 		openArticle.focus();
 	}
 }
+function openLink_auto(link,ww,wh){
+	if (link!=""){
+		var url= link + "";
+		var w = 700 ;
+		var h = 450 ;
+		var winW=w-10;
+		var winH=h-30;
+		var winX=(window.screen.width-winW-10)/2;
+		var winY=(window.screen.height-h-30)/2;
+		var openArticle=window.open(url,'','left='+winX+',top='+winY+',width='+ww+',height='+wh+',toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no');
+		openArticle.focus();
+	}
+}
 
 function gotopage(url){
 	if(url!=null){
