@@ -74,4 +74,11 @@ public interface IRoleFunctionService {
 	 * @throws KINGException
 	 */
 	public List<RoleFunctionData1> getUserRole(String roleId)throws KINGException;
+	
+	/**
+	 * 批量删除某个角色所带功能信息
+	 * @param roleId 角色ID
+	 * @throws KINGException
+	 */
+	public void deleteRoleFunction(String roleId) throws KINGException;
 }

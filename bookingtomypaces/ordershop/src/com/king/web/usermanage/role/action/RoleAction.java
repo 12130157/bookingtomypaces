@@ -174,20 +174,25 @@ public class RoleAction extends FrmAction{
 		}else {
 			List<RoleFunctionData> fun = new ArrayList<RoleFunctionData>();
 			RoleData r =roleService.retrieveRole(request.getParameter("id"));
+			System.out.println("-----name-------->>>"+request.getParameter("name"));
 			r.setName(request.getParameter("name"));
 			r.setMemo(request.getParameter("memo"));
 			
 			// r.setAccountSetId(this.checkUser().getAccountSetId());
 			// Integer[] fId = getFunId();
 			if (null != getFunId()) {
-				String[] fId = getFunId().split(",");
-				
+				System.out.println("-----getFunId()-------->>>"+getFunId());
+				String buf=getFunId().replace("0,", "");
+				System.out.println("-----buf-------->>>"+buf);
+				String[] fId = buf.split(",");
+				roleFunctionService.deleteRoleFunction(request.getParameter("id"));
 				Integer uId = 0;
 				for (String id : fId) {
 					uId = Integer.parseInt(id);
 					System.out.println("------------->>>"+uId);
 					if (0 < uId) {// 去掉checkbox值为0的选项
 						RoleFunctionData rf = new RoleFunctionData();
+						
 						rf.setFunctionId(uId);
 						rf.setRoleData(r);
 						fun.add(rf);
