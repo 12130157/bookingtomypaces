@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>天网平台</title>
+<title>BannerShop Integration Platform</title>
 <link href="<%=request.getContextPath()%>/css/style.css" type="text/css" rel="stylesheet">
 <style type="text/css">
 <!--
@@ -59,7 +59,7 @@
       <tr>
         <td height="90" align="center"><table width="498" height="95" border="0" cellpadding="0" cellspacing="0">
           <tr>
-            <td align="center" valign="bottom"><p class="style1 style2">天网平台</p>
+            <td align="center" valign="bottom"><p class="style1 style2">BannerShop Integration Platform</p>
               <p class="style1">&nbsp;</p></td>
           </tr>
         </table></td>
