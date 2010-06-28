@@ -49,11 +49,11 @@
 			<tr>
 				<th align="center"><input type="checkbox"  name="selectButton" value="checkbox" onclick='return selectAll();'></th>
 				<th >客戶編號</th>
-				<th >所屬部門</th>	
-				<th >狀態</th>	
-				<th >創建時間</th>
-				<th >最後登陸時間</th>
-				<th >最後登陸IP</th>
+				<th >公司簡稱</th>	
+				<th >公司電話</th>	
+				<th >聯繫人</th>
+				<th >聯繫人電話</th>
+				<th >地址</th>
 				<th >操作</th>
 			</tr>
 		</thead>
@@ -61,12 +61,12 @@
 		<s:iterator  value="clientInfoList" status="flag" >
 		<tr title="双击查看详细内容" onDblClick="view('<s:property value="id"/>');">			
 			<td align="center"><input type="checkbox" name="checkbox"  value="<s:property value="id"/>"></td>
-			<td><a href="#"><s:property value="userName"/></a></td>
-			<td><s:property value="client_num"/></td>
-			<td><s:property value="company_name"/></td>
+			<td><a href="#"><s:property value="client_num"/></a></td>
 			<td><s:property value="company_shortname"/></td>
 			<td><s:property value="comp_phone"/></td>
-			<td><s:property value="comp_fax"/></td>	
+			<td><s:property value="linkman_one"/></td>
+			<td><s:property value="phone_one"/></td>
+			<td><s:property value="address_one"/></td>	
 			<td >
 				<a href="#" onclick="edit_jsp('<s:property value="id"/>')" class='linkorange'>编辑</a>
 			</td>
