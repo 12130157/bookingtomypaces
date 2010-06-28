@@ -13,10 +13,6 @@
 		operate(url_str,"您確定要註銷?");
 	}
 	
-	function del(id){
-		var url_str="cpinfo/del_cpinfo.action?searchValue['id']="+id;
-		operate(url_str,"您確定要刪除?");
-	}
 		
 	function add(){
 		if((document.getElementById("clientinfodata.client_num")).value==''){
@@ -61,8 +57,10 @@
   }
 
 	function view(id){
+		//var url_str="client_info/key/view?id="+id;
 		var url_str="view?id="+id;
-		goURL3(url_str);
+		openLink_auto(url_str,'650','550');
+		//goURL3(url_str);
 	}
 	
 	//检查客户编号是否重复
