@@ -22,8 +22,9 @@
           <tr>           
             <td width="15%" class="formtitle">客戶編號:<span class="fontred">*</span></td>
             <td width="35%" class="formtd"> 
-            <input name="clientinfodata.id" type="text" class="inputform" value="${clientinfodata.id}" >
-            <input name="clientinfodata.client_num" type="text" class="inputform" value="${clientinfodata.client_num }" >
+            <input name="clientinfodata.id" type="hidden" class="inputform" value="${clientinfodata.id}" >
+            <input name="clientinfodata.client_num" type="hidden" class="inputform" value="${clientinfodata.client_num }" >
+            ${clientinfodata.client_num }
             </td>
 			<td class="formtitle" width="15%">地區:</td>
             <td class="formtd" width="35%"><input name="clientinfodata.area_name" type="text" class="inputform" value="${clientinfodata.area_name }"> </td>			 
