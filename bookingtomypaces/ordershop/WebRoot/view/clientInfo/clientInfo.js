@@ -19,6 +19,10 @@
 		    alert("客戶編號不能為空,請重新輸入!");
 		    return false;
 		 }
+		if(document.getElementById("_isexist").value=='1'){
+			 alert("客戶編號已存在,請重新輸入!");
+			    return false;
+		}
 		 if((document.getElementById("clientinfodata.company_name")).value==''){
 		    alert("公司名稱不能為空,請重新輸入!");
 		    return false;

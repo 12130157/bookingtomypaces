@@ -10,6 +10,7 @@
 <script type="text/javascript"  src="<%=request.getContextPath()%>/view/clientInfo/clientInfo.js"  ></script>
 <body class="maintable">
 <s:form action="edit"  method="post"  theme="simple" >
+<input id="_isexist" type="hidden" value="0" />
 <div class="dclass_container" >
 	<div class="dclass_container_header" >    	
         <div class="dclass_container_title">客戶資料修改</div>
