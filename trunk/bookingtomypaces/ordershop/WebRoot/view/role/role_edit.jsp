@@ -54,13 +54,19 @@ document.getElementById("cdata").innerHTML = s;
 			  
               <s:iterator id="f" value="funList.{?#this.perfunc==0}">
               <input type="checkbox" id="<s:property value='id' />m" onclick="checkbox.selectAll('<s:property value='id' />s','<s:property value='id' />m');setValue();" value="<s:property value='id' />"  <s:if test="ht.containsValue(id)==true">checked</s:if>  /><b><s:property value="funcname" /></b><br /><br />
-              
+              <table>
+              <tr>
               <s:iterator value="funList.{?#this.perfunc==#f.id}">
-              
+              <td>
               <s:if test="null!=url">
+              
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="<s:property value='id' />c" name="<s:property value='perfunc' />s" onclick="checkbox.selectMax('<s:property value='perfunc' />s','<s:property value='#f.id' />m');setValue();" value="<s:property value='id' />" <s:if test="ht.containsValue(id)==true">checked</s:if>  /><s:property value="funcname" /><br /><br />
+              
               </s:if>
+              </td>
               </s:iterator>
+              </tr>
+              </table>
               </s:iterator>
               </td>
             </tr>

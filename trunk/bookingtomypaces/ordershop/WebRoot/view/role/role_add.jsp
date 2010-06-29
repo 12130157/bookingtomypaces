@@ -51,13 +51,17 @@ document.getElementById("cdata").innerHTML = s;
 			  <input type="checkbox" id="all" value="0" onclick="checkbox.select('all');setValue();" /><b>全部功能</b><br /><br />
               <s:iterator id="f" value="funList.{?#this.perfunc==0}">
               <input type="checkbox" id="<s:property value='id' />m" onclick="checkbox.selectAll('<s:property value='id' />s','<s:property value='id' />m');setValue();" value="<s:property value='id' />" /><b><s:property value="funcname" /></b><br /><br />
-              
+              <table>
+              <tr>
               <s:iterator value="funList.{?#this.perfunc==#f.id}">
-              
+              <td>
               <s:if test="null!=url">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="<s:property value='id' />c" name="<s:property value='perfunc' />s" onclick="checkbox.selectMax('<s:property value='perfunc' />s','<s:property value='#f.id' />m');setValue();" value="<s:property value='id' />" /><s:property value="funcname" /><br /><br />
               </s:if>
+              </td>
               </s:iterator>
+              </tr>
+              </table>
               </s:iterator>
               </td>
             </tr>
