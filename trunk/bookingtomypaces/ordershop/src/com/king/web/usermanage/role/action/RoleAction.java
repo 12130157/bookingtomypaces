@@ -50,55 +50,6 @@ public class RoleAction extends FrmAction{
 	public Common common=new Common();
 	
 	
-	public HashMap getHt() {
-		return ht;
-	}
-	public void setHt(HashMap ht) {
-		this.ht = ht;
-	}
-	public RoleData getRole() {
-		return role;
-	}
-	public void setRole(RoleData role) {
-		this.role = role;
-	}
-	public ISystemFunctionService getSystemFunctionService() {
-		return systemFunctionService;
-	}
-	public void setSystemFunctionService(
-			ISystemFunctionService systemFunctionService) {
-		this.systemFunctionService = systemFunctionService;
-	}
-	public List<SystemFunctionData> getFunList() {
-		return funList;
-	}
-	public void setFunList(List<SystemFunctionData> funList) {
-		this.funList = funList;
-	}
-	public IRoleFunctionService getRoleFunctionService() {
-		return roleFunctionService;
-	}
-	public void setRoleFunctionService(IRoleFunctionService roleFunctionService) {
-		this.roleFunctionService = roleFunctionService;
-	}
-	public String getFunId() {
-		return funId;
-	}
-	public void setFunId(String funId) {
-		this.funId = funId;
-	}
-	public IRoleService getRoleService() {
-		return roleService;
-	}
-	public void setRoleService(IRoleService roleService) {
-		this.roleService = roleService;
-	}
-	public List<RoleData> getRoleList() {
-		return roleList;
-	}
-	public void setRoleList(List<RoleData> roleList) {
-		this.roleList = roleList;
-	}
 	
 	public String list() throws KINGException{
 		if(null==getFrmUser()){
@@ -277,5 +228,56 @@ public class RoleAction extends FrmAction{
 			roleService.deleteRole(role);
 			return this.list();
 		}
+	}
+	
+
+	public HashMap getHt() {
+		return ht;
+	}
+	public void setHt(HashMap ht) {
+		this.ht = ht;
+	}
+	public RoleData getRole() {
+		return role;
+	}
+	public void setRole(RoleData role) {
+		this.role = role;
+	}
+	public ISystemFunctionService getSystemFunctionService() {
+		return systemFunctionService;
+	}
+	public void setSystemFunctionService(
+			ISystemFunctionService systemFunctionService) {
+		this.systemFunctionService = systemFunctionService;
+	}
+	public List<SystemFunctionData> getFunList() {
+		return funList;
+	}
+	public void setFunList(List<SystemFunctionData> funList) {
+		this.funList = funList;
+	}
+	public IRoleFunctionService getRoleFunctionService() {
+		return roleFunctionService;
+	}
+	public void setRoleFunctionService(IRoleFunctionService roleFunctionService) {
+		this.roleFunctionService = roleFunctionService;
+	}
+	public String getFunId() {
+		return funId;
+	}
+	public void setFunId(String funId) {
+		this.funId = funId;
+	}
+	public IRoleService getRoleService() {
+		return roleService;
+	}
+	public void setRoleService(IRoleService roleService) {
+		this.roleService = roleService;
+	}
+	public List<RoleData> getRoleList() {
+		return roleList;
+	}
+	public void setRoleList(List<RoleData> roleList) {
+		this.roleList = roleList;
 	}
 }

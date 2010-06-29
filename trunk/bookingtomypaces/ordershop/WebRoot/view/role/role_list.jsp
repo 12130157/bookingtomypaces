@@ -60,7 +60,7 @@
 		<tdoby>
 		<s:iterator  value="roleList" status="flag" >
 		<tr >			
-			<td><s:property value="name"/></td>
+			<td align="center"><s:property value="name"/></td>
 			<td><s:property value="memo"/></td>
 			
 			<td >

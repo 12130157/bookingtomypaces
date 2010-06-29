@@ -117,7 +117,7 @@ public class UserAction extends FrmAction{
 		PageRoll p =new PageRoll();
 		p.setPageSize(Constants.PAGE_SIZE);
 		p.setStartRow(1);
-		userList =userService.searchUsersList(p, " where 1=1 and status = 0 and userName='"+name+"' ");
+		userList =userService.searchUsersList(p, " where 1=1 and userName='"+name+"' ");
 		System.out.println("findByProperty.count=="+p.getTotalRows()+":::"+userList.size());
 		return p.getTotalRows();
 	}
