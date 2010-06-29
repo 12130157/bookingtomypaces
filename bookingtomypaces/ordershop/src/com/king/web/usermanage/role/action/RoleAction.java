@@ -104,14 +104,23 @@ public class RoleAction extends FrmAction{
 		if(null==getFrmUser()){
 			return "home";
 		}
-		
+		System.out.println("=======>>list");
 		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
+		String name = request.getParameter("name")==null?"":request.getParameter("name").toString();
+		String memo = request.getParameter("memo")==null?"":request.getParameter("memo").toString();
+		System.out.println("=======>>list"+name+"::::"+memo);
 		PageRoll p =new PageRoll();
 		p.setPageSize(Constants.PAGE_SIZE);
 		p.setStartRow(curPage);
 		//p.setTotalPage(list.size()/p.getPageSize());
-		
-		roleList =roleService.searchRoles(p, "");
+		String withsql=" where 1=1 ";
+		if(!"".equals(name)){
+			withsql+=" and name like '%"+name+"%' ";
+		}
+		if(!"".equals(memo)){
+			withsql+=" and memo like '%"+memo+"%' ";
+		}
+		roleList =roleService.searchRoles(p, withsql);
 		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
 		String urlStr = "/ordershop/role/key/list?curPage=";
 		ServletActionContext.getRequest().setAttribute("url", urlStr);
@@ -249,6 +258,24 @@ public class RoleAction extends FrmAction{
 			
 			funList=systemFunctionService.getSysFun();
 			return "editview";
+		}
+	}
+	
+	
+	/**
+	 * 刪除角色
+	 * 
+	 * @return
+	 * @throws WebException
+	 */
+	public String deleteRole() throws KINGException {
+		if(null==getFrmUser()){
+			return "home";
+		}else {
+			System.out.println("=======>>delete");
+			role =roleService.retrieveRole(request.getParameter("id"));
+			roleService.deleteRole(role);
+			return this.list();
 		}
 	}
 }

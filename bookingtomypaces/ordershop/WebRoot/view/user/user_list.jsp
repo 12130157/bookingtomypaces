@@ -68,8 +68,9 @@
 			<td><s:property value="lastTime"/></td>
 			<td><s:property value="lastIp"/></td>	
 			<td >
+			    <a href="#" onclick="func_jsp('<s:property value="id"/>')" class='linkorange'>权限分配</a>
 				<a href="#" onclick="edit_jsp('<s:property value="id"/>')" class='linkorange'>编辑</a>
-				<a href="#" onclick="update_up('<s:property value="id"/>');" class='linkorange'>删除</a>
+				<a href="#" onclick="update_up('<s:property value="id"/>');" class='linkorange'>禁用</a>
 			</td>
 		</tr>
 		</s:iterator>
@@ -87,14 +88,17 @@
 </div>
 </body>
 <script>
-function edit_jsp(id){
-		var url_str="user/key/editjsp?id="+id;
+	function edit_jsp(id){
+		var url_str="<%=request.getContextPath()%>/user/key/editjsp?id="+id;
 		goURL3(url_str);
 	}
-function update_up(itemid){
-	var url_str="cpinfo/update_order_item2.action?searchValue['id']="+itemid;
-	//alert(url_str)
-		operate(url_str,"您确定要列印制作此订单?");
+	function edit_jsp(id){
+		var url_str="<%=request.getContextPath()%>/user/key/funcjsp?id="+id;
+		goURL3(url_str);
+	}
+	function update_up(itemid){
+		var url_str="<%=request.getContextPath()%>/user/key/funcjsp?id="+id;
+		operate(url_str,"您確定要禁用此用戶?");
 	}
 </script>
 </html>
