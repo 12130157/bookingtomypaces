@@ -13,18 +13,20 @@
 <body class="maintable">
 <div class="dclass_container dclass_container_collapsible" >
 	<div class="dclass_container_header" >    	
-        <div class="dclass_container_title">用戶組權限列表</div>
+        <div class="dclass_container_title">用戶組權限搜索條件</div>
     </div>
     <div class="dclass_container_content">
 	<div class="search">
-		<form action="" method="post">
+		<form action="<%=request.getContextPath()%>/role/key/list" method="post">
 		<table>
 			<tr>
 				<td >
 				    
-					用戶組名稱:<input type="text" class="inputsearch" name="textfield" />
+					用戶組名稱:<input type="text" class="inputsearch" name="name" />
 					&nbsp;&nbsp;&nbsp;
-					<input type="image" src="<%=request.getContextPath()%>/images/btn_search.gif"/></td>
+					用戶組備註:<input type="text" class="inputsearch" name="memo" />
+					&nbsp;&nbsp;&nbsp;
+					<input type="button" class="btn1" value="查 詢" /></td>
 			</tr>
 		</table>	
 		</form>
@@ -58,7 +60,7 @@
 		<tdoby>
 		<s:iterator  value="roleList" status="flag" >
 		<tr >			
-			<td><a href="#"><s:property value="name"/></a></td>
+			<td><s:property value="name"/></td>
 			<td><s:property value="memo"/></td>
 			
 			<td >
@@ -86,7 +88,7 @@ function edit_jsp(id){
 		goURL3(url_str);
 	}
 function del_jsp(id){
-	var url_str="<%=request.getContextPath()%>/role/key/deljsp?id="+id;
+	var url_str="<%=request.getContextPath()%>/role/key/deleteRole?id="+id;
 		goURL3(url_str);
 	}
 </script>

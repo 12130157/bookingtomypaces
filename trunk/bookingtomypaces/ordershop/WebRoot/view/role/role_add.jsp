@@ -48,9 +48,9 @@ document.getElementById("cdata").innerHTML = s;
             <tr>
               <td valign="top" bgcolor="#FFFFFF" class="backwhite" align="center">功能列表</td>
               <td bgcolor="#FFFFFF" class="backwhite">
-			  <input type="checkbox" id="all" value="0" onclick="checkbox.select('all');setValue();" />全部功能<br /><br />
+			  <input type="checkbox" id="all" value="0" onclick="checkbox.select('all');setValue();" /><b>全部功能</b><br /><br />
               <s:iterator id="f" value="funList.{?#this.perfunc==0}">
-              <input type="checkbox" id="<s:property value='id' />m" onclick="checkbox.selectAll('<s:property value='id' />s','<s:property value='id' />m');setValue();" value="<s:property value='id' />" /><s:property value="funcname" /><br /><br />
+              <input type="checkbox" id="<s:property value='id' />m" onclick="checkbox.selectAll('<s:property value='id' />s','<s:property value='id' />m');setValue();" value="<s:property value='id' />" /><b><s:property value="funcname" /></b><br /><br />
               
               <s:iterator value="funList.{?#this.perfunc==#f.id}">
               
