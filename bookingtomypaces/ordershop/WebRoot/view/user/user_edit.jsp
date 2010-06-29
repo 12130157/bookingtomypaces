@@ -27,7 +27,7 @@
             <td width="20%" class="formtitle">密码:<span class="fontred">*</span></td>
             <td width="30%" class="formtd"> <input name="userdata.passWord" type="text" class="inputform" value=""></td>
 			<td class="formtitle">所属部门:<span class="fontred">*</span></td>
-            <td class="formtd"><input name="userdata.unitId" type="text" class="inputform" value=""> </td>
+            <td class="formtd"><input name="userdata.deptId" type="text" class="inputform" value=""> </td>
 			 
           </tr>
           <tr>
