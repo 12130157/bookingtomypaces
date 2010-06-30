@@ -15,43 +15,94 @@
 	
 		
 	function add(){
-		if((document.getElementById("clientinfodata.client_num")).value==''){
+		if((document.getElementsByName("clientinfodata.client_num"))[0].value==''){	
 		    alert("客戶編號不能為空,請重新輸入!");
+		    document.getElementsByName("clientinfodata.client_num")[0].focus();
 		    return false;
+		 }else{
+			 if(!isWordNum((document.getElementsByName("clientinfodata.client_num"))[0].value)){
+				 alert("客戶編號只能为数字、字母!");
+				 document.getElementsByName("clientinfodata.client_num")[0].focus();
+				 return false;
+			 }
 		 }
+		
 		if(document.getElementById("_isexist").value=='1'){
 			 alert("客戶編號已存在,請重新輸入!");
+			 document.getElementsByName("clientinfodata.client_num")[0].focus();
 			    return false;
 		}
-		 if((document.getElementById("clientinfodata.company_name")).value==''){
+		 if((document.getElementsByName("clientinfodata.company_name"))[0].value==''){
 		    alert("公司名稱不能為空,請重新輸入!");
+		    document.getElementsByName("clientinfodata.company_name")[0].focus();
 		    return false;
 		 }
-		 if((document.getElementById("clientinfodata.company_shortname")).value==''){
+		 if((document.getElementsByName("clientinfodata.company_shortname"))[0].value==''){
 			    alert("公司簡稱不能為空,請重新輸入!");
+			    document.getElementsByName("clientinfodata.company_shortname")[0].focus();
 			    return false;
 			 }
-		 if((document.getElementById("clientinfodata.comp_phone")).value==''){
+		 if((document.getElementsByName("clientinfodata.comp_phone"))[0].value==''){
 			    alert("公司電話不能為空,請重新輸入!");
+			    document.getElementsByName("clientinfodata.comp_phone")[0].focus();
 			    return false;
+			 }else{
+				 if(!isNumeric((document.getElementsByName("clientinfodata.comp_phone"))[0].value)){
+					 alert("公司電話只能为数字!");
+					 document.getElementsByName("clientinfodata.comp_phone")[0].focus();
+					 return false;
+				 }
 			 }
-		 if((document.getElementById("clientinfodata.linkman_one")).value==''){
+		 
+		 if((document.getElementsByName("clientinfodata.linkman_one"))[0].value==''){
 			    alert("聯繫人[1]不能為空,請重新輸入!");
+			    document.getElementsByName("clientinfodata.linkman_one")[0].focus();
 			    return false;
 			 }
-		 if((document.getElementById("clientinfodata.phone_one")).value==''){
+		 if((document.getElementsByName("clientinfodata.phone_one"))[0].value==''){
 			    alert("聯繫人電話[1]不能為空,請重新輸入!");
+			    document.getElementsByName("clientinfodata.phone_one")[0].focus();
 			    return false;
+			 }else{
+				 if(!isNumeric((document.getElementsByName("clientinfodata.phone_one"))[0].value)){
+					 alert("聯繫人電話[1]只能为数字!");
+					 document.getElementsByName("clientinfodata.phone_one")[0].focus();
+					 return false;
+				 }
 			 }
-		 if((document.getElementById("clientinfodata.address_one")).value==''){
+		 if((document.getElementsByName("clientinfodata.phone_two"))[0].value!=''){
+			 if(!isNumeric((document.getElementsByName("clientinfodata.phone_two"))[0].value)){
+				 alert("聯繫人電話[2]只能为数字!");
+				 document.getElementsByName("clientinfodata.phone_two")[0].focus();
+				 return false;
+			 }
+		 }
+		 
+		 if((document.getElementsByName("clientinfodata.address_one"))[0].value==''){
 			    alert("地址[1]不能為空,請重新輸入!");
+			    document.getElementsByName("clientinfodata.address_one")[0].focus();
 			    return false;
 			 }
 		
-		 //if((document.getElementById("searchValue['cp_show_index']")).value!=''){
-		 //  if(!isNumeric((document.getElementById("searchValue['cp_show_index']")).value)){
+		 if((document.getElementsByName("clientinfodata.prompt"))[0].value!=''){
+			 if(!isNumeric((document.getElementsByName("clientinfodata.prompt"))[0].value)){
+				 alert("付款限期只能为数字!");
+				 document.getElementsByName("clientinfodata.prompt")[0].focus();
+				 return false;
+			 }
+		 }
+		 
+		 if((document.getElementsByName("clientinfodata.rebate"))[0].value!=''){
+			 if(!isDoubleNum((document.getElementsByName("clientinfodata.rebate"))[0].value)){
+				 alert("享受折扣只能为数字!");
+				 document.getElementsByName("clientinfodata.rebate")[0].focus();
+				 return false;
+			 }
+		 }
+		 //if((document.getElementsByName("searchValue['cp_show_index']")).value!=''){
+		 //  if(!isNumeric((document.getElementsByName("searchValue['cp_show_index']")).value)){
 		//	alert("合作商显示排序号只能是数字,请重新输入!");
-		//	//document.getElementById("searchValue['cpid']")).focus();
+		//	//document.getElementsByName("searchValue['cpid']")).focus();
 		//	return false;
 		 //  }
 		// }
@@ -69,9 +120,8 @@
 	
 	//检查客户编号是否重复
 	function isExistName(){
-		//alert();
-		var name=document.getElementById("clientinfodata.client_num").value;
-		///alert(name);
+		var name=document.getElementsByName("clientinfodata.client_num")[0].value;
+		//alert(name);
 		if(name!=""){
 			ClientInfoData.findByProperty(name,function (count) {
 				if(count>0){
