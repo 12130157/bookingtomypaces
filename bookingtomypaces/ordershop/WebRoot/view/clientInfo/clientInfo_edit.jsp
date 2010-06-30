@@ -89,7 +89,7 @@
             <td width="35%" class="formtd"> <input name="clientinfodata.functionary" type="text" class="inputform" value="${clientinfodata.functionary }"></td>
 			<td class="formtitle">狀態:</td>
             <td class="formtd">
-            	<select type="text" name="clientinfodata.status" >
+            	<select type="text" name="clientinfodata.state" >
                 	<option value=0 selected>啟用</option>
                 	<option value=1 >禁用</option>
                 </select>

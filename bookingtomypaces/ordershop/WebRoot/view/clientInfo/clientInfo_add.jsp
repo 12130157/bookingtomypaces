@@ -4,13 +4,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<script type="text/javascript"  src="<%=request.getContextPath()%>/view/clientInfo/clientInfo.js"  ></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/dwr/engine.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/dwr/util.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/dwr/interface/ClientInfoData.js"></script>
 <jsp:include page="../../head.jsp" />
 <title>客戶資料增加</title>
 </head>
-<script type="text/javascript"  src="<%=request.getContextPath()%>/view/clientInfo/clientInfo.js"  ></script>
-<script type='text/javascript' src='<%=request.getContextPath()%>/dwr/engine.js'></script>
-<script type='text/javascript' src='<%=request.getContextPath()%>/dwr/util.js'></script>
-<script type='text/javascript' src='<%=request.getContextPath()%>/dwr/interface/ClientInfoData.js'></script>
 <body class="maintable">
 <s:form action="add"  method="post"  theme="simple" >
 <input id="_isexist" type="hidden" value="0" />
@@ -79,16 +79,16 @@
           </tr>	
           <tr>           
             <td width="15%" class="formtitle">付款限期:</td>
-            <td width="35%" class="formtd"> <input name="clientinfodata.prompt" type="text" class="inputform" value="">日</td>
+            <td width="35%" class="formtd"> <input name="clientinfodata.prompt" type="text" class="inputform" value="0">日</td>
 			<td class="formtitle">享受折扣:</td>
-            <td class="formtd"><input name="clientinfodata.rebate" type="text" class="inputform" value="">% </td>			 
+            <td class="formtd"><input name="clientinfodata.rebate" type="text" class="inputform" value="0">% </td>			 
           </tr>
           <tr>           
             <td width="15%" class="formtitle">負責員工:</td>
             <td width="35%" class="formtd"> <input name="clientinfodata.functionary" type="text" class="inputform" value=""></td>
 			<td class="formtitle">狀態:</td>
             <td class="formtd">
-            	<select type="text" name="clientinfodata.status" >
+            	<select type="text" name="clientinfodata.state" >
                 	<option value=0 selected>啟用</option>
                 	<option value=1 >禁用</option>
                 </select>
@@ -101,8 +101,8 @@
    
      </table>
     <div style="padding:0.3em; text-align:center">
-    	<input type="button" class="btn1" value="保 存" onclick="add();" />
-		<input type="button" class="btn1" value="返 回" onclick="javascript:history.back();" /> 
+    	<input type="button" name="bc" class="btn1" value="保 存" onclick="javascript:add();" />
+		<input type="button" name="fh" class="btn1" value="返 回" onclick="javascript:history.back();" /> 
 	</div>
 	</div>
 </div>

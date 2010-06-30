@@ -11,7 +11,7 @@
 </head>
 <script type="text/javascript"  src="<%=request.getContextPath()%>/view/clientInfo/clientInfo.js"  ></script>
 <body class="maintable">
-<form action="" method="post">
+<form action="list" method="post">
 <div class="dclass_container dclass_container_collapsible" >
 	<div class="dclass_container_header" >    	
         <div class="dclass_container_title">客戶資料列表</div>
@@ -22,9 +22,9 @@
 			<tr>
 				<td >
 				    
-					客戶編號:<input type="text" class="inputsearch" name="textfield" />
-					&nbsp;&nbsp;&nbsp;
-					<input type="image" src="<%=request.getContextPath()%>/images/btn_search.gif"/></td>
+					客戶編號/公司簡稱:<input type="text" class="inputsearch" name="find_str" value="${find_str }"/>
+					&nbsp;
+					<input name="sb" type="submit" class="btn1" value="查 詢" /></td>
 			</tr>
 		</table>	
 	</div>
