@@ -55,15 +55,13 @@ public class RoleAction extends FrmAction{
 		if(null==getFrmUser()){
 			return "home";
 		}
-		System.out.println("=======>>list");
+
 		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
 		String name = request.getParameter("name")==null?"":request.getParameter("name").toString();
 		String memo = request.getParameter("memo")==null?"":request.getParameter("memo").toString();
-		System.out.println("=======>>list"+name+"::::"+memo);
 		PageRoll p =new PageRoll();
 		p.setPageSize(Constants.PAGE_SIZE);
 		p.setStartRow(curPage);
-		//p.setTotalPage(list.size()/p.getPageSize());
 		String withsql=" where 1=1 ";
 		if(!"".equals(name)){
 			withsql+=" and name like '%"+name+"%' ";
@@ -73,13 +71,34 @@ public class RoleAction extends FrmAction{
 		}
 		roleList =roleService.searchRoles(p, withsql);
 		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
-		String urlStr = "/ordershop/role/key/list?curPage=";
+		String urlStr = Constants.ProjectName+"/role/key/list?curPage=";
 		ServletActionContext.getRequest().setAttribute("url", urlStr);
 		
 		return "index";
 		
 	}
 	
+	public String staticlist() throws KINGException{
+		if(null==getFrmUser()){
+			return "home";
+		}
+		
+		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
+		
+		PageRoll p =new PageRoll();
+		p.setPageSize(Constants.PAGE_SIZE);
+		p.setStartRow(curPage);
+		
+		String withsql=" where 1=1 ";
+		
+		roleList =roleService.searchRoles(p, withsql);
+		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
+		String urlStr = Constants.ProjectName+"/role/key/list?curPage=";
+		ServletActionContext.getRequest().setAttribute("url", urlStr);
+		
+		return "index";
+		
+	}
 	/**
 	 * 增加角色
 	 * 
@@ -94,33 +113,24 @@ public class RoleAction extends FrmAction{
 			RoleData r = new RoleData();
 			r.setName(request.getParameter("name"));
 			r.setMemo(request.getParameter("memo"));
-			
-			// r.setAccountSetId(this.checkUser().getAccountSetId());
-			// Integer[] fId = getFunId();
 			if (null != getFunId()) {
 				String[] fId = getFunId().split(",");
 				
 				Integer uId = 0;
 				for (String id : fId) {
 					uId = Integer.parseInt(id);
-					System.out.println("------------->>>"+uId);
 					if (0 < uId) {// 去掉checkbox值为0的选项
 						RoleFunctionData rf = new RoleFunctionData();
 						rf.setFunctionId(uId);
 						rf.setRoleData(r);
 						fun.add(rf);
-						//roleFunctionService.addRoleFunction(rf);
 					}
 				}
-				for(int i=0;i<fun.size();i++){
-					System.out.println("getId=======>>"+fun.get(i).getId());
-					System.out.println("getRoleId=======>>"+fun.get(i).getRoleData().getId());
-					System.out.println("getFunctionId=======>>"+fun.get(i).getFunctionId());
-				}
+				
 				r.setRfdata(fun);
 			}
 			roleService.addRole(r);
-			return this.list();
+			return this.staticlist();
 		}
 	}
 	
@@ -136,40 +146,31 @@ public class RoleAction extends FrmAction{
 		}else {
 			List<RoleFunctionData> fun = new ArrayList<RoleFunctionData>();
 			RoleData r =roleService.retrieveRole(request.getParameter("id"));
-			System.out.println("-----name-------->>>"+request.getParameter("name"));
 			r.setName(request.getParameter("name"));
 			r.setMemo(request.getParameter("memo"));
 			
 			// r.setAccountSetId(this.checkUser().getAccountSetId());
 			// Integer[] fId = getFunId();
 			if (null != getFunId()) {
-				System.out.println("-----getFunId()-------->>>"+getFunId());
 				String buf=getFunId().replace("0,", "");
-				System.out.println("-----buf-------->>>"+buf);
 				String[] fId = buf.split(",");
 				roleFunctionService.deleteRoleFunction(request.getParameter("id"));
 				Integer uId = 0;
 				for (String id : fId) {
 					uId = Integer.parseInt(id);
-					System.out.println("------------->>>"+uId);
 					if (0 < uId) {// 去掉checkbox值为0的选项
 						RoleFunctionData rf = new RoleFunctionData();
 						
 						rf.setFunctionId(uId);
 						rf.setRoleData(r);
 						fun.add(rf);
-						//roleFunctionService.addRoleFunction(rf);
 					}
 				}
-				for(int i=0;i<fun.size();i++){
-					System.out.println("getId=======>>"+fun.get(i).getId());
-					System.out.println("getRoleId=======>>"+fun.get(i).getRoleData().getId());
-					System.out.println("getFunctionId=======>>"+fun.get(i).getFunctionId());
-				}
+			
 				r.setRfdata(fun);
 			}
 			roleService.updateRole(r);
-			return this.list();
+			return this.staticlist();
 		}
 	}
 	
@@ -199,11 +200,9 @@ public class RoleAction extends FrmAction{
 		if(null==getFrmUser()){
 			return "home";
 		}else {
-			System.out.println("=======>>");
 			role =roleService.retrieveRole(request.getParameter("id"));
 			List<RoleFunctionData1> list=roleFunctionService.getUserRole(request.getParameter("id"));
 			for(RoleFunctionData1 rf:list){
-				System.out.println("=======>>"+rf.getFunctionId());
 				ht.put(rf.getFunctionId(), rf.getFunctionId()+"");//注意數據類型，頁面可能對比不了
 			}
 			
@@ -223,10 +222,9 @@ public class RoleAction extends FrmAction{
 		if(null==getFrmUser()){
 			return "home";
 		}else {
-			System.out.println("=======>>delete");
 			role =roleService.retrieveRole(request.getParameter("id"));
 			roleService.deleteRole(role);
-			return this.list();
+			return this.staticlist();
 		}
 	}
 	

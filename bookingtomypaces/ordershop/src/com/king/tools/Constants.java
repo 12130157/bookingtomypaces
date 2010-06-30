@@ -6,5 +6,6 @@ public abstract class  Constants {
 	public static String SESSION_SYSTEM_USER = "KING_SYSTEM_USER";
 	public static int PAGE_SIZE = 15;
 
+	public static String ProjectName="/ordershop";
 	
 }

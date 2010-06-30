@@ -37,6 +37,27 @@ public class UserAction extends FrmAction{
 	 * @return
 	 * @throws KINGException
 	 */
+	public String staticlist() throws KINGException {
+		if(null==getFrmUser()){
+			return "login";
+		}
+		
+		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
+		PageRoll p =new PageRoll();
+		p.setPageSize(Constants.PAGE_SIZE);
+		p.setStartRow(curPage);
+		userList =userService.searchUsersList(p, " where 1=1 ");
+		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
+		String urlStr =Constants.ProjectName+"/user/key/list?curPage=";
+		ServletActionContext.getRequest().setAttribute("url", urlStr);
+		return "list";
+	}
+	
+	/**
+	 * 1.用戶列表
+	 * @return
+	 * @throws KINGException
+	 */
 	public String list() throws KINGException {
 		if(null==getFrmUser()){
 			return "login";
@@ -48,7 +69,7 @@ public class UserAction extends FrmAction{
 		p.setStartRow(curPage);
 		userList =userService.searchUsersList(p, " where 1=1 and status = 0 ");
 		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
-		String urlStr = "/ordershop/user/key/list?curPage=";
+		String urlStr = Constants.ProjectName+"/user/key/list?curPage=";
 		ServletActionContext.getRequest().setAttribute("url", urlStr);
 		return "list";
 	}
@@ -70,16 +91,7 @@ public class UserAction extends FrmAction{
 		System.out.println("userName=="+userdata.getUserName());
 		System.out.println("passw=="+userdata.getPassWord());
 		userService.addUser(userdata);
-		
-		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
-		PageRoll p =new PageRoll();
-		p.setPageSize(Constants.PAGE_SIZE);
-		p.setStartRow(curPage);
-		userList =userService.searchUsersList(p, " where 1=1 and status = 0 ");
-		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
-		String urlStr = "/ordershop/user/key/list?curPage=";
-		ServletActionContext.getRequest().setAttribute("url", urlStr);
-		return "list";
+		return this.staticlist();
 	}
 	
 	public String editjsp()throws KINGException{
@@ -101,15 +113,7 @@ public class UserAction extends FrmAction{
 		System.out.println("passw=="+userdata.getPassWord());
 		userService.addUser(userdata);
 		
-		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
-		PageRoll p =new PageRoll();
-		p.setPageSize(Constants.PAGE_SIZE);
-		p.setStartRow(curPage);
-		userList =userService.searchUsersList(p, " where 1=1 and status = 0 ");
-		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
-		String urlStr = "/ordershop/user/key/list?curPage=";
-		ServletActionContext.getRequest().setAttribute("url", urlStr);
-		return "list";
+		return this.staticlist();
 	}
 	
 	public Integer findByProperty(String name)throws KINGException{
