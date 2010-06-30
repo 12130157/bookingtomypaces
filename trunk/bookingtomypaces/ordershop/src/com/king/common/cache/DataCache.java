@@ -8,27 +8,6 @@
 */
 package com.king.common.cache;
 
-/*************************************************
-File name:DataCache.java     
-Author: lishan
-Version: 1.0.0.0   
-Description:
-	数据字典缓冲区的解析工具类，
-Others: 
-Function List: 
-  1.DataCache,构造函数
-  2.getDataMap,根据名称获得数据字典配置
-  3.loadFromFile,加载缓冲区。
-  4.saveCache,保存缓冲区到文件。
-History:    
-	1. Date: 2008-03-09    
-     Author:李山
-     Modification:
-     a.添加规范注释
-    2. ...
- *************************************************/
-
-
 import java.util.Map;
 import java.util.TreeMap;
 

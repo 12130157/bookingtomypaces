@@ -69,7 +69,7 @@ public class LoginAction extends FrmAction{
 
 					// session记录用户
 					//ActionContext.getContext().getSession().put(IConstant.USER_SESSION_KEY, u);
-					sessionMap.put(Constants.SESSION_SYSTEM_USER, new FrmUser(u.getDeptId(),u.getId(),u.getUserName(),u.getPassWord(),u.getStatus()));
+					sessionMap.put(Constants.SESSION_SYSTEM_USER, new FrmUser(u.getDeptId(),u.getId(),u.getUserName(),u.getPassWord(),u.getStatus(),u.getRealName(),u.getMobile(),u.getAreaId(),u.getShopId(),u.getIsHeadOffice(),u.getLastTime(),u.getLastIp()));
 					return "home";
 
 				}

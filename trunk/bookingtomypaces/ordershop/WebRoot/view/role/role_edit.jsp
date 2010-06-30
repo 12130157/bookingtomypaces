@@ -5,7 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-<jsp:include page="../../head.jsp" />
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css"/>
+<script src="<%=request.getContextPath()%>/js/common.js" type="text/javascript"></script>
 <script type='text/javascript' src='<%=request.getContextPath()%>/dwr/util.js'></script>
 <script type='text/javascript' src="<%=request.getContextPath()%>/js/utiltools.js"></script>
 <script type="text/javascript">

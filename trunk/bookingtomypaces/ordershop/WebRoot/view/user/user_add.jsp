@@ -25,7 +25,7 @@
 	<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#9FD6FF">
          
 		   <tr>
-            <td class="formtitle">姓名:<span class="fontred">*</span></td>
+            <td class="formtitle">登錄帳號:<span class="fontred">*</span></td>
             <td class="formtd" colspan="3"> <input id="userName" name="userName" type="text" class="inputformadd"  onBlur="javascript:isExistName();">
             	<div id="_userName" ><font color="red">*</font> 由字母、数字、下划线组成(4-20位)</div>
             </td>
@@ -44,6 +44,14 @@
                 	<option value=0 selected>使用</option>
                 	<option value=1 >禁用</option>
                 </select>
+            </td>
+            <td class="formtitle">地点:</td>
+            <td class="formtd"><input name="textfield5" type="text" class="inputform" value=""></td>
+          </tr>
+          <tr>
+            <td class="formtitle">區域:</td>
+            <td class="formtd"> 
+            	<s:select list="areaMap" value="0"  ></s:select>
             </td>
             <td class="formtitle">地点:</td>
             <td class="formtd"><input name="textfield5" type="text" class="inputform" value=""></td>

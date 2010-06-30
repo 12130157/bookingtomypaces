@@ -160,6 +160,33 @@ public class CacheUtil {
 		return dataMap;
 	}
 
+	public java.util.HashMap getCacheHashMap(String cacheName) {
+
+		HashMap dataMap = new HashMap();
+		try {
+
+			TreeMap dataDicMap = getDataCache().getDataMap(cacheName);
+			if (dataDicMap != null && !dataDicMap.toString().endsWith("{=}")) {
+				dataMap.putAll(dataDicMap);
+				return dataMap;
+			}
+		} catch (Exception ex) {
+		}
+		try {
+
+			TreeMap DBMap = getDbCache().getDBMap(cacheName);
+			if (DBMap != null && !DBMap.toString().endsWith("{=}")) {
+				dataMap.putAll(DBMap);
+				return dataMap;
+			}
+		} catch (Exception ex) {
+		}
+
+		if (dataMap.size() == 0) {
+			dataMap = null;
+		}
+		return dataMap;
+	}
 	
 	public static void removeFromCache(String cacheName, String key) {
 		if (cacheName == null || key == null)
