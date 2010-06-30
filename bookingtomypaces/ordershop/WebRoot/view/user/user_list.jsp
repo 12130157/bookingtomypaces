@@ -13,7 +13,7 @@
 <body class="maintable">
 <div class="dclass_container dclass_container_collapsible" >
 	<div class="dclass_container_header" >    	
-        <div class="dclass_container_title">用戶資料列表</div>
+        <div class="dclass_container_title">用戶資料搜索條件</div>
     </div>
     <div class="dclass_container_content">
 	<div class="search">
@@ -49,8 +49,12 @@
 		<thead>
 			<tr>
 		
-				<th >用戶名</th>
-				<th >所屬部門</th>	
+				<th >用戶名稱</th>
+				<th >用戶帳號</th>
+				<th >所屬部門</th>
+				<th >所屬區域</th>
+				<th >所屬店面</th>
+				<th >手機</th>	
 				<th >狀態</th>	
 				<th >創建時間</th>
 				<th >最後登陸時間</th>
@@ -60,23 +64,28 @@
 		</thead>
 		<tdoby>
 		<s:iterator  value="userList" status="flag" >
-		<tr >			
-			<td><a href="#"><s:property value="userName"/></a></td>
-			<td><s:property value="unitId"/></td>
-			<td><s:property value="status"/></td>
-			<td><s:property value="creatTime"/></td>
-			<td><s:property value="lastTime"/></td>
-			<td><s:property value="lastIp"/></td>	
-			<td >
+		<tr >	
+			<td align="center"><s:property value="realName"/></td>		
+			<td align="center"><s:property value="userName"/></td>
+			<td align="center"><s:property value="deptId"/></td>
+			<td align="center"><s:property value="areaMap.get(areaId)"/></td>
+			<td align="center"><s:property value="shopId"/></td>
+			<td align="center"><s:property value="mobile"/></td>
+			<td align="center"><s:if test="status==0">使用中</s:if><s:else>禁用</s:else></td>
+			<td align="center"><s:date name="creatTime" format="yyyy-MM-dd HH:mm:ss" /></td>
+			<td align="center"><s:date name="lastTime" format="yyyy-MM-dd HH:mm:ss" /></td>
+			<td align="center"><s:property value="lastIp"/></td>	
+			<td align="center">
 			    <a href="#" onclick="func_jsp('<s:property value="id"/>')" class='linkorange'>权限分配</a>
 				<a href="#" onclick="edit_jsp('<s:property value="id"/>')" class='linkorange'>编辑</a>
-				<a href="#" onclick="update_up('<s:property value="id"/>');" class='linkorange'>禁用</a>
+				<s:if test="status==0"><a href="#" onclick="update('<s:property value="id"/>');" class='linkorange'>禁用</a></s:if>
+				<s:else><a href="#" onclick="update('<s:property value="id"/>');" class='linkorange'>啟用</a></s:else>
 			</td>
-		</tr>
+		</tr
 		</s:iterator>
 		<tr>
               <td colspan="7" align="right" class="backwhite" height="30">
-              总数${page.count}&nbsp;<tools:pageUrl url="${url}" count="${page.count}" curPage="${page.curPage}" pageSize="${page.pageSize}" />			  
+              共${page.count}條記錄&nbsp;<tools:pageUrl url="${url}" count="${page.count}" curPage="${page.curPage}" pageSize="${page.pageSize}" />			  
 			  </td>
       </tr>	
 		</tbody>
@@ -92,12 +101,12 @@
 		var url_str="<%=request.getContextPath()%>/user/key/editjsp?id="+id;
 		goURL3(url_str);
 	}
-	function edit_jsp(id){
+	function func_jsp(id){
 		var url_str="<%=request.getContextPath()%>/user/key/funcjsp?id="+id;
 		goURL3(url_str);
 	}
-	function update_up(itemid){
-		var url_str="<%=request.getContextPath()%>/user/key/funcjsp?id="+id;
+	function update(id){
+		var url_str="<%=request.getContextPath()%>/user/key/updateUser?id="+id;
 		operate(url_str,"您確定要禁用此用戶?");
 	}
 </script>

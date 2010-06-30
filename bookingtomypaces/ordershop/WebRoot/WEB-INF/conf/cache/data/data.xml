@@ -1063,6 +1063,27 @@
 		<item code="2" name="岗位"/>
 	</attr>
 	
+	<attr code="SystemArea" name="區域">
+		<item code="0" name="未選擇"/>
+		<item code="1" name="香港島-中西區"/>
+		<item code="2" name="香港島-東區"/>
+		<item code="3" name="香港島-南區"/>
+		<item code="4" name="香港島-灣仔區"/>
+		<item code="5" name="九龍西-九龍城區"/>
+		<item code="6" name="九龍西-深水埗區"/>
+		<item code="7" name="九龍西-油尖旺區"/>
+		<item code="8" name="九龍東-黃大仙區"/>
+		<item code="9" name="九龍東-觀塘區"/>
+		<item code="10" name="新界東-北區"/>
+		<item code="11" name="新界東-西貢區"/>
+		<item code="12" name="新界東-沙田區"/>
+		<item code="13" name="新界東-大埔區"/>
+		<item code="14" name="新界西-離島區"/>
+		<item code="15" name="新界西-葵青區"/>
+		<item code="16" name="新界西-荃灣區"/>
+		<item code="17" name="新界西-屯门區"/>
+		<item code="18" name="新界西-元朗區"/>
+	</attr>
 	
 	/**
 	 * 因为前后台都需要此配置，所以配置到data.xml中，最好前台和后台都从该配置中取cache映射

@@ -32,10 +32,10 @@ function showlinks(obj) {
         <tr>
           <td class="leftloginmsgtalbe"><table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
-              <td height="30" class="fontblue"><img src="<%=request.getContextPath()%>/images/leftloginmsgicon.gif" border="0" align="absbottom"> 欢迎您:<span class="fontred"><strong>admin</strong></span></td>
+              <td height="30" class="fontblue"><img src="<%=request.getContextPath()%>/images/leftloginmsgicon.gif" border="0" align="absbottom"> 歡迎您:<span class="fontred"><strong><s:property value="#session.KING_SYSTEM_USER.realName"/></strong></span></td>
             </tr>
             <tr>
-              <td height="25" class="fontblue">登录时间:2008-10-21 10:09:17 </td>
+              <td height="25" class="fontblue">登錄時間:<s:date name="#session.KING_SYSTEM_USER.lastTime" format="yyyy-MM-dd HH:mm:ss" /> </td>
             </tr>
             <tr>
               <td height="1" background="<%=request.getContextPath()%>/images/leftloginmsgline.gif"></td>
