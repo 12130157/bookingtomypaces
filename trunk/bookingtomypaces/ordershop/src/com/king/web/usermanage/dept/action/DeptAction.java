@@ -33,7 +33,6 @@ public class DeptAction extends FrmAction{
 	private DeptData dept =new DeptData();
 	
 	public String list() throws KINGException{
-		System.out.println("----DeptAction.list()----------"+getFrmUser().getUserName());
 		if(null==getFrmUser()){
 			return "home";
 		}
@@ -44,7 +43,6 @@ public class DeptAction extends FrmAction{
 		PageRoll p =new PageRoll();
 		p.setPageSize(Constants.PAGE_SIZE);
 		p.setStartRow(curPage);
-		//p.setTotalPage(list.size()/p.getPageSize());
 		String withsql=" where 1=1 ";
 		if(!"".equals(name)){
 			withsql+=" and name like '%"+name+"%' ";
@@ -53,17 +51,33 @@ public class DeptAction extends FrmAction{
 			withsql+=" and status ="+status;
 		}
 		deptList =deptService.searchDept(p, withsql);
-		//for(DeptData a:DeptList){
-		//	System.out.println(":::"+a.getName()+":list.size="+p.getTotalPage());
-		//}
 		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
-		String urlStr = "/ordershop/dept/key/list?curPage=";
+		String urlStr = Constants.ProjectName+"/dept/key/list?curPage=";
 		ServletActionContext.getRequest().setAttribute("url", urlStr);
 		
 		return "index";
 		
 	}
 	
+	public String staticlist() throws KINGException{
+		if(null==getFrmUser()){
+			return "home";
+		}
+		
+		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
+		PageRoll p =new PageRoll();
+		p.setPageSize(Constants.PAGE_SIZE);
+		p.setStartRow(curPage);
+		
+		String withsql=" where 1=1 ";
+		deptList =deptService.searchDept(p, withsql);
+		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
+		String urlStr = Constants.ProjectName+"/dept/key/list?curPage=";
+		ServletActionContext.getRequest().setAttribute("url", urlStr);
+		
+		return "index";
+		
+	}
 	public Integer findByProperty(String name)throws KINGException{
 		PageRoll p =new PageRoll();
 		p.setPageSize(Constants.PAGE_SIZE);
@@ -88,16 +102,8 @@ public class DeptAction extends FrmAction{
 			dept.setName(name);
 			dept.setStatus(status);
 			deptService.addDept(dept);
-			Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
-			PageRoll p =new PageRoll();
-			p.setPageSize(Constants.PAGE_SIZE);
-			p.setStartRow(curPage);
-			String withsql=" where 1=1 ";
-			deptList =deptService.searchDept(p, withsql);
-			ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
-			String urlStr = "/ordershop/dept/key/list?curPage=";
-			ServletActionContext.getRequest().setAttribute("url", urlStr);
-			return "index";
+			
+			return this.staticlist();
 		}
 	}
 	
@@ -108,7 +114,6 @@ public class DeptAction extends FrmAction{
 	 * @throws WebException
 	 */
 	public String editDept() throws KINGException {
-		System.out.println("----editDept----------"+getFrmUser().getUserName());
 		if(null==getFrmUser()){
 			return "home";
 		}else {
@@ -123,16 +128,7 @@ public class DeptAction extends FrmAction{
 			}
 			
 			deptService.updateDept(dept);
-			Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
-			PageRoll p =new PageRoll();
-			p.setPageSize(Constants.PAGE_SIZE);
-			p.setStartRow(curPage);
-			String withsql=" where 1=1 ";
-			deptList =deptService.searchDept(p, withsql);
-			ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
-			String urlStr = "/ordershop/dept/key/list?curPage=";
-			ServletActionContext.getRequest().setAttribute("url", urlStr);
-			return "index";
+			return this.staticlist();
 		}
 	}
 	
@@ -143,23 +139,13 @@ public class DeptAction extends FrmAction{
 	 * @throws WebException
 	 */
 	public String deleteDept() throws KINGException {
-		System.out.println("----deleteDept----------"+getFrmUser().getUserName());
 		if(null==getFrmUser()){
 			return "home";
 		}else {
 			dept=deptService.retrieveDept(request.getParameter("id"));
 		
 			deptService.deleteDept(dept);
-			Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
-			PageRoll p =new PageRoll();
-			p.setPageSize(Constants.PAGE_SIZE);
-			p.setStartRow(curPage);
-			String withsql=" where 1=1 ";
-			deptList =deptService.searchDept(p, withsql);
-			ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
-			String urlStr = "/ordershop/dept/key/list?curPage=";
-			ServletActionContext.getRequest().setAttribute("url", urlStr);
-			return "index";
+			return this.staticlist();
 		}
 	}
 	
