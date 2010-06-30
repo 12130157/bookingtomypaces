@@ -142,6 +142,7 @@ function operate(strUrl,msg){
 		}
 	}
 }
+
 //获取单选值
 function Get_RadioValue(RadioName){
     var obj;    
@@ -156,3 +157,24 @@ function Get_RadioValue(RadioName){
     }
     return null;
 }
+
+//判断是否数字字母
+function isWordNum(str){
+	var un1=/[A-Za-z0-9]+$/;
+	var username1=(str).replace(/\s+/g,"");
+	if(!un1.test(username1)){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
+//判断是否double数字
+function isDoubleNum(str_key)
+{
+var str = str_key;
+if(str.match(/^\+?(:?(:?\d+\.\d+)|(:?\d+))$/)) return true;
+else return false;
+}
+
