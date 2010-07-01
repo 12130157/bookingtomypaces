@@ -4,7 +4,9 @@ import java.util.List;
 
 import net.sf.json.JSONObject;
 
+import com.king.base.DaoFactory;
 import com.king.base.FrmService;
+import com.king.base.HibernateDao;
 import com.king.common.exception.KINGException;
 import com.king.tools.PageRoll;
 import com.king.web.usermanage.user.dao.IUserRoleDAO;
@@ -81,7 +83,29 @@ public class UserRoleService extends FrmService implements IUserRoleService{
 		List list = userRoleDao.searchlist(pageRoll,"");
 		return list;
 	}
+	
+	/**
+	 * 查询用戶功能信息
+	 * @param userId
+	 * @return 用戶功能信息集合
+	 * @throws KINGException
+	 */
+	public List<UserRoleData> getUserRole(String userId)throws KINGException{
+		String hql = "from UserRoleData u where u.userId = '" +userId+ "'";
+		
+		return  (List<UserRoleData>)((HibernateDao) DaoFactory.getDao("hibernate")).search(hql);
+	}
 
+	
+	/**
+	 * 删除某个用戶所带功能信息
+	 * @param userId 用戶ID
+	 * @throws KINGException
+	 */
+	public void deleteUserRole(String userId) throws KINGException{
+		userRoleDao.executeSQL("delete from UserRole where userId = '"+userId+"'");
+	}
+	
 	public IUserRoleDAO getUserRoleDao() {
 		return userRoleDao;
 	}

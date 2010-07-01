@@ -57,4 +57,18 @@ public interface IUserRoleService {
 	 */
 	public List<UserRoleData> searchUserRoles(PageRoll pageRoll,JSONObject jsonu) throws KINGException;
 
+	/**
+	 * 查询用戶功能信息
+	 * @param userId
+	 * @return 用戶功能信息集合
+	 * @throws KINGException
+	 */
+	public List<UserRoleData> getUserRole(String userId)throws KINGException;
+	
+	/**
+	 * 删除某个用戶所带功能信息
+	 * @param userId 用戶ID
+	 * @throws KINGException
+	 */
+	public void deleteUserRole(String userId) throws KINGException;
 }

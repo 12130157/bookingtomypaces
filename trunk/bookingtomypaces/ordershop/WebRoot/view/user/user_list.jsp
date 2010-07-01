@@ -17,16 +17,28 @@
     </div>
     <div class="dclass_container_content">
 	<div class="search">
-		<form action="" method="post">
-		<table>
-			<tr>
-				<td >
-				    
-					用戶名:<input type="text" class="inputsearch" name="textfield" />
-					&nbsp;&nbsp;&nbsp;
-					<input type="image" src="<%=request.getContextPath()%>/images/btn_search.gif"/></td>
-			</tr>
-		</table>	
+		<form action="<%=request.getContextPath()%>/user/key/list" method="post">
+		
+				    <div style="LETTER-SPACING:0.5EM">
+					<span>帳號:<input type="text" class="inputsearch" name="userName"  /></span>
+					&nbsp;
+					<span>手機:<input type="text" class="inputsearch" name="mobile"  /></span>
+					&nbsp;
+					<span>狀態:<select name="status" >
+					<option value=-1 >未選擇</option>
+                	<option value=0 >使用</option>
+                	<option value=1 >禁用</option>
+                	</select></span>
+					&nbsp;
+					<span>部門:<s:select list="deptMap" name="deptId"   headerKey="0" headerValue="未選擇" emptyOption="false" ></s:select></span>
+					&nbsp;
+					<span>區域:<s:select list="areaMap" name="areaId"  headerKey="0" headerValue="未選擇" emptyOption="false"  ></s:select></span>
+					&nbsp;
+					<span>店鋪:<s:select list="storeMap" name="shopId"  headerKey="0" headerValue="未選擇" emptyOption="false"  ></s:select></span>
+					 
+					<span><input type="submit" class="btn1" value="查 詢" /></span>
+					</div>
+		
 		</form>
 	</div>
 	
@@ -67,24 +79,24 @@
 		<tr >	
 			<td align="center"><s:property value="realName"/></td>		
 			<td align="center"><s:property value="userName"/></td>
-			<td align="center"><s:property value="deptId"/></td>
+			<td align="center"><s:property value="deptMap.get(deptId)"/></td>
 			<td align="center"><s:property value="areaMap.get(areaId)"/></td>
-			<td align="center"><s:property value="shopId"/></td>
+			<td align="center"><s:property value="storeMap.get(shopId)"/></td>
 			<td align="center"><s:property value="mobile"/></td>
-			<td align="center"><s:if test="status==0">使用中</s:if><s:else>禁用</s:else></td>
+			<td align="center"><s:if test="status==0">使用中</s:if><s:else><font color=red>禁用</font></s:else></td>
 			<td align="center"><s:date name="creatTime" format="yyyy-MM-dd HH:mm:ss" /></td>
 			<td align="center"><s:date name="lastTime" format="yyyy-MM-dd HH:mm:ss" /></td>
 			<td align="center"><s:property value="lastIp"/></td>	
 			<td align="center">
 			    <a href="#" onclick="func_jsp('<s:property value="id"/>')" class='linkorange'>权限分配</a>
 				<a href="#" onclick="edit_jsp('<s:property value="id"/>')" class='linkorange'>编辑</a>
-				<s:if test="status==0"><a href="#" onclick="update('<s:property value="id"/>');" class='linkorange'>禁用</a></s:if>
-				<s:else><a href="#" onclick="update('<s:property value="id"/>');" class='linkorange'>啟用</a></s:else>
+				<s:if test="status==0"><a href="#" onclick="updaten('<s:property value="id"/>');" ><font color=red>禁用</font></a></s:if>
+				<s:else><a href="#" onclick="updatey('<s:property value="id"/>');" ><font color=blue>啟用</font></a></s:else>
 			</td>
 		</tr
 		</s:iterator>
 		<tr>
-              <td colspan="7" align="right" class="backwhite" height="30">
+              <td colspan="11" align="right" class="backwhite" height="30">
               共${page.count}條記錄&nbsp;<tools:pageUrl url="${url}" count="${page.count}" curPage="${page.curPage}" pageSize="${page.pageSize}" />			  
 			  </td>
       </tr>	
@@ -105,9 +117,13 @@
 		var url_str="<%=request.getContextPath()%>/user/key/funcjsp?id="+id;
 		goURL3(url_str);
 	}
-	function update(id){
-		var url_str="<%=request.getContextPath()%>/user/key/updateUser?id="+id;
+	function updaten(id){
+		var url_str="<%=request.getContextPath()%>/user/key/updateUser?id="+id+"&status=1";
 		operate(url_str,"您確定要禁用此用戶?");
+	}
+	function updatey(id){
+		var url_str="<%=request.getContextPath()%>/user/key/updateUser?id="+id+"&status=0";
+		operate(url_str,"您確定要啟用此用戶?");
 	}
 </script>
 </html>
