@@ -22,19 +22,19 @@ import com.king.base.FrmData;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class UserRoleData extends FrmData{
 
-	private int userId;//用户ID
+	private String userId;//用户ID
 	private int roleId;//用户规矩ID
 	/**
 	 * @return the userId
 	 */
-	@Column(length = 4,name = "USERID",nullable = true)
-	public int getUserId() {
+	@Column(length = 32,name = "USERID",nullable = true)
+	public String getUserId() {
 		return userId;
 	}
 	/**
 	 * @param userId the userId to set
 	 */
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	/**

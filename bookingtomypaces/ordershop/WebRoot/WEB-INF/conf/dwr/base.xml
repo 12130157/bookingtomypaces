@@ -24,5 +24,13 @@
 			<include method="findByProperty" />
 		</create>		
 	</allow>
+	<allow>
+		<convert match="com.king.web.usermanage.store.data.StoreData" converter="bean" />		
+		<!-- 店鋪-->
+		<create javascript="StoreData" creator="spring">
+			<param name="beanName" value="storeAction" />
+			<include method="findByProperty" />
+		</create>		
+	</allow>
 </dwr>
 
