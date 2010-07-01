@@ -42,7 +42,7 @@ function showlinks(obj) {
             </tr>
             <tr>
               <td height="28" align="center" valign="bottom"><img src="<%=request.getContextPath()%>/images/leftloginpwbtn.gif" width="56" height="20">
-			  <img src="<%=request.getContextPath()%>/images/leftloginoutbtn.gif" width="56" height="20"></td>
+			  <a href="#" onclick="goURL3('<%=request.getContextPath()%>/logout/key/index')"><img src="<%=request.getContextPath()%>/images/leftloginoutbtn.gif" width="56" height="20"></a></td>
             </tr>
           </table></td>
         </tr>
