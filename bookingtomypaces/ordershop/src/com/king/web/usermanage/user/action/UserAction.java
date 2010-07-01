@@ -42,6 +42,7 @@ import com.tag.PageVo;
 	@Result(name="home", location="user/key/home",type="redirectAction"),
 	@Result(name="list", location="view/user/user_list.jsp"),
 	@Result(name="editjsp", location="view/user/user_edit.jsp"),
+	@Result(name="resetpwdjsp", location="view/user/resetpwd.jsp"),
 	@Result(name="addjsp", location="view/user/user_add.jsp"),
 	@Result(name="funcjsp", location="view/user/func.jsp")
 })
@@ -253,6 +254,32 @@ public class UserAction extends FrmAction{
 		return "editjsp";
 	}
 
+	public String resetpwd()throws KINGException{
+		if(null==getFrmUser()){
+			return "home";
+		}
+		
+		userdata = userService.retrieveUser(getFrmUser().getUserId());
+		return "resetpwdjsp";
+	}
+	
+	public String editpwd()throws KINGException{
+		if(null==getFrmUser()){
+			return "home";
+		}
+		UserData user = userService.retrieveUser(userdata.getId());
+		if(!user.getPassWord().equals(userdata.getPassWord())&&!"".equals(userdata.getPassWord())&&null!=userdata.getPassWord()){
+			user.setPassWord(Md5Tools.encode(userdata.getPassWord()));
+		}else{
+			user.setPassWord(user.getPassWord());
+		}
+		
+		userService.updateUser(user);
+		
+		return this.staticlist();
+	}
+	
+	
 	public String editUser()throws KINGException{
 		if(null==getFrmUser()){
 			return "home";

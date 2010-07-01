@@ -41,7 +41,7 @@ function showlinks(obj) {
               <td height="1" background="<%=request.getContextPath()%>/images/leftloginmsgline.gif"></td>
             </tr>
             <tr>
-              <td height="28" align="center" valign="bottom"><img src="<%=request.getContextPath()%>/images/leftloginpwbtn.gif" width="56" height="20">
+              <td height="28" align="center" valign="bottom"><a href="####" onClick="linkURL('<%=request.getContextPath()%>/user/key/resetpwd?s='+Math.random())" class="menu2"><img src="<%=request.getContextPath()%>/images/leftloginpwbtn.gif" width="56" height="20"></a>
 			  <a href="#" onclick="goURL3('<%=request.getContextPath()%>/logout/key/index')"><img src="<%=request.getContextPath()%>/images/leftloginoutbtn.gif" width="56" height="20"></a></td>
             </tr>
           </table></td>
