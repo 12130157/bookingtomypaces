@@ -74,7 +74,7 @@ public interface ISystemFunctionService {
 	 * @return 系统功能组件信息集合
 	 * @throws KINGException
 	 */
-	public List<SystemFunctionData> getSysFunByUserId(int userId) throws KINGException;
+	public List<SystemFunctionData> getSysFunByUserId(String userId) throws KINGException;
 	
 	
 }

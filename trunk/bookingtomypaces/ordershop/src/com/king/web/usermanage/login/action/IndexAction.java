@@ -52,7 +52,7 @@ public class IndexAction extends FrmAction{
 	 */
 	public String menu() throws KINGException {
 		System.out.println("------menu-111111111111111111--------");
-		setFunList(systemFunctionService.getSysFunByUserId(1));
+		setFunList(systemFunctionService.getSysFunByUserId(getFrmUser().getUserId()));
 		return "menu";
 	}
 

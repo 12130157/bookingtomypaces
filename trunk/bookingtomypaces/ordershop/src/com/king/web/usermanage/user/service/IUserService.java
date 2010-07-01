@@ -76,7 +76,7 @@ public interface IUserService {
 	 * @return void
 	 * @throws KINGException
 	 */
-	public void loginLogUser(String ip, String lastTime, int uid) throws KINGException;
+	public void loginLogUser(String ip, String lastTime, String uid) throws KINGException;
 	
 	/**
 	 * 判断用户是否有权限登录系统
@@ -84,5 +84,5 @@ public interface IUserService {
 	 * @return 数量
 	 * @throws KINGException
 	 */
-	public int userExistRole(int uid) throws KINGException;
+	public int userExistRole(String uid) throws KINGException;
 }

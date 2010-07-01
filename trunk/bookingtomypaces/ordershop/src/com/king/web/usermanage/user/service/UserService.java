@@ -113,9 +113,9 @@ public class UserService extends FrmService implements IUserService{
 	 * @return void
 	 * @throws KINGException
 	 */
-	public void loginLogUser(String ip, String lastTime, int uid) throws KINGException{
+	public void loginLogUser(String ip, String lastTime, String uid) throws KINGException{
 		userDao.executeSQL("update UserInfo set lastIp='" + ip + "',lastTime='"
-				+ lastTime + "' where id=" + uid);
+				+ lastTime + "' where id='" + uid +"' ");
 	}
 	
 	/**
@@ -124,7 +124,7 @@ public class UserService extends FrmService implements IUserService{
 	 * @return 数量
 	 * @throws KINGException
 	 */
-	public int userExistRole(int uid) throws KINGException{
+	public int userExistRole(String uid) throws KINGException{
 		String hql = "select count(u.id) from UserRoleData u where u.userId='" +uid+ "'";
 		return userDao.search(hql).size();
 	}

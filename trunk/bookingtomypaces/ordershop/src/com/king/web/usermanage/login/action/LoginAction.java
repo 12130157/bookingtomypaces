@@ -45,10 +45,10 @@ public class LoginAction extends FrmAction{
 	public String logined() throws KINGException {
 		System.out.println("------logined11111111111---------");
 		String result = "login";
-		name="admin";
-		pwd="888";
-		//UserData u = userService.login(name, Md5Tools.encode(pwd));
-		UserData u = userService.login("admin", Md5Tools.encode("888"));
+		//name="admin";
+		//pwd="888";
+		UserData u = userService.login(name, Md5Tools.encode(pwd));
+		//UserData u = userService.login("admin", Md5Tools.encode("888"));
 		if (null == u) {
 			// setUerror(false);
 			request.setAttribute("error", "用户名或密码错");// 用户名或密码错
@@ -58,14 +58,14 @@ public class LoginAction extends FrmAction{
 				request.setAttribute("error", "用户已过期或被锁定,请联系管理员!");// 用户已过期或被锁定,请联系管理员!
 				return result;
 			} else {
-				int b = userService.userExistRole(Integer.parseInt(u.getId()));
+				int b = userService.userExistRole(u.getId());
 				if (b<1) {
 					request.setAttribute("error", "你没有权限登录,请联系管理员!");// 你没有权限登录,请联系管理员!
 			 		return result;
 				} else {
 					String ip = ServletActionContext.getRequest().getRemoteAddr(); // 获得来路IP
 					
-					userService.loginLogUser(ip, DateTool.getStringDate(),Integer.parseInt(u.getId()));
+					userService.loginLogUser(ip, DateTool.getStringDate(),u.getId());
 
 					// session记录用户
 					//ActionContext.getContext().getSession().put(IConstant.USER_SESSION_KEY, u);
