@@ -16,6 +16,7 @@ import com.king.base.FrmAction;
 import com.king.common.cache.CacheUtil;
 import com.king.common.exception.KINGException;
 import com.king.tools.Constants;
+import com.king.tools.DateTool;
 import com.king.tools.PageRoll;
 import com.king.web.usermanage.dept.data.DeptData;
 import com.king.web.usermanage.dept.service.IDeptService;
@@ -104,7 +105,7 @@ public class UserAction extends FrmAction{
 		PageRoll p =new PageRoll();
 		p.setPageSize(Constants.PAGE_SIZE);
 		p.setStartRow(curPage);
-		userList =userService.searchUsersList(p, " where 1=1 ");
+		userList =userService.searchUsersList(p, " where 1=1  and userName<>'admin' ");
 		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
 		String urlStr =Constants.ProjectName+"/user/key/list?curPage=";
 		ServletActionContext.getRequest().setAttribute("url", urlStr);
@@ -156,7 +157,7 @@ public class UserAction extends FrmAction{
 		PageRoll p =new PageRoll();
 		p.setPageSize(Constants.PAGE_SIZE);
 		p.setStartRow(curPage);
-		String withsql=" where 1=1 ";
+		String withsql=" where 1=1 and userName<>'admin' ";
 		if(!"0".equals(deptId)){
 			withsql+=" and deptId = '"+deptId+"' ";
 		}
@@ -221,6 +222,8 @@ public class UserAction extends FrmAction{
 		System.out.println("unitId=="+userdata.getDeptId());
 		System.out.println("userName=="+userdata.getUserName());
 		System.out.println("passw=="+userdata.getPassWord());
+		userdata.setPassWord(Md5Tools.encode(userdata.getPassWord()));
+		userdata.setCreatTime(DateTool.getNow());
 		userService.addUser(userdata);
 		return this.staticlist();
 	}
