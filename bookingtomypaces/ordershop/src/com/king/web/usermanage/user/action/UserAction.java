@@ -2,7 +2,6 @@ package com.king.web.usermanage.user.action;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -21,7 +20,6 @@ import com.king.tools.PageRoll;
 import com.king.web.usermanage.dept.data.DeptData;
 import com.king.web.usermanage.dept.service.IDeptService;
 import com.king.web.usermanage.role.data.RoleData;
-import com.king.web.usermanage.role.data.RoleFunctionData;
 import com.king.web.usermanage.role.data.RoleFunctionData1;
 import com.king.web.usermanage.role.service.IRoleFunctionService;
 import com.king.web.usermanage.role.service.IRoleService;
@@ -30,8 +28,8 @@ import com.king.web.usermanage.store.service.IStoreService;
 import com.king.web.usermanage.systemfunction.data.SystemFunctionData;
 import com.king.web.usermanage.systemfunction.service.ISystemFunctionService;
 import com.king.web.usermanage.user.data.UserData;
-import com.king.web.usermanage.user.data.UserRoleData;
-import com.king.web.usermanage.user.service.IUserRoleService;
+import com.king.web.usermanage.user.data.UserFunctionData;
+import com.king.web.usermanage.user.service.IUserFunctionService;
 import com.king.web.usermanage.user.service.IUserService;
 import com.tag.PageVo;
 
@@ -52,7 +50,7 @@ public class UserAction extends FrmAction{
 	private IUserService userService;
 	private IDeptService deptService;
 	private IStoreService storeService;
-	private IUserRoleService userRoleService;
+	private IUserFunctionService userFunctionService;
 	private ISystemFunctionService systemFunctionService;
 	private String funId;
 	private String uId;
@@ -331,8 +329,8 @@ public class UserAction extends FrmAction{
 		}
 		
 		System.out.println("funcjsp.id============="+request.getParameter("id"));
-		List<UserRoleData> list=userRoleService.getUserRole(request.getParameter("id"));
-		for(UserRoleData ur:list){
+		List<UserFunctionData> list=userFunctionService.getUserFunction(request.getParameter("id"));
+		for(UserFunctionData ur:list){
 			ht.put(ur.getFuncId(), ur.getFuncId()+"");//注意數據類型，頁面可能對比不了
 		}
 		uId=request.getParameter("id");
@@ -357,26 +355,26 @@ public class UserAction extends FrmAction{
 				if (null != getFunId()) {
 					String buf=getFunId().replace("0,", "");
 					String[] fId = buf.split(",");
-					userRoleService.deleteUserRole(request.getParameter("uId"));
+					userFunctionService.deleteUserFunction(request.getParameter("uId"));
 					Integer funcId = 0;
 					for (String id : fId) {
 						funcId = Integer.parseInt(id);
 						if (0 < funcId) {
-							UserRoleData ur = new UserRoleData();
+							UserFunctionData ur = new UserFunctionData();
 							ur.setUserId(request.getParameter("uId"));
 							ur.setFuncId(funcId);
-							userRoleService.addUserRole(ur);
+							userFunctionService.addUserFunction(ur);
 						}
 					}
 				}
 			}else{
-				userRoleService.deleteUserRole(request.getParameter("uId"));
+				userFunctionService.deleteUserFunction(request.getParameter("uId"));
 				List<RoleFunctionData1> lr=roleFunctionService.getUserRole(rId);
 				for(RoleFunctionData1 r:lr){
-					UserRoleData ur = new UserRoleData();
+					UserFunctionData ur = new UserFunctionData();
 					ur.setUserId(request.getParameter("uId"));
 					ur.setFuncId(r.getFunctionId());
-					userRoleService.addUserRole(ur);
+					userFunctionService.addUserFunction(ur);
 				}
 			}
 			return this.staticlist();
@@ -501,24 +499,8 @@ public class UserAction extends FrmAction{
 		this.storeMap = storeMap;
 	}
 
-	/**   
-	 * userRoleService   
-	 *   
-	 * @return  the userRoleService   
-	 * @since   CodingExample Ver(编码范例查看) 1.0   
-	 */
 	
-	public IUserRoleService getUserRoleService() {
-		return userRoleService;
-	}
-
-	/**   
-	 * @param userRoleService the userRoleService to set   
-	 */
 	
-	public void setUserRoleService(IUserRoleService userRoleService) {
-		this.userRoleService = userRoleService;
-	}
 
 	/**   
 	 * systemFunctionService   
@@ -709,6 +691,14 @@ public class UserAction extends FrmAction{
 	
 	public void setRoleMap(TreeMap roleMap) {
 		this.roleMap = roleMap;
+	}
+
+	public IUserFunctionService getUserFunctionService() {
+		return userFunctionService;
+	}
+
+	public void setUserFunctionService(IUserFunctionService userFunctionService) {
+		this.userFunctionService = userFunctionService;
 	}
 
 	
