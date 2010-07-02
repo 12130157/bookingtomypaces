@@ -15,72 +15,72 @@
 	
 		
 	function add(){
-		if((document.getElementsByName("clientinfodata.client_num"))[0].value==''){	
+		if((document.getElementsByName("clientinfodata.clientNum"))[0].value==''){	
 		    alert("客戶編號不能為空,請重新輸入!");
-		    document.getElementsByName("clientinfodata.client_num")[0].focus();
+		    document.getElementsByName("clientinfodata.clientNum")[0].focus();
 		    return false;
 		 }else{
-			 if(!isWordNum((document.getElementsByName("clientinfodata.client_num"))[0].value)){
+			 if(!isWordNum((document.getElementsByName("clientinfodata.clientNum"))[0].value)){
 				 alert("客戶編號只能为数字、字母!");
-				 document.getElementsByName("clientinfodata.client_num")[0].focus();
+				 document.getElementsByName("clientinfodata.clientNum")[0].focus();
 				 return false;
 			 }
 		 }
 		
 		if(document.getElementById("_isexist").value=='1'){
 			 alert("客戶編號已存在,請重新輸入!");
-			 document.getElementsByName("clientinfodata.client_num")[0].focus();
+			 document.getElementsByName("clientinfodata.clientNum")[0].focus();
 			    return false;
 		}
-		 if((document.getElementsByName("clientinfodata.company_name"))[0].value==''){
+		 if((document.getElementsByName("clientinfodata.companyName"))[0].value==''){
 		    alert("公司名稱不能為空,請重新輸入!");
-		    document.getElementsByName("clientinfodata.company_name")[0].focus();
+		    document.getElementsByName("clientinfodata.companyName")[0].focus();
 		    return false;
 		 }
-		 if((document.getElementsByName("clientinfodata.company_shortname"))[0].value==''){
+		 if((document.getElementsByName("clientinfodata.companyShortname"))[0].value==''){
 			    alert("公司簡稱不能為空,請重新輸入!");
-			    document.getElementsByName("clientinfodata.company_shortname")[0].focus();
+			    document.getElementsByName("clientinfodata.companyShortname")[0].focus();
 			    return false;
 			 }
-		 if((document.getElementsByName("clientinfodata.comp_phone"))[0].value==''){
+		 if((document.getElementsByName("clientinfodata.compPhone"))[0].value==''){
 			    alert("公司電話不能為空,請重新輸入!");
-			    document.getElementsByName("clientinfodata.comp_phone")[0].focus();
+			    document.getElementsByName("clientinfodata.compPhone")[0].focus();
 			    return false;
 			 }else{
-				 if(!isNumeric((document.getElementsByName("clientinfodata.comp_phone"))[0].value)){
+				 if(!isNumeric((document.getElementsByName("clientinfodata.compPhone"))[0].value)){
 					 alert("公司電話只能为数字!");
-					 document.getElementsByName("clientinfodata.comp_phone")[0].focus();
+					 document.getElementsByName("clientinfodata.compPhone")[0].focus();
 					 return false;
 				 }
 			 }
 		 
-		 if((document.getElementsByName("clientinfodata.linkman_one"))[0].value==''){
+		 if((document.getElementsByName("clientinfodata.linkmanOne"))[0].value==''){
 			    alert("聯繫人[1]不能為空,請重新輸入!");
-			    document.getElementsByName("clientinfodata.linkman_one")[0].focus();
+			    document.getElementsByName("clientinfodata.linkmanOne")[0].focus();
 			    return false;
 			 }
-		 if((document.getElementsByName("clientinfodata.phone_one"))[0].value==''){
+		 if((document.getElementsByName("clientinfodata.phoneOne"))[0].value==''){
 			    alert("聯繫人電話[1]不能為空,請重新輸入!");
-			    document.getElementsByName("clientinfodata.phone_one")[0].focus();
+			    document.getElementsByName("clientinfodata.phoneOne")[0].focus();
 			    return false;
 			 }else{
-				 if(!isNumeric((document.getElementsByName("clientinfodata.phone_one"))[0].value)){
+				 if(!isNumeric((document.getElementsByName("clientinfodata.phoneOne"))[0].value)){
 					 alert("聯繫人電話[1]只能为数字!");
-					 document.getElementsByName("clientinfodata.phone_one")[0].focus();
+					 document.getElementsByName("clientinfodata.phoneOne")[0].focus();
 					 return false;
 				 }
 			 }
-		 if((document.getElementsByName("clientinfodata.phone_two"))[0].value!=''){
-			 if(!isNumeric((document.getElementsByName("clientinfodata.phone_two"))[0].value)){
+		 if((document.getElementsByName("clientinfodata.phoneTwo"))[0].value!=''){
+			 if(!isNumeric((document.getElementsByName("clientinfodata.phoneTwo"))[0].value)){
 				 alert("聯繫人電話[2]只能为数字!");
-				 document.getElementsByName("clientinfodata.phone_two")[0].focus();
+				 document.getElementsByName("clientinfodata.phoneTwo")[0].focus();
 				 return false;
 			 }
 		 }
 		 
-		 if((document.getElementsByName("clientinfodata.address_one"))[0].value==''){
+		 if((document.getElementsByName("clientinfodata.addressOne"))[0].value==''){
 			    alert("地址[1]不能為空,請重新輸入!");
-			    document.getElementsByName("clientinfodata.address_one")[0].focus();
+			    document.getElementsByName("clientinfodata.addressOne")[0].focus();
 			    return false;
 			 }
 		

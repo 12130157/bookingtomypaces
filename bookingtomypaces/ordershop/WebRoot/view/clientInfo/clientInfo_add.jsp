@@ -25,24 +25,24 @@
           </tr>	
           <tr>           
             <td width="15%" class="formtitle">客戶編號:<span class="fontred">*</span></td>
-            <td width="35%" class="formtd"> <input name="clientinfodata.client_num" type="text" class="inputform" value="" onBlur="javascript:isExistName();"><div id="_client_num" >由字母、数字、下划线组成(4-20位)</div></td>
+            <td width="35%" class="formtd"> <input name="clientinfodata.clientNum" type="text" class="inputform" value="" onBlur="javascript:isExistName();"><div id="_client_num" >由字母、数字、下划线组成(4-20位)</div></td>
 			<td class="formtitle" width="15%">地區:</td>
-            <td class="formtd" width="35%"><input name="clientinfodata.area_name" type="text" class="inputform" value=""> </td>			 
+            <td class="formtd" width="35%"><input name="clientinfodata.areaName" type="text" class="inputform" value=""> </td>			 
           </tr>
           <tr>
             <td class="formtd" colspan="4"><span class="fontred">公司</span></td>
           </tr>	
           <tr>           
             <td width="15%" class="formtitle">公司名稱:<span class="fontred">*</span></td>
-            <td width="35%" class="formtd"> <input name="clientinfodata.company_name" type="text" class="inputform" value=""></td>
+            <td width="35%" class="formtd"> <input name="clientinfodata.companyName" type="text" class="inputform" value=""></td>
 			<td class="formtitle">公司簡稱:<span class="fontred">*</span></td>
-            <td class="formtd"><input name="clientinfodata.company_shortname" type="text" class="inputform" value=""> </td>			 
+            <td class="formtd"><input name="clientinfodata.companyShortname" type="text" class="inputform" value=""> </td>			 
           </tr>
           <tr>           
             <td width="15%" class="formtitle">公司電話:<span class="fontred">*</span></td>
-            <td width="35%" class="formtd"> <input name="clientinfodata.comp_phone" type="text" class="inputform" value=""></td>
+            <td width="35%" class="formtd"> <input name="clientinfodata.compPhone" type="text" class="inputform" value=""></td>
 			<td class="formtitle">公司傳真:</td>
-            <td class="formtd"><input name="clientinfodata.comp_fax" type="text" class="inputform" value=""> </td>			 
+            <td class="formtd"><input name="clientinfodata.compFax" type="text" class="inputform" value=""> </td>			 
           </tr>
           <tr>           
             <td width="15%" class="formtitle">E-MAIL:</td>
@@ -52,27 +52,27 @@
           </tr>
           <tr>           
             <td width="15%" class="formtitle">聯繫人[1]:<span class="fontred">*</span></td>
-            <td width="35%" class="formtd"> <input name="clientinfodata.linkman_one" type="text" class="inputform" value=""></td>
+            <td width="35%" class="formtd"> <input name="clientinfodata.linkmanOne" type="text" class="inputform" value=""></td>
 			<td class="formtitle">聯繫人[2]:</td>
-            <td class="formtd"><input name="clientinfodata.linkman_two" type="text" class="inputform" value=""> </td>			 
+            <td class="formtd"><input name="clientinfodata.linkmanTwo" type="text" class="inputform" value=""> </td>			 
           </tr>
           <tr>           
             <td width="15%" class="formtitle">聯繫人電話[1]:<span class="fontred">*</span></td>
-            <td width="35%" class="formtd"> <input name="clientinfodata.phone_one" type="text" class="inputform" value=""></td>
+            <td width="35%" class="formtd"> <input name="clientinfodata.phoneOne" type="text" class="inputform" value=""></td>
 			<td class="formtitle">聯繫人電話[2]:</td>
-            <td class="formtd"><input name="clientinfodata.phone_two" type="text" class="inputform" value=""> </td>			 
+            <td class="formtd"><input name="clientinfodata.phoneTwo" type="text" class="inputform" value=""> </td>			 
           </tr>
           <tr>           
             <td width="15%" class="formtitle">職位[1]:</td>
-            <td width="35%" class="formtd"> <input name="clientinfodata.job_one" type="text" class="inputform" value=""></td>
+            <td width="35%" class="formtd"> <input name="clientinfodata.jobOne" type="text" class="inputform" value=""></td>
 			<td class="formtitle">職位[2]:</td>
-            <td class="formtd"><input name="clientinfodata.job_two" type="text" class="inputform" value=""> </td>			 
+            <td class="formtd"><input name="clientinfodata.jobTwo" type="text" class="inputform" value=""> </td>			 
           </tr>
           <tr>           
             <td width="15%" class="formtitle">地址[1]:<span class="fontred">*</span></td>
-            <td width="35%" class="formtd"> <textarea name="clientinfodata.address_one" class="inputformtext" style="width:90%;"></textarea></td>
+            <td width="35%" class="formtd"> <textarea name="clientinfodata.addressOne" class="inputformtext" style="width:90%;"></textarea></td>
 			<td class="formtitle">地址[2]:</td>
-            <td class="formtd"><textarea name="clientinfodata.address_two" class="inputformtext" style="width:90%;"></textarea> </td>			 
+            <td class="formtd"><textarea name="clientinfodata.addressTwo" class="inputformtext" style="width:90%;"></textarea> </td>			 
           </tr>
           <tr>
             <td class="formtd" colspan="4"><span class="fontred">其他</span></td>

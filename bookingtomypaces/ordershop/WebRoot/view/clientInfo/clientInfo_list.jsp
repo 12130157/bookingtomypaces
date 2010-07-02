@@ -61,12 +61,12 @@
 		<s:iterator  value="clientInfoList" status="flag" >
 		<tr title="双击查看详细内容" onDblClick="view('<s:property value="id"/>');">			
 			<td align="center"><input type="checkbox" name="checkbox"  value="<s:property value="id"/>"></td>
-			<td><a href="#"><s:property value="client_num"/></a></td>
-			<td><s:property value="company_shortname"/></td>
-			<td><s:property value="comp_phone"/></td>
-			<td><s:property value="linkman_one"/></td>
-			<td><s:property value="phone_one"/></td>
-			<td><s:property value="address_one"/></td>	
+			<td><a href="#"><s:property value="clientNum"/></a></td>
+			<td><s:property value="companyShortname"/></td>
+			<td><s:property value="compPhone"/></td>
+			<td><s:property value="linkmanOne"/></td>
+			<td><s:property value="phoneOne"/></td>
+			<td><s:property value="addressOne"/></td>	
 			<td >
 				<a href="#" onclick="edit_jsp('<s:property value="id"/>')" class='linkorange'>编辑</a>
 			</td>

@@ -21,24 +21,24 @@
           </tr>	
           <tr>           
             <td width="15%" class="formtitle">客戶編號:<span class="fontred">*</span></td>
-            <td width="35%" class="formtd">${clientinfodata.client_num }</td>
+            <td width="35%" class="formtd">${clientinfodata.clientNum }</td>
 			<td class="formtitle" width="15%">地區:</td>
-            <td class="formtd" width="35%">${clientinfodata.area_name }</td>			 
+            <td class="formtd" width="35%">${clientinfodata.areaName }</td>			 
           </tr>
           <tr>
             <td class="formtd" colspan="4"><span class="fontred">公司</span></td>
           </tr>	
           <tr>           
             <td width="15%" class="formtitle">公司名稱:<span class="fontred">*</span></td>
-            <td width="35%" class="formtd">${clientinfodata.company_name }</td>
+            <td width="35%" class="formtd">${clientinfodata.companyName }</td>
 			<td class="formtitle">公司簡稱:<span class="fontred">*</span></td>
-            <td class="formtd">${clientinfodata.company_shortname }</td>			 
+            <td class="formtd">${clientinfodata.companyShortname }</td>			 
           </tr>
           <tr>           
             <td width="15%" class="formtitle">公司電話:<span class="fontred">*</span></td>
-            <td width="35%" class="formtd">${clientinfodata.comp_phone }</td>
+            <td width="35%" class="formtd">${clientinfodata.compPhone }</td>
 			<td class="formtitle">公司傳真:</td>
-            <td class="formtd">${clientinfodata.comp_fax }</td>			 
+            <td class="formtd">${clientinfodata.compFax }</td>			 
           </tr>
           <tr>           
             <td width="15%" class="formtitle">E-MAIL:</td>
@@ -48,27 +48,27 @@
           </tr>
           <tr>           
             <td width="15%" class="formtitle">聯繫人[1]:<span class="fontred">*</span></td>
-            <td width="35%" class="formtd">${clientinfodata.linkman_one }</td>
+            <td width="35%" class="formtd">${clientinfodata.linkmanOne }</td>
 			<td class="formtitle">聯繫人[2]:</td>
-            <td class="formtd">${clientinfodata.linkman_two }</td>			 
+            <td class="formtd">${clientinfodata.linkmanTwo }</td>			 
           </tr>
           <tr>           
             <td width="15%" class="formtitle">聯繫人電話[1]:<span class="fontred">*</span></td>
-            <td width="35%" class="formtd">${clientinfodata.phone_one }</td>
+            <td width="35%" class="formtd">${clientinfodata.phoneOne }</td>
 			<td class="formtitle">聯繫人電話[2]:</td>
-            <td class="formtd">${clientinfodata.phone_two }</td>			 
+            <td class="formtd">${clientinfodata.phoneTwo }</td>			 
           </tr>
           <tr>           
             <td width="15%" class="formtitle">職位[1]:</td>
-            <td width="35%" class="formtd">${clientinfodata.job_one }</td>
+            <td width="35%" class="formtd">${clientinfodata.jobOne }</td>
 			<td class="formtitle">職位[2]:</td>
-            <td class="formtd">${clientinfodata.job_two }</td>			 
+            <td class="formtd">${clientinfodata.jobTwo }</td>			 
           </tr>
           <tr>           
             <td width="15%" class="formtitle">地址[1]:<span class="fontred">*</span></td>
-            <td width="35%" class="formtd">${clientinfodata.address_one }</td>
+            <td width="35%" class="formtd">${clientinfodata.addressOne }</td>
 			<td class="formtitle">地址[2]:</td>
-            <td class="formtd">${clientinfodata.address_two }</td>			 
+            <td class="formtd">${clientinfodata.addressTwo }</td>			 
           </tr>
           <tr>
             <td class="formtd" colspan="4"><span class="fontred">其他</span></td>
@@ -96,7 +96,7 @@
           </tr>   
            <tr>           
             <td width="15%" class="formtitle">創建時間:</td>
-            <td width="35%" class="formtd">${clientinfodata.create_time }</td>
+            <td width="35%" class="formtd">${clientinfodata.createTime }</td>
 			<td class="formtitle"></td>
             <td class="formtd"></td>			 
           </tr>
