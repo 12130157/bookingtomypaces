@@ -2,8 +2,6 @@ package com.king.web.usermanage.user.service;
 
 import java.util.List;
 
-import net.sf.json.JSONObject;
-
 import com.king.base.FrmService;
 import com.king.common.exception.KINGException;
 import com.king.tools.PageRoll;
@@ -125,7 +123,7 @@ public class UserService extends FrmService implements IUserService{
 	 * @throws KINGException
 	 */
 	public int userExistRole(String uid) throws KINGException{
-		String hql = "select count(u.id) from UserRoleData u where u.userId='" +uid+ "'";
+		String hql = "select count(u.id) from UserFunctionData u where u.userId='" +uid+ "'";
 		return userDao.search(hql).size();
 	}
 
