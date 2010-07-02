@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+	version="2.0">
+
+	<description>tools 1.0 core library</description>
+	<display-name>tools core</display-name>
+	<tlib-version>1.0</tlib-version>
+	<short-name>tools</short-name>
+	<uri>/tools-tags</uri>
+
+	<tag>
+		<description>page share by url</description>
+		<name>pageUrl</name>
+		<tag-class>com.king.tools.PageUrlTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>url String input</description>
+			<name>url</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>count Integer input</description>
+			<name>count</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>pageSize Integer input</description>
+			<name>pageSize</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>curPage Integer input</description>
+			<name>curPage</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>viewNum Integer input</description>
+			<name>viewNum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+	<tag>
+		<description>page share by js</description>
+		<name>pageJs</name>
+		<tag-class>com.king.tools.PageJsTag</tag-class>
+		<body-content>empty</body-content>
+		<attribute>
+			<description>count Integer input</description>
+			<name>count</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>pageSize Integer input</description>
+			<name>pageSize</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>curPage Integer input</description>
+			<name>curPage</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<description>viewNum Integer input</description>
+			<name>viewNum</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+
+</taglib>

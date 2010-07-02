@@ -25,7 +25,7 @@ import com.king.web.usermanage.role.service.IRoleFunctionService;
 import com.king.web.usermanage.role.service.IRoleService;
 import com.king.web.usermanage.systemfunction.data.SystemFunctionData;
 import com.king.web.usermanage.systemfunction.service.ISystemFunctionService;
-import com.tag.PageVo;
+import com.king.tools.PageVo;
 
 @ResultPath("/")
 //定义具体的页面及其对应的返回值。

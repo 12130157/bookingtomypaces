@@ -14,7 +14,7 @@ import com.king.tools.Constants;
 import com.king.tools.PageRoll;
 import com.king.web.usermanage.dept.data.DeptData;
 import com.king.web.usermanage.dept.service.IDeptService;
-import com.tag.PageVo;
+import com.king.tools.PageVo;
 
 @ResultPath("/")
 //定义具体的页面及其对应的返回值。

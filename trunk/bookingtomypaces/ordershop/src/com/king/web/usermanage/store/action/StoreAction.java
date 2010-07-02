@@ -25,7 +25,7 @@ import com.king.tools.Constants;
 import com.king.tools.PageRoll;
 import com.king.web.usermanage.store.service.IStoreService;
 import com.king.web.usermanage.store.data.StoreData;
-import com.tag.PageVo;
+import com.king.tools.PageVo;
 
 /**   
  *    

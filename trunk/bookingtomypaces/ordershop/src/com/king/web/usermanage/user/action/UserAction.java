@@ -10,7 +10,7 @@ import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.ResultPath;
 import org.apache.struts2.convention.annotation.Results;
 
-import com.common.Md5Tools;
+import com.king.tools.Md5Tools;
 import com.king.base.FrmAction;
 import com.king.common.cache.CacheUtil;
 import com.king.common.exception.KINGException;
@@ -31,7 +31,7 @@ import com.king.web.usermanage.user.data.UserData;
 import com.king.web.usermanage.user.data.UserFunctionData;
 import com.king.web.usermanage.user.service.IUserFunctionService;
 import com.king.web.usermanage.user.service.IUserService;
-import com.tag.PageVo;
+import com.king.tools.PageVo;
 
 @ResultPath("/")
 //定义具体的页面及其对应的返回值。

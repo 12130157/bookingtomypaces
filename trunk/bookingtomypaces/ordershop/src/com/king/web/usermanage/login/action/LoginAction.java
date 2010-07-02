@@ -5,7 +5,7 @@ import org.apache.struts2.convention.annotation.Result;
 import org.apache.struts2.convention.annotation.ResultPath;
 import org.apache.struts2.convention.annotation.Results;
 
-import com.common.Md5Tools;
+import com.king.tools.Md5Tools;
 import com.king.base.FrmAction;
 import com.king.base.FrmUser;
 import com.king.common.exception.KINGException;
