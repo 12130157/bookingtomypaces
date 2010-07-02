@@ -97,7 +97,7 @@
 		</s:iterator>
 		<tr>
               <td colspan="11" align="right" class="backwhite" height="30">
-              共${page.count}條記錄&nbsp;<tools:pageUrl url="${url}" count="${page.count}" curPage="${page.curPage}" pageSize="${page.pageSize}" />			  
+              <tools:pageUrl url="${url}" count="${page.count}" curPage="${page.curPage}" pageSize="${page.pageSize}" />			  
 			  </td>
       </tr>	
 		</tbody>
