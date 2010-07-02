@@ -27,7 +27,7 @@ public abstract class FrmData implements IData{
 	protected String id;
 	
 	@Id
-	@Column(name="ID", length = 32, nullable = false)
+	@Column(name="id", length = 32, nullable = false)
 	@GeneratedValue(generator = "system-uuid")
 	@GenericGenerator(name = "system-uuid", strategy = "uuid.hex")
 	public String getId() {

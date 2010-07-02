@@ -15,7 +15,7 @@ public class DeptData extends FrmData{
 	private String name;//部门名称
 	private int status;//状态
 
-	@Column(length = 50,name = "NAME",nullable = true)
+	@Column(length = 50,name = "name",nullable = true)
 	public String getName() {
 		return name;
 	}
@@ -24,7 +24,7 @@ public class DeptData extends FrmData{
 		this.name = name;
 	}
 
-	@Column(length = 4,name = "STATUS",nullable = true)
+	@Column(length = 4,name = "status",nullable = true)
 	public int getStatus() {
 		return status;
 	}

@@ -27,7 +27,7 @@ public class UserFunctionData extends FrmData{
 	/**
 	 * @return the userId
 	 */
-	@Column(length = 32,name = "USERID",nullable = true)
+	@Column(length = 32,name = "userId",nullable = true)
 	public String getUserId() {
 		return userId;
 	}
@@ -43,7 +43,7 @@ public class UserFunctionData extends FrmData{
 	 * @return  the funcId   
 	 * @since   CodingExample Ver(编码范例查看) 1.0   
 	 */
-	@Column(length = 4,name = "FUNCID",nullable = true)
+	@Column(length = 4,name = "funcId",nullable = true)
 	public int getFuncId() {
 		return funcId;
 	}

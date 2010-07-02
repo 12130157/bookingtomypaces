@@ -34,7 +34,7 @@ public class RoleData extends FrmData {
 	/**
 	 * @return the name
 	 */
-	@Column(length = 64,name = "NAME",nullable = true)
+	@Column(length = 64,name = "name",nullable = true)
 	public String getName() {
 		return name;
 	}
@@ -47,7 +47,7 @@ public class RoleData extends FrmData {
 	/**
 	 * @return the memo
 	 */
-	@Column(length = 128,name = "MEMO",nullable = true)
+	@Column(length = 128,name = "memo",nullable = true)
 	public String getMemo() {
 		return memo;
 	}
