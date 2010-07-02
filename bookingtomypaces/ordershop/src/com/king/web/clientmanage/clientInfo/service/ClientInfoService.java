@@ -81,6 +81,29 @@ public class ClientInfoService extends FrmService implements IClientInfoService{
 		return list;
 	}
 
+	/**
+	 * 7.批量更新客户 基本信息
+	 * @param ids 客户 基本信息ID数组
+	 * @throws KINGException
+	 */
+	public void updateClientInfo(String[] ids) throws KINGException{
+		for (int i = 0; i < ids.length; i++) {
+			String withsql=" update ClientInfoData set state='2' where id='"+ids[i]+"'";
+			int flag=clientInfoDao.executeSQL(withsql);
+			
+		}
+	}
+	
+	/**
+	 * 8.更新客户状态
+	 * @param ids 客户 基本信息ID数组
+	 * @throws KINGException
+	 */
+	public void updateClientInfoByid(String id,String state) throws KINGException{	
+			String withsql=" update ClientInfoData set state='"+state+"' where id='"+id+"'";
+			int flag=clientInfoDao.executeSQL(withsql);			
+	}
+	
 	public IClientInfoDAO getClientInfoDao() {
 		return clientInfoDao;
 	}

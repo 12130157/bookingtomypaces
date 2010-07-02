@@ -55,4 +55,17 @@ public interface IClientInfoService {
 	 */
 	public List<ClientInfoData> searchClientInfoList(PageRoll pageRoll,String withhql) throws KINGException;
 	
+	/**
+	 * 批量更新客户 状态
+	 * @param ids 客户 基本信息ID数组
+	 * @throws KINGException
+	 */
+	public void updateClientInfo(String[] ids) throws KINGException;
+	/**
+	 * 更新id客户 状态
+	 * @param ids 客户 基本信息ID数组
+	 * @throws KINGException
+	 */
+	public void updateClientInfoByid(String id,String state) throws KINGException;	
+	
 }
