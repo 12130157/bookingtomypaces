@@ -102,9 +102,10 @@ public class ClientInfoAction extends FrmAction{
 		if(null==getFrmUser()){
 			return "home";
 		}
-		//System.out.println("Client_num=="+clientinfodata.getClient_num());
-		//System.out.println("userName=="+clientinfodata.getCompany_name());
-		clientinfodata.setCreate_time(DateTool.getNowDate());
+//		System.out.println("Client_id=="+clientinfodata.getId());
+//		System.out.println("Client_num=="+clientinfodata.getClient_num());
+//		System.out.println("userName=="+clientinfodata.getCompany_name());
+		clientinfodata.setCreateTime(DateTool.getNowDate());
 		//System.out.println("getCreate_time=="+clientinfodata.getCreate_time());
 		clientInfoService.addClientInfo(clientinfodata);
 		
@@ -120,7 +121,7 @@ public class ClientInfoAction extends FrmAction{
 		if(null==getFrmUser()){
 			return "home";
 		}
-		//System.out.println("id=="+request.getParameter("id"));
+		System.out.println("id=="+request.getParameter("id"));
 		clientinfodata=clientInfoService.retrieveClientInfo(request.getParameter("id"));
 		return "edit";
 	}
@@ -133,8 +134,9 @@ public class ClientInfoAction extends FrmAction{
 		if(null==getFrmUser()){
 			return "home";
 		}
-		//System.out.println("Client_num=="+clientinfodata.getClient_num());
-		//System.out.println("userName=="+clientinfodata.getCompany_name());
+		System.out.println("Client_id=="+clientinfodata.getId());
+		System.out.println("Client_num=="+clientinfodata.getClientNum());
+		System.out.println("userName=="+clientinfodata.getCompanyName());
 		clientInfoService.updateClientInfo(clientinfodata);
 		
 		return this.staticlist();
