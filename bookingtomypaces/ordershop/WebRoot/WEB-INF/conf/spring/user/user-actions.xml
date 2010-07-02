@@ -9,7 +9,7 @@
 		<property name="userService" ref="userService"/>
 		<property name="deptService" ref="deptService"/>
 		<property name="storeService" ref="storeService"/>
-		<property name="userRoleService" ref="userRoleService"/>
+		<property name="userFunctionService" ref="userFunctionService"/>
 		<property name="roleService" ref="roleService"/>
 		<property name="roleFunctionService" ref="roleFunctionService"/>
 		<property name="systemFunctionService" ref="systemFunctionService"/>
