@@ -16,71 +16,64 @@ import com.king.base.FrmData;
 public class ClientInfoData  extends FrmData{
 	
 //	private String id;
-	private String client_num;
-	private String company_name;
-	private String company_shortname;
-	private String comp_phone;
-	private String comp_fax;
+	private String clientNum;
+	private String companyName;
+	private String companyShortname;
+	private String compPhone;
+	private String compFax;
 	private String e_mail;
-	private String linkman_one;
-	private String phone_one;
-	private String job_one;
+	private String linkmanOne;
+	private String phoneOne;
+	private String jobOne;
 	
-	private String address_one;
-	private String linkman_two;
-	private String phone_two;
-	private String job_two;
-	private String address_two;
-	private String area_name;
+	private String addressOne;
+	private String linkmanTwo;
+	private String phoneTwo;
+	private String jobTwo;
+	private String addressTwo;
+	private String areaName;
 	private String remark;
 	private int prompt;
 	private double rebate;
 	private String functionary;
 	
 	private String state;
-	private Date create_time;
+	private Date createTime;
 	
-//	@Column(name = "id",nullable = true)
-//	public String getId() {
-//		return id;
-//	}
-//	public void setId(String id) {
-//		this.id = id;
-//	}
-	@Column(name = "client_num",nullable = true)
-	public String getClient_num() {
-		return client_num;
+	@Column(name = "clientNum",nullable = true)
+	public String getClientNum() {
+		return clientNum;
 	}
-	public void setClient_num(String clientNum) {
-		client_num = clientNum;
+	public void setClientNum(String clientNum) {
+		clientNum = clientNum;
 	}
-	@Column(name = "company_name",nullable = true)
-	public String getCompany_name() {
-		return company_name;
+	@Column(name = "companyName",nullable = true)
+	public String getCompanyName() {
+		return companyName;
 	}
-	public void setCompany_name(String companyName) {
-		company_name = companyName;
+	public void setCompanyName(String companyName) {
+		companyName = companyName;
 	}
-	@Column(name = "company_shortname",nullable = true)
-	public String getCompany_shortname() {
-		return company_shortname;
+	@Column(name = "companyShortname",nullable = true)
+	public String getCompanyShortname() {
+		return companyShortname;
 	}
-	public void setCompany_shortname(String companyShortname) {
-		company_shortname = companyShortname;
+	public void setCompanyShortname(String companyShortname) {
+		companyShortname = companyShortname;
 	}
-	@Column(name = "comp_phone",nullable = true)
-	public String getComp_phone() {
-		return comp_phone;
+	@Column(name = "compPhone",nullable = true)
+	public String getCompPhone() {
+		return compPhone;
 	}
-	public void setComp_phone(String compPhone) {
-		comp_phone = compPhone;
+	public void setCompPhone(String compPhone) {
+		compPhone = compPhone;
 	}
-	@Column(name = "comp_fax",nullable = true)
-	public String getComp_fax() {
-		return comp_fax;
+	@Column(name = "compFax",nullable = true)
+	public String getCompFax() {
+		return compFax;
 	}
-	public void setComp_fax(String compFax) {
-		comp_fax = compFax;
+	public void setCompFax(String compFax) {
+		compFax = compFax;
 	}
 	@Column(name = "e_mail",nullable = true)
 	public String getE_mail() {
@@ -89,116 +82,112 @@ public class ClientInfoData  extends FrmData{
 	public void setE_mail(String eMail) {
 		e_mail = eMail;
 	}
-	@Column(name = "linkman_one",nullable = true)
-	public String getLinkman_one() {
-		return linkman_one;
+	@Column(name = "linkmanOne",nullable = true)
+	public String getLinkmanOne() {
+		return linkmanOne;
 	}
-	public void setLinkman_one(String linkmanOne) {
-		linkman_one = linkmanOne;
+	public void setLinkmanOne(String linkmanOne) {
+		linkmanOne = linkmanOne;
 	}
-	@Column(name = "phone_one",nullable = true)
-	public String getPhone_one() {
-		return phone_one;
+	@Column(name = "phoneOne",nullable = true)
+	public String getPhoneOne() {
+		return phoneOne;
 	}
-	public void setPhone_one(String phoneOne) {
-		phone_one = phoneOne;
+	public void setPhoneOne(String phoneOne) {
+		phoneOne = phoneOne;
 	}
-	@Column(name = "job_one",nullable = true)
-	public String getJob_one() {
-		return job_one;
+	@Column(name = "jobOne",nullable = true)
+	public String getJobOne() {
+		return jobOne;
 	}
-	public void setJob_one(String jobOne) {
-		job_one = jobOne;
+	public void setJobOne(String jobOne) {
+		jobOne = jobOne;
 	}
-	@Column(name = "address_one",nullable = true)
-	public String getAddress_one() {
-		return address_one;
+	@Column(name = "addressOne",nullable = true)
+	public String getAddressOne() {
+		return addressOne;
 	}
-	public void setAddress_one(String addressOne) {
-		address_one = addressOne;
+	public void setAddressOne(String addressOne) {
+		addressOne = addressOne;
 	}
-	@Column(name = "linkman_two",nullable = true)
-	public String getLinkman_two() {
-		return linkman_two;
+	@Column(name = "linkmanTwo",nullable = true)
+	public String getLinkmanTwo() {
+		return linkmanTwo;
 	}
-	public void setLinkman_two(String linkmanTwo) {
-		linkman_two = linkmanTwo;
+	public void setLinkmanTwo(String linkmanTwo) {
+		linkmanTwo = linkmanTwo;
 	}
-	@Column(name = "phone_two",nullable = true)
-	public String getPhone_two() {
-		return phone_two;
+	@Column(name = "phoneTwo",nullable = true)
+	public String getPhoneTwo() {
+		return phoneTwo;
 	}
-	public void setPhone_two(String phoneTwo) {
-		phone_two = phoneTwo;
+	public void setPhoneTwo(String phoneTwo) {
+		phoneTwo = phoneTwo;
 	}
-	@Column(name = "job_two",nullable = true)
-	public String getJob_two() {
-		return job_two;
+	@Column(name = "jobTwo",nullable = true)
+	public String getJobTwo() {
+		return jobTwo;
 	}
-	public void setJob_two(String jobTwo) {
-		job_two = jobTwo;
+	public void setJobTwo(String jobTwo) {
+		jobTwo = jobTwo;
 	}
-	@Column(name = "address_two",nullable = true)
-	public String getAddress_two() {
-		return address_two;
+	@Column(name = "addressTwo",nullable = true)
+	public String getAddressTwo() {
+		return addressTwo;
 	}
-	public void setAddress_two(String addressTwo) {
-		address_two = addressTwo;
+	public void setAddressTwo(String addressTwo) {
+		addressTwo = addressTwo;
 	}
-	@Column(name = "area_name",nullable = true)
-	public String getArea_name() {
-		return area_name;
+	@Column(name = "areaName",nullable = true)
+	public String getAreaName() {
+		return areaName;
 	}
-	public void setArea_name(String areaName) {
-		area_name = areaName;
+	public void setAreaName(String areaName) {
+		areaName = areaName;
 	}
 	@Column(name = "remark",nullable = true)
 	public String getRemark() {
 		return remark;
 	}
 	public void setRemark(String remark) {
-		this.remark = remark;
-	}
-	
-	
-	@Column(name = "functionary",nullable = true)
-	public String getFunctionary() {
-		return functionary;
-	}
-	public void setFunctionary(String functionary) {
-		this.functionary = functionary;
-	}
-	@Column(name = "state",nullable = true)
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	@Column(name = "create_time",nullable = true)
-	public Date getCreate_time() {
-		return create_time;
-	}
-	public void setCreate_time(Date createTime) {
-		create_time = createTime;
+		remark = remark;
 	}
 	@Column(name = "prompt",nullable = true)
 	public int getPrompt() {
 		return prompt;
 	}
 	public void setPrompt(int prompt) {
-		this.prompt = prompt;
+		prompt = prompt;
 	}
 	@Column(name = "rebate",nullable = true)
 	public double getRebate() {
 		return rebate;
 	}
 	public void setRebate(double rebate) {
-		this.rebate = rebate;
+		rebate = rebate;
+	}
+	@Column(name = "functionary",nullable = true)
+	
+	public String getFunctionary() {
+		return functionary;
+	}
+	public void setFunctionary(String functionary) {
+		functionary = functionary;
+	}
+	@Column(name = "state",nullable = true)
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		state = state;
+	}
+	@Column(name = "createTime",nullable = true)
+	public Date getCreateTime() {
+		return createTime;
+	}
+	public void setCreateTime(Date createTime) {
+		createTime = createTime;
 	}
 	
-
 	
-	
-
 }
