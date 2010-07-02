@@ -42,7 +42,7 @@
 				<value>com.king.web.usermanage.role.data.RoleFunctionData1</value>
 				<value>com.king.web.usermanage.systemfunction.data.SystemFunctionData</value>
 				<value>com.king.web.usermanage.user.data.UserData</value>
-				<value>com.king.web.usermanage.user.data.UserRoleData</value>
+				<value>com.king.web.usermanage.user.data.UserFunctionData</value>
 				<value>com.king.web.clientmanage.clientInfo.data.ClientInfoData</value>
 				<value>com.king.web.usermanage.store.data.StoreData</value>
 			</list>
