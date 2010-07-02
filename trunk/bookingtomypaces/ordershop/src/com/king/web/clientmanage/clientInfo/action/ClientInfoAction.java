@@ -15,7 +15,7 @@ import com.king.tools.DateTool;
 import com.king.tools.PageRoll;
 import com.king.web.clientmanage.clientInfo.data.ClientInfoData;
 import com.king.web.clientmanage.clientInfo.service.IClientInfoService;
-import com.tag.PageVo;
+import com.king.tools.PageVo;
 
 @ResultPath("/")
 //定义具体的页面及其对应的返回值。
