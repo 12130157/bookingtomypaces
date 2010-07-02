@@ -46,7 +46,7 @@ public class ClientInfoAction extends FrmAction{
 		String withsql=" where 1=1 ";
 		String find_str = request.getParameter("find_str")==null?"":request.getParameter("find_str").toString();
 		if(!"".equals(find_str)){
-			withsql+=" and (client_num like '%"+find_str+"%' or company_shortname like '%"+find_str+"%') ";
+			withsql+=" and (clientNum like '%"+find_str+"%' or companyShortname like '%"+find_str+"%') ";
 		}
 		System.out.println("withsql: "+withsql);
 		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
@@ -153,7 +153,7 @@ public class ClientInfoAction extends FrmAction{
 		PageRoll p =new PageRoll();
 		p.setPageSize(Constants.PAGE_SIZE);
 		p.setStartRow(1);
-		clientInfoList =clientInfoService.searchClientInfoList(p, " where 1=1 and  client_num='"+name+"' ");
+		clientInfoList =clientInfoService.searchClientInfoList(p, " where 1=1 and  clientNum='"+name+"' ");
 		System.out.println("findByProperty.count=="+p.getTotalRows()+":::"+clientInfoList.size());
 		return p.getTotalRows();
 	}
