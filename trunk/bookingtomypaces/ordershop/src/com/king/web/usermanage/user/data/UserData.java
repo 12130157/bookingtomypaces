@@ -37,7 +37,7 @@ public class UserData extends FrmData {
 	/**
 	 * @return the unitId
 	 */
-	@Column(length = 32,name = "DEPTID",nullable = true)
+	@Column(length = 32,name = "deptId",nullable = true)
 	public String getDeptId() {
 		return deptId;
 	}
@@ -50,7 +50,7 @@ public class UserData extends FrmData {
 	/**
 	 * @return the userName
 	 */
-	@Column(length = 128,name = "USERNAME",nullable = true)
+	@Column(length = 128,name = "userName",nullable = true)
 	public String getUserName() {
 		return userName;
 	}
@@ -63,7 +63,7 @@ public class UserData extends FrmData {
 	/**
 	 * @return the passWord
 	 */
-	@Column(length = 128,name = "PASSWORD",nullable = true)
+	@Column(length = 128,name = "passWord",nullable = true)
 	public String getPassWord() {
 		return passWord;
 	}
@@ -76,7 +76,7 @@ public class UserData extends FrmData {
 	/**
 	 * @return the status
 	 */
-	@Column(length = 4,name = "STATUS",nullable = true)
+	@Column(length = 4,name = "status",nullable = true)
 	public int getStatus() {
 		return status;
 	}
@@ -89,7 +89,7 @@ public class UserData extends FrmData {
 	/**
 	 * @return the lastTime
 	 */
-	@Column(name = "LASTTIME",nullable = true)
+	@Column(name = "lastTime",nullable = true)
 	public java.util.Date getLastTime() {
 		return lastTime;
 	}
@@ -102,7 +102,7 @@ public class UserData extends FrmData {
 	/**
 	 * @return the lastIp
 	 */
-	@Column(length = 128,name = "LASTIP",nullable = true)
+	@Column(length = 128,name = "lastIp",nullable = true)
 	public String getLastIp() {
 		return lastIp;
 	}
@@ -115,7 +115,7 @@ public class UserData extends FrmData {
 	/**
 	 * @return the creatTime
 	 */
-	@Column(name = "CREATTIME",nullable = true)
+	@Column(name = "creatTime",nullable = true)
 	public java.util.Date getCreatTime() {
 		return creatTime;
 	}
@@ -128,7 +128,7 @@ public class UserData extends FrmData {
 	/**
 	 * @return the realName
 	 */
-	@Column(length = 128,name = "REALNAME",nullable = true)
+	@Column(length = 128,name = "realName",nullable = true)
 	public String getRealName() {
 		return realName;
 	}
@@ -141,7 +141,7 @@ public class UserData extends FrmData {
 	/**
 	 * @return the mobile
 	 */
-	@Column(length = 50,name = "MOBILE",nullable = true)
+	@Column(length = 50,name = "mobile",nullable = true)
 	public String getMobile() {
 		return mobile;
 	}
@@ -154,7 +154,7 @@ public class UserData extends FrmData {
 	/**
 	 * @return the areaId
 	 */
-	@Column(length = 32,name = "AREAID",nullable = true)
+	@Column(length = 32,name = "areaId",nullable = true)
 	public String getAreaId() {
 		return areaId;
 	}
@@ -167,7 +167,7 @@ public class UserData extends FrmData {
 	/**
 	 * @return the shopId
 	 */
-	@Column(length = 32,name = "SHOPID",nullable = true)
+	@Column(length = 32,name = "shopId",nullable = true)
 	public String getShopId() {
 		return shopId;
 	}
@@ -180,7 +180,7 @@ public class UserData extends FrmData {
 	/**
 	 * @return the isHeadOffice
 	 */
-	@Column(length = 4,name = "ISHEADOFFICE",nullable = false)
+	@Column(length = 4,name = "isHeadOffice",nullable = false)
 	public int getIsHeadOffice() {
 		return isHeadOffice;
 	}

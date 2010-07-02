@@ -43,7 +43,7 @@ public class RoleFunctionData extends FrmData {
 	/**
 	 * @return the functionId
 	 */
-	@Column(length = 4,name = "FUNCTIONID",nullable = true)
+	@Column(length = 4,name = "functionId",nullable = true)
 	public int getFunctionId() {
 		return functionId;
 	}

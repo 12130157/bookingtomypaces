@@ -26,7 +26,7 @@ public class RoleFunctionData1 extends FrmData {
 	/**
 	 * @return the roleId
 	 */
-	@Column(length = 32,name = "ROLEID",nullable = true)
+	@Column(length = 32,name = "roleId",nullable = true)
 	public String getRoleId() {
 		return roleId;
 	}
@@ -39,7 +39,7 @@ public class RoleFunctionData1 extends FrmData {
 	/**
 	 * @return the functionId
 	 */
-	@Column(length = 4,name = "FUNCTIONID",nullable = true)
+	@Column(length = 4,name = "functionId",nullable = true)
 	public int getFunctionId() {
 		return functionId;
 	}

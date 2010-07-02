@@ -24,7 +24,7 @@ public class SystemFunctionData extends FrmData {
 	/**
 	 * @return the perfunc
 	 */
-	@Column(length = 4,name = "PERFUNC",nullable = true)
+	@Column(length = 4,name = "perfunc",nullable = true)
 	public int getPerfunc() {
 		return perfunc;
 	}
@@ -37,7 +37,7 @@ public class SystemFunctionData extends FrmData {
 	/**
 	 * @return the funclevel
 	 */
-	@Column(length = 4,name = "FUNCLEVEL",nullable = true)
+	@Column(length = 4,name = "funclevel",nullable = true)
 	public int getFunclevel() {
 		return funclevel;
 	}
@@ -50,7 +50,7 @@ public class SystemFunctionData extends FrmData {
 	/**
 	 * @return the funcname
 	 */
-	@Column(length = 64,name = "FUNCNAME",nullable = true)
+	@Column(length = 64,name = "funcname",nullable = true)
 	public String getFuncname() {
 		return funcname;
 	}
@@ -63,7 +63,7 @@ public class SystemFunctionData extends FrmData {
 	/**
 	 * @return the url
 	 */
-	@Column(length = 64,name = "URL",nullable = true)
+	@Column(length = 64,name = "url",nullable = true)
 	public String getUrl() {
 		return url;
 	}
@@ -76,7 +76,7 @@ public class SystemFunctionData extends FrmData {
 	/**
 	 * @return the seq
 	 */
-	@Column(length = 4,name = "SEQ",nullable = true)
+	@Column(length = 4,name = "seq",nullable = true)
 	public int getSeq() {
 		return seq;
 	}
@@ -89,7 +89,7 @@ public class SystemFunctionData extends FrmData {
 	/**
 	 * @return the status
 	 */
-	@Column(length = 4,name = "STATUS",nullable = true)
+	@Column(length = 4,name = "status",nullable = true)
 	public int getStatus() {
 		return status;
 	}

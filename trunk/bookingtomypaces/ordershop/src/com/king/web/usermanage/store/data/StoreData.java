@@ -38,17 +38,17 @@ import com.king.base.FrmData;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class StoreData extends FrmData {
 
-	@Column(length = 255,name = "NAME",nullable = true)
+	
 	private String name;//店鋪名称
-	@Column(length = 150,name = "SHORTNAME",nullable = true)
+	
 	private String shortName;//英文簡稱
-	@Column(length = 350,name = "ADDRESS",nullable = true)
+	
 	private String address;//店鋪地址
-	@Column(length = 50,name = "MANAGERNAME",nullable = true)
+	
 	private String managerName;//店長姓名
-	@Column(length = 50,name = "MANAGERMOBILE",nullable = true)
+	
 	private String managerMobile;//店長電話
-	@Column(length = 1,name = "STATUS",nullable = true)
+	
 	private int status;//狀態
 	/**   
 	 * name   
@@ -56,7 +56,7 @@ public class StoreData extends FrmData {
 	 * @return  the name   
 	 * @since   CodingExample Ver(编码范例查看) 1.0   
 	 */
-	
+	@Column(length = 255,name = "name",nullable = true)
 	public String getName() {
 		return name;
 	}
@@ -73,7 +73,7 @@ public class StoreData extends FrmData {
 	 * @return  the shortName   
 	 * @since   CodingExample Ver(编码范例查看) 1.0   
 	 */
-	
+	@Column(length = 150,name = "shortName",nullable = true)
 	public String getShortName() {
 		return shortName;
 	}
@@ -90,7 +90,7 @@ public class StoreData extends FrmData {
 	 * @return  the address   
 	 * @since   CodingExample Ver(编码范例查看) 1.0   
 	 */
-	
+	@Column(length = 350,name = "address",nullable = true)
 	public String getAddress() {
 		return address;
 	}
@@ -107,7 +107,7 @@ public class StoreData extends FrmData {
 	 * @return  the managerName   
 	 * @since   CodingExample Ver(编码范例查看) 1.0   
 	 */
-	
+	@Column(length = 50,name = "managerName",nullable = true)
 	public String getManagerName() {
 		return managerName;
 	}
@@ -124,7 +124,7 @@ public class StoreData extends FrmData {
 	 * @return  the managerMobile   
 	 * @since   CodingExample Ver(编码范例查看) 1.0   
 	 */
-	
+	@Column(length = 50,name = "managerMobile",nullable = true)
 	public String getManagerMobile() {
 		return managerMobile;
 	}
@@ -141,7 +141,7 @@ public class StoreData extends FrmData {
 	 * @return  the status   
 	 * @since   CodingExample Ver(编码范例查看) 1.0   
 	 */
-	
+	@Column(length = 1,name = "status",nullable = true)
 	public int getStatus() {
 		return status;
 	}
