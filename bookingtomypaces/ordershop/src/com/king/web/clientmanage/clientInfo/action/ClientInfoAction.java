@@ -20,7 +20,7 @@ import com.tag.PageVo;
 @ResultPath("/")
 //定义具体的页面及其对应的返回值。
 @Results({
-	@Result(name="login", location="view/login/login.jsp"),
+	@Result(name="home", location="user/key/home",type="redirectAction"),
 	@Result(name="list", location="view/clientInfo/clientInfo_list.jsp"),
 	@Result(name="edit", location="view/clientInfo/clientInfo_edit.jsp"),
 	@Result(name="add", location="view/clientInfo/clientInfo_add.jsp"),
@@ -41,16 +41,43 @@ public class ClientInfoAction extends FrmAction{
 	 */
 	public String list() throws KINGException {
 		if(null==getFrmUser()){
-			return "login";
+			return "home";
 		}
-		
+		String withsql=" where 1=1 ";
+		String find_str = request.getParameter("find_str")==null?"":request.getParameter("find_str").toString();
+		if(!"".equals(find_str)){
+			withsql+=" and (client_num like '%"+find_str+"%' or company_shortname like '%"+find_str+"%') ";
+		}
+		System.out.println("withsql: "+withsql);
 		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
 		PageRoll p =new PageRoll();
 		p.setPageSize(Constants.PAGE_SIZE);
 		p.setStartRow(curPage);
-		clientInfoList =clientInfoService.searchClientInfoList(p, " where 1=1  ");
+		clientInfoList =clientInfoService.searchClientInfoList(p, withsql);
 		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
-		String urlStr = "/ordershop/client_info/key/list?curPage=";
+		String urlStr = Constants.ProjectName+"/client_info/key/list?curPage=";
+		ServletActionContext.getRequest().setAttribute("url", urlStr);
+		ServletActionContext.getRequest().setAttribute("find_str", find_str);
+		return "list";
+	}
+	
+	/**
+	 * 2.无条件客户列表
+	 * @return
+	 * @throws KINGException
+	 */
+	public String staticlist() throws KINGException {
+		if(null==getFrmUser()){
+			return "home";
+		}
+		String withsql=" where 1=1 ";
+		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
+		PageRoll p =new PageRoll();
+		p.setPageSize(Constants.PAGE_SIZE);
+		p.setStartRow(curPage);
+		clientInfoList =clientInfoService.searchClientInfoList(p, withsql);
+		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
+		String urlStr = Constants.ProjectName+"/client_info/key/list?curPage=";
 		ServletActionContext.getRequest().setAttribute("url", urlStr);
 		return "list";
 	}
@@ -62,7 +89,7 @@ public class ClientInfoAction extends FrmAction{
 	 */
 	public String addjsp()throws KINGException{
 		if(null==getFrmUser()){
-			return "login";
+			return "home";
 		}
 		return "add";
 	}
@@ -73,7 +100,7 @@ public class ClientInfoAction extends FrmAction{
 	 */
 	public String add()throws KINGException{
 		if(null==getFrmUser()){
-			return "login";
+			return "home";
 		}
 		//System.out.println("Client_num=="+clientinfodata.getClient_num());
 		//System.out.println("userName=="+clientinfodata.getCompany_name());
@@ -81,15 +108,7 @@ public class ClientInfoAction extends FrmAction{
 		//System.out.println("getCreate_time=="+clientinfodata.getCreate_time());
 		clientInfoService.addClientInfo(clientinfodata);
 		
-		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
-		PageRoll p =new PageRoll();
-		p.setPageSize(Constants.PAGE_SIZE);
-		p.setStartRow(curPage);
-		clientInfoList =clientInfoService.searchClientInfoList(p, " where 1=1  ");
-		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
-		String urlStr = "/ordershop/client_info/key/list?curPage=";
-		ServletActionContext.getRequest().setAttribute("url", urlStr);
-		return "list";
+		return this.staticlist();
 	}
 	
 	/**
@@ -99,7 +118,7 @@ public class ClientInfoAction extends FrmAction{
 	 */
 	public String editjsp()throws KINGException{
 		if(null==getFrmUser()){
-			return "login";
+			return "home";
 		}
 		//System.out.println("id=="+request.getParameter("id"));
 		clientinfodata=clientInfoService.retrieveClientInfo(request.getParameter("id"));
@@ -112,21 +131,13 @@ public class ClientInfoAction extends FrmAction{
 	 */
 	public String edit()throws KINGException{
 		if(null==getFrmUser()){
-			return "login";
+			return "home";
 		}
 		//System.out.println("Client_num=="+clientinfodata.getClient_num());
 		//System.out.println("userName=="+clientinfodata.getCompany_name());
 		clientInfoService.updateClientInfo(clientinfodata);
 		
-		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
-		PageRoll p =new PageRoll();
-		p.setPageSize(Constants.PAGE_SIZE);
-		p.setStartRow(curPage);
-		clientInfoList =clientInfoService.searchClientInfoList(p, " where 1=1  ");
-		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
-		String urlStr = "/ordershop/client_info/key/list?curPage=";
-		ServletActionContext.getRequest().setAttribute("url", urlStr);
-		return "list";
+		return this.staticlist();
 	}
 
 	/**
@@ -152,7 +163,7 @@ public class ClientInfoAction extends FrmAction{
 	 */
 	public String view()throws KINGException{
 		if(null==getFrmUser()){
-			return "login";
+			return "home";
 		}
 		System.out.println("id=="+request.getParameter("id"));
 		clientinfodata=clientInfoService.retrieveClientInfo(request.getParameter("id"));
@@ -166,22 +177,15 @@ public class ClientInfoAction extends FrmAction{
 	 */
 	public String del()throws KINGException{
 		if(null==getFrmUser()){
-			return "login";
+			return "home";
 		}
 		//System.out.println("Client_num=="+clientinfodata.getClient_num());
 		//System.out.println("userName=="+clientinfodata.getCompany_name());
 		String[] ids=request.getParameterValues("checkbox");
-		clientInfoService.deleteClientInfo(ids);
+		clientInfoService.updateClientInfo(ids);
+		//clientInfoService.deleteClientInfo(ids);
 		
-		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
-		PageRoll p =new PageRoll();
-		p.setPageSize(Constants.PAGE_SIZE);
-		p.setStartRow(curPage);
-		clientInfoList =clientInfoService.searchClientInfoList(p, " where 1=1  ");
-		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
-		String urlStr = "/ordershop/client_info/key/list?curPage=";
-		ServletActionContext.getRequest().setAttribute("url", urlStr);
-		return "list";
+		return this.staticlist();
 	}
 	
 	public IClientInfoService getClientInfoService() {
