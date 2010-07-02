@@ -10,7 +10,7 @@
 	
 	function update_down(id,stateValue){
 		var url_str="cpinfo/update_valid.action?searchValue['id']="+id+"&searchValue['valid']="+stateValue;
-		operate(url_str,"您確定要註銷?");
+		operate(url_str,"您確定要禁用?");
 	}
 	
 		
