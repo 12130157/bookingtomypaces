@@ -333,7 +333,7 @@ public class UserAction extends FrmAction{
 		System.out.println("funcjsp.id============="+request.getParameter("id"));
 		List<UserRoleData> list=userRoleService.getUserRole(request.getParameter("id"));
 		for(UserRoleData ur:list){
-			ht.put(ur.getRoleId(), ur.getRoleId()+"");//注意數據類型，頁面可能對比不了
+			ht.put(ur.getFuncId(), ur.getFuncId()+"");//注意數據類型，頁面可能對比不了
 		}
 		uId=request.getParameter("id");
 		funList=systemFunctionService.getSysFun();
@@ -364,7 +364,7 @@ public class UserAction extends FrmAction{
 						if (0 < funcId) {
 							UserRoleData ur = new UserRoleData();
 							ur.setUserId(request.getParameter("uId"));
-							ur.setRoleId(funcId);
+							ur.setFuncId(funcId);
 							userRoleService.addUserRole(ur);
 						}
 					}
@@ -375,7 +375,7 @@ public class UserAction extends FrmAction{
 				for(RoleFunctionData1 r:lr){
 					UserRoleData ur = new UserRoleData();
 					ur.setUserId(request.getParameter("uId"));
-					ur.setRoleId(r.getFunctionId());
+					ur.setFuncId(r.getFunctionId());
 					userRoleService.addUserRole(ur);
 				}
 			}
