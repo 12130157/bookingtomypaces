@@ -13,9 +13,9 @@ import com.king.common.exception.KINGException;
 import com.king.tools.Constants;
 import com.king.tools.DateTool;
 import com.king.tools.PageRoll;
+import com.king.tools.PageVo;
 import com.king.web.clientmanage.clientInfo.data.ClientInfoData;
 import com.king.web.clientmanage.clientInfo.service.IClientInfoService;
-import com.king.tools.PageVo;
 
 @ResultPath("/")
 //定义具体的页面及其对应的返回值。
@@ -43,7 +43,7 @@ public class ClientInfoAction extends FrmAction{
 		if(null==getFrmUser()){
 			return "home";
 		}
-		String withsql=" where 1=1 ";
+		String withsql=" where 1=1 and state!='2' ";
 		String find_str = request.getParameter("find_str")==null?"":request.getParameter("find_str").toString();
 		if(!"".equals(find_str)){
 			withsql+=" and (clientNum like '%"+find_str+"%' or companyShortname like '%"+find_str+"%') ";
@@ -70,7 +70,7 @@ public class ClientInfoAction extends FrmAction{
 		if(null==getFrmUser()){
 			return "home";
 		}
-		String withsql=" where 1=1 ";
+		String withsql=" where 1=1 and state!='2'";
 		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
 		PageRoll p =new PageRoll();
 		p.setPageSize(Constants.PAGE_SIZE);
@@ -103,10 +103,12 @@ public class ClientInfoAction extends FrmAction{
 			return "home";
 		}
 //		System.out.println("Client_id=="+clientinfodata.getId());
-//		System.out.println("Client_num=="+clientinfodata.getClient_num());
-//		System.out.println("userName=="+clientinfodata.getCompany_name());
+		
+		System.out.println("getClientNum=="+this.clientinfodata.getClientNum());
+		System.out.println("getCompanyName=="+clientinfodata.getCompanyName());
+		System.out.println("getE_mail=="+clientinfodata.getE_mail());
 		clientinfodata.setCreateTime(DateTool.getNowDate());
-		//System.out.println("getCreate_time=="+clientinfodata.getCreate_time());
+		System.out.println("getCreate_time=="+clientinfodata.getCreateTime());
 		clientInfoService.addClientInfo(clientinfodata);
 		
 		return this.staticlist();
@@ -190,6 +192,15 @@ public class ClientInfoAction extends FrmAction{
 		return this.staticlist();
 	}
 	
+	public String updateClientInfoByid() throws KINGException{
+		if(null==getFrmUser()){
+			return "home";
+		}
+		System.out.println("id=="+request.getParameter("id"));
+		clientInfoService.updateClientInfoByid(request.getParameter("id"), request.getParameter("state"));
+		return this.staticlist();
+	}
+	
 	public IClientInfoService getClientInfoService() {
 		return clientInfoService;
 	}
@@ -216,6 +227,8 @@ public class ClientInfoAction extends FrmAction{
 	public void setClientinfodata(ClientInfoData clientinfodata) {
 		this.clientinfodata = clientinfodata;
 	}
+
+
 
 
 }
