@@ -598,6 +598,7 @@ a.linkleftmenu_o:hover
 	padding-top:3px;
 	font-size:12px;
 }
+
 /*---登录页面文本框样式---*/
 .inputlogin
 {
@@ -666,3 +667,5 @@ body.collapsed {
 	background: url(../images/resize/resize-arrow-right.gif)
 		no-repeat 0 50%;
 }
+.rankbottomline{border-bottom:1px solid #ACBCEF;padding:3px;}
+.ranktit{font-weight:bold;padding:3px 3px 2px 3px;}
