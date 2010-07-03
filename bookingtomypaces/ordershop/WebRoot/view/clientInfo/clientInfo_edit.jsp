@@ -101,7 +101,7 @@
           </tr>   
            <tr>           
             <td width="15%" class="formtitle">創建時間:</td>
-            <td width="35%" class="formtd"> <input name="clientinfodata.createTime" type="text" class="inputform" value="${clientinfodata.createTime }"></td>
+            <td width="35%" class="formtd"> <input name="clientinfodata.createTime" type="text" class="inputform" value="<s:date name="clientinfodata.createTime" format="yyyy-MM-dd HH:mm:ss" />"></td>
 			<td class="formtitle"></td>
             <td class="formtd"></td>			 
           </tr>
