@@ -24,38 +24,38 @@
     <div class="dclass_container_content">
 	<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#9FD6FF">
          <tr>
-              <td align="right" class="formtitle">店鋪名稱:</td>
-              <td class="formtd">
+              <td width="16%" class="formtitle">店鋪名稱:</td>
+              <td  class="formtd">
                 <input type="text" id="name" name="name" onBlur="javascript:isExistName();" /> 
                 <div id="_name" ></div>          
                 </td>
          </tr>
 		 <tr>
-              <td align="right" class="formtitle">英文簡稱:</td>
+              <td width="16%" class="formtitle">英文簡稱:</td>
               <td class="formtd">
                 <input type="text" id="shortName" name="shortName"/>      
                 </td>
          </tr>
 		<tr>
-              <td align="right" class="formtitle">店鋪地址:</td>
+              <td  class="formtitle">店鋪地址:</td>
               <td class="formtd">
                 <input type="text" id="address" name="address"/>      
                 </td>
          </tr>
          <tr>
-              <td align="right" class="formtitle">店長姓名:</td>
+              <td  class="formtitle">店長姓名:</td>
               <td class="formtd">
                 <input type="text" id="managerName" name="managerName"/>      
                 </td>
          </tr>
          <tr>
-              <td align="right" class="formtitle">店長電話:</td>
+              <td  class="formtitle">店長電話:</td>
               <td class="formtd">
                 <input type="text" id="managerMobile" name="managerMobile"/>      
                 </td>
          </tr>
           <tr>
-            <td class="formtitle" align="right">状态:</td>
+            <td class="formtitle" >状态:</td>
             <td class="formtd"> 
             	<select type="text" name="status" >
                 	<option value=0 selected>使用</option>

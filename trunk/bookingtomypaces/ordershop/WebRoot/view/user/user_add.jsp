@@ -25,12 +25,12 @@
 	<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#9FD6FF">
          
 		   <tr>
-            <td class="formtitle">登錄帳號:<span class="fontred">*</span></td>
-            <td class="formtd" > <div><span><input id="userName" name="userdata.userName" type="text" class="inputform"  onBlur="javascript:isExistName();" /></span>
+            <td width="16%" class="formtitle">登錄帳號:<span class="fontred">*</span></td>
+            <td width="34%" class="formtd" > <div><span><input id="userName" name="userdata.userName" type="text" class="inputform"  onBlur="javascript:isExistName();" /></span>
             	<span id="_userName" ><font color="red">*</font> 由字母、数字、下划线组成(4-20位)</span></div>
             </td>
-            <td class="formtitle">姓名:<span class="fontred">*</span></td>
-            <td class="formtd"><input name="userdata.realName" type="text" class="inputform" value=""> </td>
+            <td width="16%"  class="formtitle">姓名:<span class="fontred">*</span></td>
+            <td width="34%" class="formtd"><input name="userdata.realName" type="text" class="inputform" value=""> </td>
 			 
           </tr>
 		   <tr>           

@@ -27,11 +27,11 @@
 	<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#9FD6FF">
          
 		   <tr>
-            <td class="formtitle">登錄帳號:<span class="fontred">*</span></td>
-            <td class="formtd" > <div><s:property value="userdata.userName"/></div>
+            <td width="16%" class="formtitle">登錄帳號:<span class="fontred">*</span></td>
+            <td width="34%" class="formtd" > <div><s:property value="userdata.userName"/></div>
             </td>
-            <td class="formtitle">姓名:<span class="fontred">*</span></td>
-            <td class="formtd"><input name="userdata.realName" type="text" class="inputform" value="<s:property value="userdata.realName"/>"> </td>
+            <td width="16%" class="formtitle">姓名:<span class="fontred">*</span></td>
+            <td width="34%" class="formtd"><input name="userdata.realName" type="text" class="inputform" value="<s:property value="userdata.realName"/>"> </td>
 			 
           </tr>
 		   <tr>           

@@ -24,7 +24,7 @@
     <div class="dclass_container_content">
 	<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#9FD6FF">
          <tr>
-              <td align="right" class="formtitle">部門名稱:</td>
+              <td width="16%" class="formtitle">部門名稱:</td>
               <td class="formtd">
                 <input type="text" id="name" name="name" onBlur="javascript:isExistName();" /> 
                 <div id="_name" ></div>          
@@ -33,7 +33,7 @@
 		 
 		
           <tr>
-            <td class="formtitle" align="right">状态:</td>
+            <td class="formtitle" >状态:</td>
             <td class="formtd"> 
             	<select type="text" name="status" >
                 	<option value=0 selected>使用</option>
