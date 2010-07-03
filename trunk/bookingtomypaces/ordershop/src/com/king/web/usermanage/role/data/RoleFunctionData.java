@@ -58,7 +58,7 @@ public class RoleFunctionData extends FrmData {
 	 * 获得规矩对象
 	 */
 	@ManyToOne(cascade = CascadeType.ALL,  targetEntity = RoleData.class)
-	@JoinColumn(name = "ROLEID")
+	@JoinColumn(name = "roleId")
 	public RoleData getRoleData() {
 		return roleData;
 	}

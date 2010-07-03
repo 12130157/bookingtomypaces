@@ -59,7 +59,7 @@ public class RoleData extends FrmData {
 	}
 	
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY,targetEntity= RoleFunctionData.class)
-	@JoinColumn(name = "ROLEID")
+	@JoinColumn(name = "roleId")
 	public java.util.List<RoleFunctionData> getRfdata() {
 		return rfdata;
 	}
