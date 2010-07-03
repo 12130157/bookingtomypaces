@@ -80,7 +80,7 @@
 		</tr>
 		</s:iterator>
 		<tr>
-              <td colspan="8" align="right" class="backwhite" height="30">
+              <td colspan="9" align="right" class="backwhite" height="30">
               <tools:pageUrl url="${url}" count="${page.count}" curPage="${page.curPage}" pageSize="${page.pageSize}" />			  
 			  </td>
       </tr>	

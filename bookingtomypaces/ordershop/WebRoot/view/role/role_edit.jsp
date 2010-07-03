@@ -5,7 +5,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-
+<link href="<%=request.getContextPath()%>/js/should_be_excluded/css/style.css" rel="stylesheet" type="text/css"/>
+<script src="<%=request.getContextPath()%>/js/should_be_excluded/js/jquery/jquery.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/js/should_be_excluded/js/dutil/DUtil.js" type="text/javascript"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css"/>
 <script src="<%=request.getContextPath()%>/js/common.js" type="text/javascript"></script>
@@ -31,48 +33,55 @@ document.getElementById("cdata").innerHTML = s;
 <body class="maintable" >
 <s:form  method="post"  theme="simple" onsubmit="return check(this);">
 <input type="hidden" name="id" value="<s:property value='role.id' />" />
-<div class="dclass_container" >
+
+     <div class="dclass_container" >
 	<div class="dclass_container_header" >    	
         <div class="dclass_container_title">用戶組權限修改</div>
     </div>
     <div class="dclass_container_content">
-	<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#9FD6FF">
-         
-		  <tr>
-              <td width="10%" bgcolor="#FFFFFF" align="center" class="backwhite">角色名稱</td>
-              <td width="90%" bgcolor="#FFFFFF" class="backwhite">
-                <input type="text" name="name" value="<s:property value='role.name' />" /><div id="cdata" style="display:none"></div>              </td>
+	<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#9FD6FF">    
+     
+          <tr>
+              <td width="10%" align="center" class="formtitle">角色名稱</td>
+              <td width="90%"  class="formtd">
+                <input type="text" name="name" value="<s:property value='role.name' />" /><div id="cdata" style="display:none"></div>               
+                </td>
               </tr>
             <tr>
-              <td bgcolor="#FFFFFF" class="backwhite" align="center">角色說明</td>
-              <td bgcolor="#FFFFFF" class="backwhite"><label>
+              <td  class="formtitle" align="center">角色說明</td>
+              <td class="formtd"><label>
                 <textarea name="memo" cols="30" rows="3"><s:property value='role.memo' /></textarea>
               </label></td>
               </tr>
             <tr>
-              <td valign="top" bgcolor="#FFFFFF" class="backwhite" align="center">功能列表</td>
-              <td bgcolor="#FFFFFF" class="backwhite">
-        
-			  <input type="checkbox" id="all" value="0" onclick="checkbox.select('all');setValue();"   /><b>全部功能</b><br /><br />
-			  
-              <s:iterator id="f" value="funList.{?#this.perfunc==0}">
-              <input type="checkbox" id="<s:property value='id' />m" onclick="checkbox.selectAll('<s:property value='id' />s','<s:property value='id' />m');setValue();" value="<s:property value='id' />"  <s:if test="ht.containsValue(id)==true">checked</s:if>  /><b><s:property value="funcname" /></b><br /><br />
-              <table>
-              <tr>
-              <s:iterator value="funList.{?#this.perfunc==#f.id}">
-              <td>
-              <s:if test="null!=url">
+              <td valign="top"  class="formtitle" align="center">功能列表</td>
+            
               
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="<s:property value='id' />c" name="<s:property value='perfunc' />s" onclick="checkbox.selectMax('<s:property value='perfunc' />s','<s:property value='#f.id' />m');setValue();" value="<s:property value='id' />" <s:if test="ht.containsValue(id)==true">checked</s:if>  /><s:property value="funcname" /><br /><br />
-              
-              </s:if>
-              </td>
-              </s:iterator>
-              </tr>
-              </table>
-              </s:iterator>
-              </td>
+                  <td  class="formtd">
+                   <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	              <tr>
+	                <td  class="rankbottomline"><input type="checkbox" id="all" value="0" onclick="checkbox.select('all');setValue();"   /><b>全部功能</b></td>	               
+	              </tr>
+	               <s:iterator id="f" value="funList.{?#this.perfunc==0}">
+				  <tr>
+				  <td  class="ranktit"><input type="checkbox" id="<s:property value='id' />m" onclick="checkbox.selectAll('<s:property value='id' />s','<s:property value='id' />m');setValue();" value="<s:property value='id' />"  <s:if test="ht.containsValue(id)==true">checked</s:if>  /><s:property value="funcname" /></td>
+				  </tr>
+	              <tr>
+	                <td class="rankbottomline">
+	                	<s:iterator value="funList.{?#this.perfunc==#f.id}">
+	                		 <s:if test="null!=url">
+	                			<input type="checkbox" id="<s:property value='id' />c" name="<s:property value='perfunc' />s" onclick="checkbox.selectMax('<s:property value='perfunc' />s','<s:property value='#f.id' />m');setValue();" value="<s:property value='id' />" <s:if test="ht.containsValue(id)==true">checked</s:if>  /><s:property value="funcname" />
+	                	 	</s:if>
+	                	</s:iterator>
+	                </td>							               
+	              </tr>
+	              </s:iterator>
+	            </table>
+               </td> 
+       
+               
             </tr>
+       
            
      </table>
     <div style="padding:0.3em; text-align:center">
