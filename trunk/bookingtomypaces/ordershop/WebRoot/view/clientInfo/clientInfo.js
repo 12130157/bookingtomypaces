@@ -4,17 +4,18 @@
 		goURL3(url_str);
 	}
 	function update_up(id,stateValue){
-		var url_str="cpinfo/update_valid.action?searchValue['id']="+id+"&searchValue['valid']="+stateValue;
+		var url_str="updateClientInfoByid?id="+id+"&state="+stateValue;
 		operate(url_str,"您確定要啟用?");
 	}
 	
 	function update_down(id,stateValue){
-		var url_str="cpinfo/update_valid.action?searchValue['id']="+id+"&searchValue['valid']="+stateValue;
+		var url_str="updateClientInfoByid?id="+id+"&state="+stateValue;
 		operate(url_str,"您確定要禁用?");
 	}
 	
 		
 	function add(){
+		
 		if((document.getElementsByName("clientinfodata.clientNum"))[0].value==''){	
 		    alert("客戶編號不能為空,請重新輸入!");
 		    document.getElementsByName("clientinfodata.clientNum")[0].focus();
@@ -99,6 +100,9 @@
 				 return false;
 			 }
 		 }
+		
+		 
+		 
 		 //if((document.getElementsByName("searchValue['cp_show_index']")).value!=''){
 		 //  if(!isNumeric((document.getElementsByName("searchValue['cp_show_index']")).value)){
 		//	alert("合作商显示排序号只能是数字,请重新输入!");
@@ -120,7 +124,7 @@
 	
 	//检查客户编号是否重复
 	function isExistName(){
-		var name=document.getElementsByName("clientinfodata.client_num")[0].value;
+		var name=document.getElementsByName("clientinfodata.clientNum")[0].value;
 		//alert(name);
 		if(name!=""){
 			ClientInfoData.findByProperty(name,function (count) {
