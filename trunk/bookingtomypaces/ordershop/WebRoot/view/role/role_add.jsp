@@ -43,35 +43,43 @@ document.getElementById("cdata").innerHTML = s;
 	<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#9FD6FF">
          
 		  <tr>
-              <td width="10%" bgcolor="#FFFFFF" align="center" class="backwhite">角色名稱</td>
-              <td width="90%" bgcolor="#FFFFFF" class="backwhite">
+              <td width="10%" align="center" class="formtitle">角色名稱</td>
+              <td width="90%"  class="formtd">
                 <input type="text" name="name" /><div id="cdata" style="display:none"></div>              </td>
               </tr>
             <tr>
-              <td bgcolor="#FFFFFF" class="backwhite" align="center">角色說明</td>
-              <td bgcolor="#FFFFFF" class="backwhite"><label>
+              <td  class="formtitle" align="center">角色說明</td>
+              <td class="formtd"><label>
                 <textarea name="memo" cols="30" rows="3"></textarea>
               </label></td>
               </tr>
             <tr>
-              <td valign="top" bgcolor="#FFFFFF" class="backwhite" align="center">功能列表</td>
-              <td bgcolor="#FFFFFF" class="backwhite">
-			  <input type="checkbox" id="all" value="0" onclick="checkbox.select('all');setValue();" /><b>全部功能</b><br /><br />
-              <s:iterator id="f" value="funList.{?#this.perfunc==0}">
-              <input type="checkbox" id="<s:property value='id' />m" onclick="checkbox.selectAll('<s:property value='id' />s','<s:property value='id' />m');setValue();" value="<s:property value='id' />" /><b><s:property value="funcname" /></b><br /><br />
-              <table>
-              <tr>
-              <s:iterator value="funList.{?#this.perfunc==#f.id}">
-              <td>
-              <s:if test="null!=url">
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="<s:property value='id' />c" name="<s:property value='perfunc' />s" onclick="checkbox.selectMax('<s:property value='perfunc' />s','<s:property value='#f.id' />m');setValue();" value="<s:property value='id' />" /><s:property value="funcname" /><br /><br />
-              </s:if>
-              </td>
-              </s:iterator>
-              </tr>
-              </table>
-              </s:iterator>
-              </td>
+              <td valign="top"  class="formtitle" align="center">功能列表</td>
+            
+              
+                  <td  class="formtd">
+                   <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	              <tr>
+	                <td  class="rankbottomline"><input type="checkbox" id="all" value="0" onclick="checkbox.select('all');setValue();" /><b>全部功能</b></td>	               
+	              </tr>
+	               <s:iterator id="f" value="funList.{?#this.perfunc==0}">
+				  <tr>
+				  <td  class="ranktit"><input type="checkbox" id="<s:property value='id' />m" onclick="checkbox.selectAll('<s:property value='id' />s','<s:property value='id' />m');setValue();" value="<s:property value='id' />" /><s:property value="funcname" /></td>
+				  </tr>
+	              <tr>
+	                <td class="rankbottomline">
+	                	<s:iterator value="funList.{?#this.perfunc==#f.id}">
+	                		 <s:if test="null!=url">
+	                			<input type="checkbox" id="<s:property value='id' />c" name="<s:property value='perfunc' />s" onclick="checkbox.selectMax('<s:property value='perfunc' />s','<s:property value='#f.id' />m');setValue();" value="<s:property value='id' />" /><s:property value="funcname" />
+	                	 	</s:if>
+	                	</s:iterator>
+	                </td>							               
+	              </tr>
+	              </s:iterator>
+	            </table>
+               </td> 
+       
+               
             </tr>
            
      </table>
