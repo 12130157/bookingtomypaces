@@ -26,7 +26,7 @@
 	<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#9FD6FF">
      
 		   <tr>
-              <td align="right" class="formtitle">部門名稱:</td>
+              <td width="16%" class="formtitle">部門名稱:</td>
               <td class="formtd">
                 <input type="text" id="name" name="name" onBlur="javascript:isExistName();" value="<s:property value='dept.name' />"  /> 
                 <div id="_name" ></div>          
@@ -34,7 +34,7 @@
          </tr>
 		
           <tr>
-            <td align="right" class="formtitle">状态:</td>
+            <td class="formtitle">状态:</td>
             <td class="formtd"> 
             	<select name="status" >
                 	<option value=0 <s:if test="dept.status==0">selected</s:if> >使用</option>

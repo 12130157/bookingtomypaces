@@ -25,38 +25,38 @@
     <div class="dclass_container_content">
 	<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#9FD6FF">
          <tr>
-              <td align="right" class="formtitle">店鋪名稱:</td>
+              <td width="16%" class="formtitle">店鋪名稱:</td>
               <td class="formtd">
                 <input type="text" id="name" name="name" onBlur="javascript:isExistName();" value="<s:property value='store.name' />" /> 
                 <div id="_name" ></div>          
                 </td>
          </tr>
 		 <tr>
-              <td align="right" class="formtitle">英文簡稱:</td>
+              <td  class="formtitle">英文簡稱:</td>
               <td class="formtd">
                 <input type="text" id="shortName" name="shortName" value="<s:property value='store.shortName' />"/>      
                 </td>
          </tr>
 		<tr>
-              <td align="right" class="formtitle">店鋪地址:</td>
+              <td  class="formtitle">店鋪地址:</td>
               <td class="formtd">
                 <input type="text" id="address" name="address" value="<s:property value='store.address' />"/>      
                 </td>
          </tr>
          <tr>
-              <td align="right" class="formtitle">店長姓名:</td>
+              <td  class="formtitle">店長姓名:</td>
               <td class="formtd">
                 <input type="text" id="managerName" name="managerName" value="<s:property value='store.managerName' />"/>      
                 </td>
          </tr>
          <tr>
-              <td align="right" class="formtitle">店長電話:</td>
+              <td  class="formtitle">店長電話:</td>
               <td class="formtd">
                 <input type="text" id="managerMobile" name="managerMobile" value="<s:property value='store.managerMobile' />" />      
                 </td>
          </tr>
           <tr>
-            <td class="formtitle" align="right">状态:</td>
+            <td class="formtitle" >状态:</td>
             <td class="formtd"> 
             	<select type="text" name="status" >
                 	<option value=0 <s:if test="store.status==0" >selected</s:if>>使用</option>
