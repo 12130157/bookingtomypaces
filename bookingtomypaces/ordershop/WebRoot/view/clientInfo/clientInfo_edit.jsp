@@ -25,7 +25,7 @@
             <td width="35%" class="formtd"> 
             <input name="clientinfodata.id" type="hidden" class="inputform" value="${clientinfodata.id}" >
             <input name="clientinfodata.clientNum" type="hidden" class="inputform" value="${clientinfodata.clientNum }" >
-            ${clientinfodata.client_num }
+            ${clientinfodata.clientNum }
             </td>
 			<td class="formtitle" width="15%">地區:</td>
             <td class="formtd" width="35%"><input name="clientinfodata.areaName" type="text" class="inputform" value="${clientinfodata.areaName }"> </td>			 
@@ -41,7 +41,7 @@
           </tr>
           <tr>           
             <td width="15%" class="formtitle">公司電話:<span class="fontred">*</span></td>
-            <td width="35%" class="formtd"> <input name="clientinfodata.comp_phone" type="text" class="inputform" value="${clientinfodata.compPhone }"></td>
+            <td width="35%" class="formtd"> <input name="clientinfodata.compPhone" type="text" class="inputform" value="${clientinfodata.compPhone }"></td>
 			<td class="formtitle">公司傳真:</td>
             <td class="formtd"><input name="clientinfodata.compFax" type="text" class="inputform" value="${clientinfodata.compFax }"> </td>			 
           </tr>
@@ -90,8 +90,8 @@
 			<td class="formtitle">狀態:</td>
             <td class="formtd">
             	<select type="text" name="clientinfodata.state" >
-                	<option value=0 selected>啟用</option>
-                	<option value=1 >禁用</option>
+                	<option value=0 <s:if test="0==clientinfodata.state">selected</s:if>>啟用</option>
+                	<option value=1 <s:if test="1==clientinfodata.state">selected</s:if>>禁用</option>
                 </select>
             </td>			 
           </tr>

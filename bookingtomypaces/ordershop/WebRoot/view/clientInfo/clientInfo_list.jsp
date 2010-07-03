@@ -54,6 +54,7 @@
 				<th >聯繫人</th>
 				<th >聯繫人電話</th>
 				<th >地址</th>
+				<th >狀態</th>
 				<th >操作</th>
 			</tr>
 		</thead>
@@ -67,14 +68,20 @@
 			<td><s:property value="linkmanOne"/></td>
 			<td><s:property value="phoneOne"/></td>
 			<td><s:property value="addressOne"/></td>	
+			<td>
+				<s:if test="0==state">啟用</s:if>
+				<s:if test="1==state"><span class="fontred">禁用</span></s:if>
+			</td>	
 			<td >
 				<a href="#" onclick="edit_jsp('<s:property value="id"/>')" class='linkorange'>编辑</a>
+				<s:if test="0==state"><a href="#" onclick="update_down('<s:property value="id"/>','1')" class='linkorange'>禁用</a></s:if>
+				<s:if test="1==state"><a href="#" onclick="update_up('<s:property value="id"/>','0')" class='linkorange'>啟用</a></s:if>										
 			</td>
 		</tr>
 		</s:iterator>
 		<tr>
               <td colspan="8" align="right" class="backwhite" height="30">
-              总数${page.count}&nbsp;<tools:pageUrl url="${url}" count="${page.count}" curPage="${page.curPage}" pageSize="${page.pageSize}" />			  
+              <tools:pageUrl url="${url}" count="${page.count}" curPage="${page.curPage}" pageSize="${page.pageSize}" />			  
 			  </td>
       </tr>	
 		</tbody>
