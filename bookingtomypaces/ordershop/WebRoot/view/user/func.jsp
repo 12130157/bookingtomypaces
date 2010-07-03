@@ -7,6 +7,9 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link href="<%=request.getContextPath()%>/js/should_be_excluded/css/style.css" rel="stylesheet" type="text/css"/>
+<script src="<%=request.getContextPath()%>/js/should_be_excluded/js/jquery/jquery.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/js/should_be_excluded/js/dutil/DUtil.js" type="text/javascript"></script>
 <link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css"/>
 <script src="<%=request.getContextPath()%>/js/common.js" type="text/javascript"></script>
 <script type='text/javascript' src='<%=request.getContextPath()%>/dwr/util.js'></script>
@@ -38,35 +41,39 @@ document.getElementById("cdata").innerHTML = s;
     <div class="dclass_container_content">
 	<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#9FD6FF">
          <tr>
-            <td class="formtitle" width="20%" align="center">權限組:</td>
-            <td class="formtd" width="80%" > 
+            <td class="formtitle" width="10%" align="center">權限組:</td>
+            <td class="formtd" width="90%" > 
             	<s:select list="roleMap" name="rId"  headerKey="0" headerValue="未選擇" emptyOption="false" onchange="showfunc(this);" ></s:select>
             </td>
           
           </tr>
             <tr >
-              <td id="fun1" class="formtitle"  align="center">功能列表<div id="cdata" style="display:none"></div>  </td>
-              <td id="fun" class="formtd">
-        
-			  <input type="checkbox" id="all" value="0" onclick="checkbox.select('all');setValue();"   /><b>全部功能</b><br /><br />
-			  
-              <s:iterator id="f" value="funList.{?#this.perfunc==0}">
-              <input type="checkbox" id="<s:property value='id' />m" onclick="checkbox.selectAll('<s:property value='id' />s','<s:property value='id' />m');setValue();" value="<s:property value='id' />"  <s:if test="ht.containsValue(id)==true">checked</s:if>  /><b><s:property value="funcname" /></b><br /><br />
-              <table>
-              <tr>
-              <s:iterator value="funList.{?#this.perfunc==#f.id}">
-              <td>
-              <s:if test="null!=url">
+             <td id="fun1" valign="top"  class="formtitle" align="center">功能列表<div id="cdata" style="display:none"></div></td>
+            
               
-              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="<s:property value='id' />c" name="<s:property value='perfunc' />s" onclick="checkbox.selectMax('<s:property value='perfunc' />s','<s:property value='#f.id' />m');setValue();" value="<s:property value='id' />" <s:if test="ht.containsValue(id)==true">checked</s:if>  /><s:property value="funcname" /><br /><br />
-              
-              </s:if>
-              </td>
-              </s:iterator>
-              </tr>
-              </table>
-              </s:iterator>
-              </td>
+                  <td id="fun" class="formtd">
+                   <table width="100%" border="0" cellspacing="0" cellpadding="0">
+	              <tr>
+	                <td  class="rankbottomline"><input type="checkbox" id="all" value="0" onclick="checkbox.select('all');setValue();"   /><b>全部功能</b></td>	               
+	              </tr>
+	               <s:iterator id="f" value="funList.{?#this.perfunc==0}">
+				  <tr>
+				  <td  class="ranktit"><input type="checkbox" id="<s:property value='id' />m" onclick="checkbox.selectAll('<s:property value='id' />s','<s:property value='id' />m');setValue();" value="<s:property value='id' />"  <s:if test="ht.containsValue(id)==true">checked</s:if>  /><s:property value="funcname" /></td>
+				  </tr>
+	              <tr>
+	                <td class="rankbottomline">
+	                	<s:iterator value="funList.{?#this.perfunc==#f.id}">
+	                		 <s:if test="null!=url">
+	                			<input type="checkbox" id="<s:property value='id' />c" name="<s:property value='perfunc' />s" onclick="checkbox.selectMax('<s:property value='perfunc' />s','<s:property value='#f.id' />m');setValue();" value="<s:property value='id' />" <s:if test="ht.containsValue(id)==true">checked</s:if>  /><s:property value="funcname" />
+	                	 	</s:if>
+	                	</s:iterator>
+	                </td>							               
+	              </tr>
+	              </s:iterator>
+	            </table>
+               </td> 
+               
+          
             </tr>
            
      </table>
