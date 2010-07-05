@@ -62,7 +62,7 @@
             </td>
             <td class="formtitle">所屬店鋪:<span class="fontred">*</span></td>
             <td class="formtd"> 
-            	<s:select list="storeMap" id="storeId" name="userdata.shopId" key="<s:property value='userdata.shopId'/>" headerKey="0" headerValue="未選擇" emptyOption="false"  ></s:select>
+            	<s:select list="storeMap" id="shopId" name="userdata.shopId" key="<s:property value='userdata.shopId'/>" headerKey="0" headerValue="未選擇" emptyOption="false"  ></s:select>
             </td>
           </tr>
           <tr>
