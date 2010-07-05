@@ -1,6 +1,6 @@
 
 /**
-create by mickey 2008-1-7 要结合 dwr/util.js使用(即原形js类库)
+要结合 dwr/util.js使用(即原形js类库)
 */
 if (null == input) {//输入框
 	var input = {};

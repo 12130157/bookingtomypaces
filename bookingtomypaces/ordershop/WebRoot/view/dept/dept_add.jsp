@@ -15,7 +15,7 @@
 </head>
 
 <body class="maintable">
-<s:form action="addDept"  method="post"  theme="simple" onsubmit="return check(this);">
+<s:form action="addDept"  method="post"  theme="simple" onsubmit="return checkf(this);">
 <input id="_isexist" type="hidden" value="0" />
 <div class="dclass_container" >
 	<div class="dclass_container_header" >    	
@@ -36,7 +36,7 @@
             <td class="formtitle" >状态:</td>
             <td class="formtd"> 
             	<select type="text" name="status" >
-                	<option value=0 selected>使用</option>
+                	<option value=0 selected>啟用</option>
                 	<option value=1 >禁用</option>
                 </select>
             </td>
@@ -44,13 +44,14 @@
           </tr>
      </table>
     <div style="padding:0.3em; text-align:center">
-    	<input type="button" class="btn1" value="保 存" onclick="deptadd();" />
-		<input type="button" class="btn1" value="返 回" onclick="javascript:history.back();" /> 
+    	<input type="submit" name="comfirm" class="btn1" value="保 存"/>
+		<input type="button" name="back" class="btn1" value="返 回" onclick="javascript:history.back();" /> 
 	</div>
 	</div>
 </div>
 </s:form>
 </body>
+<!-- 
 <script language="javascript" type="text/javascript">
 	
 	function deptadd(){
@@ -59,9 +60,12 @@
 			document.getElementById("name").focus();
 				return false;
 		}else{
-	 		document.forms[0].action="<%=request.getContextPath()%>/dept/key/addDept";
-			document.forms[0].submit();
+			if(checkf()){
+		 		document.forms[0].action="<%=request.getContextPath()%>/dept/key/addDept";
+				document.forms[0].submit();
+			}
 		}
 	}
 </script>
+ -->
 </html>

@@ -40,17 +40,22 @@ public class DeptAction extends FrmAction{
 		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
 		String name = request.getParameter("name")==null?"":request.getParameter("name").toString();
 		Integer status=request.getParameter("status")==null?-1:Integer.parseInt(request.getParameter("status").toString());
+		dept.setName(name);
+		dept.setStatus(status);
 		PageRoll p =new PageRoll();
 		p.setPageSize(Constants.PAGE_SIZE);
 		p.setStartRow(curPage);
 		String withsql=" where 1=1 ";
 		if(!"".equals(name)){
 			withsql+=" and name like '%"+name+"%' ";
+			
 		}
 		if(status>-1){
 			withsql+=" and status ="+status;
+			
 		}
 		deptList =deptService.searchDept(p, withsql);
+		
 		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
 		String urlStr = Constants.ProjectName+"/dept/key/list?curPage=";
 		ServletActionContext.getRequest().setAttribute("url", urlStr);
@@ -68,7 +73,7 @@ public class DeptAction extends FrmAction{
 		PageRoll p =new PageRoll();
 		p.setPageSize(Constants.PAGE_SIZE);
 		p.setStartRow(curPage);
-		
+		dept=null;
 		String withsql=" where 1=1 ";
 		deptList =deptService.searchDept(p, withsql);
 		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));

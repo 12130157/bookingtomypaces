@@ -91,6 +91,12 @@ public class StoreAction extends FrmAction{
 		if(status>-1){
 			withsql+=" and status = "+status;
 		}
+		store.setManagerMobile(managerMobile);
+		store.setManagerName(managerName);
+		store.setName(name);
+		store.setShortName(shortName);
+		store.setStatus(status);
+		store.setAddress(address);
 		storeList =storeService.searchStores(p, withsql);
 		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
 		String urlStr = Constants.ProjectName+"/store/key/list?curPage=";
@@ -104,7 +110,7 @@ public class StoreAction extends FrmAction{
 		if(null==getFrmUser()){
 			return "home";
 		}
-		
+		store=null;
 		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
 		
 		PageRoll p =new PageRoll();

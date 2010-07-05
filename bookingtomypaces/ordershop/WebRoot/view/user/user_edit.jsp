@@ -15,9 +15,9 @@
 </head>
 
 <body class="maintable">
-<s:form action="editUser"  method="post"  theme="simple" onsubmit="return check(this);">
+<s:form action="editUser"  method="post"  theme="simple" onsubmit="return checkf(this);">
 <input type="hidden" name="userdata.id" value="<s:property value='userdata.id' />" />
-<input type="hidden" name="userdata.userName" value="<s:property value='userdata.userName' />" />
+<input type="hidden" id="userName" name="userdata.userName" value="<s:property value='userdata.userName' />" />
 <input id="_isexist" type="hidden" value="0" />
 <div class="dclass_container" >
 	<div class="dclass_container_header" >    	
@@ -31,14 +31,14 @@
             <td width="34%" class="formtd" > <div><s:property value="userdata.userName"/></div>
             </td>
             <td width="16%" class="formtitle">姓名:<span class="fontred">*</span></td>
-            <td width="34%" class="formtd"><input name="userdata.realName" type="text" class="inputform" value="<s:property value="userdata.realName"/>"> </td>
+            <td width="34%" class="formtd"><input id="realName" name="userdata.realName" type="text" class="inputform" value="<s:property value="userdata.realName"/>"> </td>
 			 
           </tr>
 		   <tr>           
             <td class="formtitle">密码:<span class="fontred">*</span></td>
-            <td class="formtd"><input name="userdata.passWord" type="password" class="inputform" value="<s:property value="userdata.passWord"/>"></td>
+            <td class="formtd"><input id="passWord" name="userdata.passWord" type="password" class="inputform" value="<s:property value="userdata.passWord"/>"></td>
 			<td class="formtitle">手機:<span class="fontred">*</span></td>
-            <td class="formtd"><input name="userdata.mobile" type="text" class="inputform" value="<s:property value="userdata.mobile"/>" ></td>
+            <td class="formtd"><input id="mobile"  name="userdata.mobile" type="text" class="inputform" value="<s:property value="userdata.mobile"/>" ></td>
           </tr>
           <tr>
             <td class="formtitle">状态:</td>
@@ -50,7 +50,7 @@
             </td>
             <td class="formtitle">所屬部門:<span class="fontred">*</span></td>
             <td class="formtd"> 
-            	<s:select list="deptMap" name="userdata.deptId" key="<s:property value='userdata.deptId'/>" headerKey="0" headerValue="未選擇" emptyOption="false"  ></s:select>
+            	<s:select list="deptMap" id="deptId" name="userdata.deptId" key="<s:property value='userdata.deptId'/>" headerKey="0" headerValue="未選擇" emptyOption="false"  ></s:select>
             </td>
 			 
            
@@ -58,11 +58,11 @@
           <tr>
             <td class="formtitle">所屬區域:<span class="fontred">*</span></td>
             <td class="formtd"> 
-            	<s:select list="areaMap" name="userdata.areaId" key="<s:property value='userdata.areaId'/>" headerKey="0" headerValue="未選擇" emptyOption="false" ></s:select>
+            	<s:select list="areaMap" id="areaId" name="userdata.areaId" key="<s:property value='userdata.areaId'/>" headerKey="0" headerValue="未選擇" emptyOption="false" ></s:select>
             </td>
             <td class="formtitle">所屬店鋪:<span class="fontred">*</span></td>
             <td class="formtd"> 
-            	<s:select list="storeMap" name="userdata.shopId" key="<s:property value='userdata.shopId'/>" headerKey="0" headerValue="未選擇" emptyOption="false"  ></s:select>
+            	<s:select list="storeMap" id="storeId" name="userdata.shopId" key="<s:property value='userdata.shopId'/>" headerKey="0" headerValue="未選擇" emptyOption="false"  ></s:select>
             </td>
           </tr>
           <tr>
@@ -88,18 +88,12 @@
 		  
      </table>
     <div style="padding:0.3em; text-align:center">
-    	<input type="button" class="btn1" value="保 存" onclick="add();" />
+    	<input type="submit" class="btn1" value="保 存"  />
 		<input type="button" class="btn1" value="返 回" onclick="javascript:history.back();" /> 
 	</div>
 	</div>
 </div>
 </s:form>
 </body>
-<script language="javascript" type="text/javascript">
-	
-	function add(){
- 		document.forms[0].action="<%=request.getContextPath()%>/user/key/editUser";
-		document.forms[0].submit();
-	}
-</script>
+
 </html>

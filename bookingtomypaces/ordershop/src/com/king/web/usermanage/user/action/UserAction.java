@@ -61,7 +61,7 @@ public class UserAction extends FrmAction{
 	private RoleData role =new RoleData();
 	private HashMap ht = new HashMap();
 	private List<UserData> userList= new ArrayList<UserData>();
-	private UserData userdata;
+	private UserData userdata=new UserData();
 	TreeMap areaMap =new TreeMap();
 	TreeMap deptMap = new TreeMap();
 	TreeMap storeMap = new TreeMap();
@@ -75,6 +75,7 @@ public class UserAction extends FrmAction{
 		if(null==getFrmUser()){
 			return "home";
 		}
+		userdata=null;
 		//區域信息
 		areaMap=CacheUtil.getInstance().getCacheMap("SystemArea");//in conf->cache->data->data.xml
 		/*Iterator   it=areaMap.keySet().iterator(); 
@@ -161,10 +162,10 @@ public class UserAction extends FrmAction{
 			withsql+=" and deptId = '"+deptId+"' ";
 		}
 		if(!"".equals(userName)){
-			withsql+=" and userName = '"+userName+"' ";
+			withsql+=" and userName like '%"+userName+"%' ";
 		}
 		if(!"".equals(mobile)){
-			withsql+=" and mobile = '"+mobile+"' ";
+			withsql+=" and mobile like '%"+mobile+"%' ";
 		}
 		if(!"0".equals(areaId)){
 			withsql+=" and areaId = '"+areaId+"' ";
@@ -178,6 +179,13 @@ public class UserAction extends FrmAction{
 		if(status>-1){
 			withsql+=" and status = "+status;
 		}
+		userdata.setAreaId(areaId);
+		userdata.setDeptId(deptId);
+		userdata.setShopId(shopId);
+		userdata.setRealName(realName);
+		userdata.setUserName(userName);
+		userdata.setStatus(status);
+		userdata.setMobile(mobile);
 		userList =userService.searchUsersList(p, withsql);
 		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
 		String urlStr = Constants.ProjectName+"/user/key/list?curPage=";
@@ -288,7 +296,9 @@ public class UserAction extends FrmAction{
 		}else{
 			userdata.setPassWord(user.getPassWord());
 		}
-		
+		userdata.setCreatTime(user.getCreatTime());
+		userdata.setLastIp(user.getLastIp());
+		userdata.setLastTime(user.getLastTime());
 		userService.updateUser(userdata);
 		
 		return this.staticlist();
@@ -303,6 +313,7 @@ public class UserAction extends FrmAction{
 		if(status>-1){
 			userdata.setStatus(status);
 		}
+	
 		userService.updateUser(userdata);
 		
 		return this.staticlist();

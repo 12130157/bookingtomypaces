@@ -69,6 +69,8 @@ public class RoleAction extends FrmAction{
 		if(!"".equals(memo)){
 			withsql+=" and memo like '%"+memo+"%' ";
 		}
+		role.setName(name);
+		role.setMemo(memo);
 		roleList =roleService.searchRoles(p, withsql);
 		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
 		String urlStr = Constants.ProjectName+"/role/key/list?curPage=";
@@ -82,7 +84,7 @@ public class RoleAction extends FrmAction{
 		if(null==getFrmUser()){
 			return "home";
 		}
-		
+		role=null;
 		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
 		
 		PageRoll p =new PageRoll();
@@ -112,7 +114,7 @@ public class RoleAction extends FrmAction{
 			List<RoleFunctionData> fun = new ArrayList<RoleFunctionData>();
 			RoleData r = new RoleData();
 			r.setName(request.getParameter("name"));
-			r.setMemo(request.getParameter("memo"));
+			r.setMemo(request.getParameter("memo")==null?"":request.getParameter("memo").toString());
 			if (null != getFunId()) {
 				String[] fId = getFunId().split(",");
 				
@@ -147,7 +149,7 @@ public class RoleAction extends FrmAction{
 			List<RoleFunctionData> fun = new ArrayList<RoleFunctionData>();
 			RoleData r =roleService.retrieveRole(request.getParameter("id"));
 			r.setName(request.getParameter("name"));
-			r.setMemo(request.getParameter("memo"));
+			r.setMemo(request.getParameter("memo")==null?"":request.getParameter("memo").toString());
 			
 			// r.setAccountSetId(this.checkUser().getAccountSetId());
 			// Integer[] fId = getFunId();

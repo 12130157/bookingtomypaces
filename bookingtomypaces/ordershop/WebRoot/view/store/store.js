@@ -16,3 +16,31 @@ function isExistName(){
 		});
 	}
 }
+
+function checkf(){
+	if((document.getElementsByName("name"))[0].value==''){	
+	    alert("店鋪名稱不能為空,請重新輸入!");
+	    document.getElementsByName("name")[0].focus();
+	    return false;
+	 }
+	if((document.getElementsByName("shortName"))[0].value==''){	
+	    alert("英文簡稱不能為空,請重新輸入!");
+	    document.getElementsByName("shortName")[0].focus();
+	    return false;
+	 }
+	if((document.getElementsByName("address"))[0].value==''){	
+	    alert("店鋪地址不能為空,請重新輸入!");
+	    document.getElementsByName("address")[0].focus();
+	    return false;
+	 }
+	if((document.getElementsByName("managerName"))[0].value==''){	
+	    alert("店長姓名不能為空,請重新輸入!");
+	    document.getElementsByName("managerName")[0].focus();
+	    return false;
+	 }
+	if((document.getElementsByName("managerMobile"))[0].value==''){	
+	    alert("店長電話不能為空,請重新輸入!");
+	    document.getElementsByName("managerMobile")[0].focus();
+	    return false;
+	 }
+}

@@ -13,28 +13,28 @@
 <body class="maintable">
 <div class="dclass_container dclass_container_collapsible" >
 	<div class="dclass_container_header" >    	
-        <div class="dclass_container_title">用戶資料搜索條件</div>
+        <div class="dclass_container_title">用戶資料搜索條件<s:property value='userdata.deptId' /></div>
     </div>
     <div class="dclass_container_content">
 	<div class="search">
 		<form action="<%=request.getContextPath()%>/user/key/list" method="post">
 		
 				    <div style="LETTER-SPACING:0.5EM">
-					<span>帳號:<input type="text" class="inputsearch" name="userName"  /></span>
+					<span>帳號:<input type="text" class="inputsearch" name="userName" value="<s:property value="userdata.userName" />"  /></span>
 					&nbsp;
-					<span>手機:<input type="text" class="inputsearch" name="mobile"  /></span>
+					<span>手機:<input type="text" class="inputsearch" name="mobile" value="<s:property value="userdata.mobile" />"  /></span>
 					&nbsp;
 					<span>狀態:<select name="status" >
 					<option value=-1 >未選擇</option>
-                	<option value=0 >使用</option>
-                	<option value=1 >禁用</option>
+                	<option value=0 <s:if test="userdata.status==0">selected</s:if>>啟用</option>
+                	<option value=1 <s:if test="userdata.status==1">selected</s:if>>禁用</option>
                 	</select></span>
 					&nbsp;
-					<span>部門:<s:select list="deptMap" name="deptId"   headerKey="0" headerValue="未選擇" emptyOption="false" ></s:select></span>
+					<span>部門:<s:select list="deptMap" name="deptId"  value="%{userdata.deptId}" headerKey="0" headerValue="未選擇" emptyOption="false"  ></s:select></span>
 					&nbsp;
-					<span>區域:<s:select list="areaMap" name="areaId"  headerKey="0" headerValue="未選擇" emptyOption="false"  ></s:select></span>
+					<span>區域:<s:select list="areaMap" name="areaId" value="%{userdata.areaId}"  headerKey="0" headerValue="未選擇" emptyOption="false" ></s:select></span>
 					&nbsp;
-					<span>店鋪:<s:select list="storeMap" name="shopId"  headerKey="0" headerValue="未選擇" emptyOption="false"  ></s:select></span>
+					<span>店鋪:<s:select list="storeMap" name="shopId" value="%{userdata.shopId}"  headerKey="0" headerValue="未選擇" emptyOption="false"  ></s:select></span>
 					 
 					<span><input type="submit" class="btn1" value="查 詢" /></span>
 					</div>
@@ -83,7 +83,7 @@
 			<td align="center"><s:property value="areaMap.get(areaId)"/></td>
 			<td align="center"><s:property value="storeMap.get(shopId)"/></td>
 			<td align="center"><s:property value="mobile"/></td>
-			<td align="center"><s:if test="status==0">使用中</s:if><s:else><font color=red>禁用</font></s:else></td>
+			<td align="center"><s:if test="status==0">啟用</s:if><s:else><font color=red>禁用</font></s:else></td>
 			<td align="center"><s:date name="creatTime" format="yyyy-MM-dd HH:mm:ss" /></td>
 			<td align="center"><s:date name="lastTime" format="yyyy-MM-dd HH:mm:ss" /></td>
 			<td align="center"><s:property value="lastIp"/></td>	

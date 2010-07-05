@@ -16,6 +16,7 @@
 <script src="<%=request.getContextPath()%>/js/common.js" type="text/javascript"></script>
 <script type='text/javascript' src='<%=request.getContextPath()%>/dwr/util.js'></script>
 <script type='text/javascript' src="<%=request.getContextPath()%>/js/utiltools.js"></script>
+<script type='text/javascript' src='<%=request.getContextPath()%>/view/role/role.js'></script>
 <script type="text/javascript">
 function setValue(){
 var obj = document.all;
@@ -34,7 +35,7 @@ document.getElementById("cdata").innerHTML = s;
 </head>
 
 <body class="maintable">
-<s:form action="addRole"  method="post"  theme="simple" onsubmit="return check(this);">
+<s:form action="addRole"  method="post"  theme="simple" onsubmit="return checkf(this);">
 <div class="dclass_container" >
 	<div class="dclass_container_header" >    	
         <div class="dclass_container_title">用戶組權限增加</div>
@@ -84,18 +85,18 @@ document.getElementById("cdata").innerHTML = s;
            
      </table>
     <div style="padding:0.3em; text-align:center">
-    	<input type="button" class="btn1" value="保 存" onclick="useradd();" />
+    	<input type="submit" class="btn1" value="保 存"  />
 		<input type="button" class="btn1" value="返 回" onclick="javascript:history.back();" /> 
 	</div>
 	</div>
 </div>
 </s:form>
 </body>
-<script language="javascript" type="text/javascript">
+<!--<script language="javascript" type="text/javascript">
 	
 	function useradd(){
- 		document.forms[0].action="<%=request.getContextPath()%>/role/key/addRole";
+ 		document.forms[0].action="<%//=request.getContextPath()%>/role/key/addRole";
 		document.forms[0].submit();
 	}
 </script>
-</html>
+--></html>
