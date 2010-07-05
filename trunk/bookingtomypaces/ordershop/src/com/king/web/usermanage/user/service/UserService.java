@@ -123,7 +123,7 @@ public class UserService extends FrmService implements IUserService{
 	 * @throws KINGException
 	 */
 	public int userExistRole(String uid) throws KINGException{
-		String hql = "select count(u.id) from UserFunctionData u where u.userId='" +uid+ "'";
+		String hql = "select u from UserFunctionData u where u.userId='" +uid+ "'";
 		return userDao.search(hql).size();
 	}
 

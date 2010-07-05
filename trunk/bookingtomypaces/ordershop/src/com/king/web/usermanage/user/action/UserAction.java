@@ -360,14 +360,20 @@ public class UserAction extends FrmAction{
 		if(null==getFrmUser()){
 			return "home";
 		}else {
-			
+			System.out.println("-------------"+getFunId());
 			String rId=request.getParameter("rId");
 			if(rId.equals("0")){
-				if (null != getFunId()) {
+				userFunctionService.deleteUserFunction(request.getParameter("uId"));
+				if (null != getFunId()&&!"".equals(getFunId())) {
 					String buf=getFunId().replace("0,", "");
+					System.out.println("-----buf--------"+buf);
 					String[] fId = buf.split(",");
-					userFunctionService.deleteUserFunction(request.getParameter("uId"));
+					
 					Integer funcId = 0;
+					System.out.println("-----fId--------"+fId.length);
+					for (String id : fId) {
+						System.out.println("-----id--------"+id);
+					}
 					for (String id : fId) {
 						funcId = Integer.parseInt(id);
 						if (0 < funcId) {

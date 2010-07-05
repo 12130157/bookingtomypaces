@@ -24,7 +24,7 @@
 	   // alert((document.getElementById("loginUserInfo.username")).value)
 		//window.location.href="default.html";
 		if((document.getElementById("name")).value==''){
-		    alert("用户名不能为空,请输入!");
+		    alert("請輸入用戶帳號!");
  			//document.loginForm.username.focus();
  			return false;
 		}
@@ -34,7 +34,7 @@
  		//	return false;
  		//}
  		if((document.getElementById("pwd")).value == ''){
- 			alert("密码不能为空,请输入!");
+ 			alert("請輸入密碼!");
  			//document.loginForm.loginUserInfo.password.focus();
  			return false;
 	 	}
@@ -78,18 +78,19 @@
               <tr>
                 <td colspan="2"><table width="200" border="0" cellspacing="0" cellpadding="0">
                   <tr>
-                    <td width="50" height="30" class="fontorange" style="color:#ff6600; font-weight:bold;">用户名:</td>
+                    <td width="50" height="30" class="fontorange" style="color:#ff6600; font-weight:bold;">帳號:</td>
                     <td>
 					   <s:textfield name="name" cssClass="inputlogin" theme="simple"></s:textfield>
                     </td>
                   </tr>
                   <tr>
-                    <td height="30" class="fontorange" style="color:#ff6600; font-weight:bold;">密&nbsp;&nbsp;&nbsp;码:</td>
+                    <td height="30" class="fontorange" style="color:#ff6600; font-weight:bold;">密碼:</td>
                     <td>    <s:password name="pwd" cssClass="inputlogin"  theme="simple" onkeydown="if(event.keyCode==13)return userlogin();"></s:password>  </td>
                   </tr>
                   <tr>
-                    <td height="30" class="fontorange" style="color:#ff6600; font-weight:bold;"></td>
-                    <td><s:property value='error' /></td>
+                    <td colspan="2" align="right"  class="fontorange" style="color:red;  font-weight:bold;">
+                    <s:property value='error' />
+                    </td>
                   </tr>
                 </table></td>
                 <td width="60" align="center"><img src="<%=request.getContextPath()%>/images/btnlogin1.gif" width="47" height="43" border="0" style="cursor: pointer" border="0" onClick="userlogin();"></td>
