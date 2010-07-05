@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dbdic>
+<section name="">
+	<object  Name="Store" Table="Store" Where="">
+		<item  Type="KEY" Column="id" Name="id"/>
+		<item Type="VALUE" Column="name" Name="name"/>
+	</object>
+ </section>	
 <!--与框架相关的信息-->
 <!--<section name="">
 	<object  Name="Frames" Table="Frames" Where="status=1">
