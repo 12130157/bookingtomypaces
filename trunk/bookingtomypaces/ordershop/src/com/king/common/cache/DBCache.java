@@ -15,6 +15,8 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.Vector;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Element;
 
@@ -25,7 +27,7 @@ import com.king.common.exception.KINGException;
 import com.king.common.xml.XMLDataBean;
 
 public class DBCache extends PublicCache{
-	
+	private static final Log log = LogFactory.getLog( DBCache.class );
 	private DaoFactory daoFactory = null;
 	
 	
@@ -152,6 +154,11 @@ public class DBCache extends PublicCache{
 
 			List<PublicResultSet> rs = null;
 			try {
+				log.debug("-----------------selectStr.toString()------------------------"+selectStr.toString());
+				log.debug("-----------------selectStr.toString()------------------------"+selectStr.toString());
+				log.debug("-----------------selectStr.toString()------------------------"+selectStr.toString());
+				log.debug("-----------------selectStr.toString()------------------------"+selectStr.toString());
+				log.debug("-----------------selectStr.toString()------------------------"+selectStr.toString());
 				rs = ((JdbcDao)daoFactory.getDao("jdbc")).queryForList(selectStr.toString().trim(),
 						null);
 			} catch (KINGException Ex) {
