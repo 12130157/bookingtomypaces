@@ -43,7 +43,7 @@ public class LoginAction extends FrmAction{
 	 * @throws KINGException
 	 */
 	public String logined() throws KINGException {
-		System.out.println("------logined11111111111---------");
+	
 		String result = "login";
 		//name="admin";
 		//pwd="888";
@@ -51,16 +51,17 @@ public class LoginAction extends FrmAction{
 		//UserData u = userService.login("admin", Md5Tools.encode("888"));
 		if (null == u) {
 			// setUerror(false);
-			error="用户名或密码错";// 用户名或密码错
+			error="用戶帳號或者密碼錯誤！";// 用户名或密码错
 			return result;
 		} else {
 			if (1 == u.getStatus()) {
-				error="用户已过期或被锁定,请联系管理员!";// 用户已过期或被锁定,请联系管理员!
+				error="用戶被鎖定，請聯繫關聯員!";// 用户已过期或被锁定,请联系管理员!
 				return result;
 			} else {
 				int b = userService.userExistRole(u.getId());
+				System.out.println("-----------------------"+b);
 				if (b<1) {
-					error="你没有权限登录,请联系管理员!";// 你没有权限登录,请联系管理员!
+					error="你沒有分配權限，請聯繫管理員!";// 你没有权限登录,请联系管理员!
 			 		return result;
 				} else {
 					String ip = ServletActionContext.getRequest().getRemoteAddr(); // 获得来路IP

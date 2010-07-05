@@ -115,7 +115,7 @@ public class RoleAction extends FrmAction{
 			RoleData r = new RoleData();
 			r.setName(request.getParameter("name"));
 			r.setMemo(request.getParameter("memo")==null?"":request.getParameter("memo").toString());
-			if (null != getFunId()) {
+			if (null != getFunId()&&!"".equals(getFunId())) {
 				String[] fId = getFunId().split(",");
 				
 				Integer uId = 0;
@@ -150,13 +150,13 @@ public class RoleAction extends FrmAction{
 			RoleData r =roleService.retrieveRole(request.getParameter("id"));
 			r.setName(request.getParameter("name"));
 			r.setMemo(request.getParameter("memo")==null?"":request.getParameter("memo").toString());
-			
+			roleFunctionService.deleteRoleFunction(request.getParameter("id"));
 			// r.setAccountSetId(this.checkUser().getAccountSetId());
 			// Integer[] fId = getFunId();
-			if (null != getFunId()) {
+			if (null != getFunId()&&!"".equals(getFunId())) {
 				String buf=getFunId().replace("0,", "");
 				String[] fId = buf.split(",");
-				roleFunctionService.deleteRoleFunction(request.getParameter("id"));
+				
 				Integer uId = 0;
 				for (String id : fId) {
 					uId = Integer.parseInt(id);
