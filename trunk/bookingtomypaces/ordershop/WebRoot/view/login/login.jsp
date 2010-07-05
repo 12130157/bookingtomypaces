@@ -87,6 +87,10 @@
                     <td height="30" class="fontorange" style="color:#ff6600; font-weight:bold;">密&nbsp;&nbsp;&nbsp;码:</td>
                     <td>    <s:password name="pwd" cssClass="inputlogin"  theme="simple" onkeydown="if(event.keyCode==13)return userlogin();"></s:password>  </td>
                   </tr>
+                  <tr>
+                    <td height="30" class="fontorange" style="color:#ff6600; font-weight:bold;"></td>
+                    <td><s:property value='error' /></td>
+                  </tr>
                 </table></td>
                 <td width="60" align="center"><img src="<%=request.getContextPath()%>/images/btnlogin1.gif" width="47" height="43" border="0" style="cursor: pointer" border="0" onClick="userlogin();"></td>
               </tr>

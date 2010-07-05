@@ -26,7 +26,7 @@ public class LoginAction extends FrmAction{
 	private IUserService userService;
 	private String name;
 	private String pwd;
-	
+	private String error;
 	/**
 	 * 1.进入登陆页面
 	 * @return
@@ -51,16 +51,16 @@ public class LoginAction extends FrmAction{
 		//UserData u = userService.login("admin", Md5Tools.encode("888"));
 		if (null == u) {
 			// setUerror(false);
-			request.setAttribute("error", "用户名或密码错");// 用户名或密码错
+			error="用户名或密码错";// 用户名或密码错
 			return result;
 		} else {
 			if (1 == u.getStatus()) {
-				request.setAttribute("error", "用户已过期或被锁定,请联系管理员!");// 用户已过期或被锁定,请联系管理员!
+				error="用户已过期或被锁定,请联系管理员!";// 用户已过期或被锁定,请联系管理员!
 				return result;
 			} else {
 				int b = userService.userExistRole(u.getId());
 				if (b<1) {
-					request.setAttribute("error", "你没有权限登录,请联系管理员!");// 你没有权限登录,请联系管理员!
+					error="你没有权限登录,请联系管理员!";// 你没有权限登录,请联系管理员!
 			 		return result;
 				} else {
 					String ip = ServletActionContext.getRequest().getRemoteAddr(); // 获得来路IP
@@ -103,5 +103,26 @@ public class LoginAction extends FrmAction{
 	public void setUserService(IUserService userService) {
 		this.userService = userService;
 	}
+
+	/**   
+	 * error   
+	 *   
+	 * @return  the error   
+	 * @since   CodingExample Ver(编码范例查看) 1.0   
+	 */
+	
+	public String getError() {
+		return error;
+	}
+
+	/**   
+	 * @param error the error to set   
+	 */
+	
+	public void setError(String error) {
+		this.error = error;
+	}
+	
+	
 
 }
