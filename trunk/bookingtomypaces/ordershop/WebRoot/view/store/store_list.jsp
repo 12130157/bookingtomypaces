@@ -22,11 +22,12 @@
 			<tr>
 				<td >
 				    
-					店鋪名稱:<input type="text" class="inputsearch" name="name"  />
+					店鋪名稱:<input type="text" class="inputsearch" name="name" value="<s:property value="store.name" />" />
 					&nbsp;&nbsp;&nbsp;
 					店鋪狀態:<select name="status" >
-                	<option value=0 >使用</option>
-                	<option value=1 >禁用</option>
+					<option value=-1 >未選擇</option>
+                	<option value=0 <s:if test="store.status==0">selected</s:if>>啟用</option>
+                	<option value=1 <s:if test="store.status==1">selected</s:if>>禁用</option>
                 	</select>
 					&nbsp;&nbsp;&nbsp;
 					<input type="submit" class="btn1" value="查 詢" /></td>
@@ -72,7 +73,7 @@
 			<td align="center"><s:property value="address"/></td>
 			<td align="center"><s:property value="managerName"/></td>
 			<td align="center"><s:property value="managerMobile"/></td>
-			<td align="center"><s:if test="status==0">使用中</s:if><s:else>禁用</s:else></td>
+			<td align="center"><s:if test="status==0">啟用</s:if><s:else>禁用</s:else></td>
 			<td align="center">
 				<a href="#" onclick="edit_jsp('<s:property value="id"/>');" class='linkorange'>编辑</a>
 				<a href="#" onclick="delete_jsp('<s:property value="id"/>');" class='linkorange'>删除</a>

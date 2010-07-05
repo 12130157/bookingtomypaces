@@ -15,7 +15,7 @@
 </head>
 
 <body class="maintable">
-<s:form action="editDept"  method="post"  theme="simple" onsubmit="return check(this);">
+<s:form action="editDept"  method="post"  theme="simple" onsubmit="return checkf(this);">
 <input type="hidden" name="id" value="<s:property value='dept.id' />" />
 <input id="_isexist" type="hidden" value="0" />
 <div class="dclass_container" >
@@ -37,7 +37,7 @@
             <td class="formtitle">状态:</td>
             <td class="formtd"> 
             	<select name="status" >
-                	<option value=0 <s:if test="dept.status==0">selected</s:if> >使用</option>
+                	<option value=0 <s:if test="dept.status==0">selected</s:if> >啟用</option>
                 	<option value=1 <s:if test="dept.status==1">selected</s:if>>禁用</option>
                 </select>
             </td>
@@ -45,13 +45,14 @@
           </tr>
      </table>
     <div style="padding:0.3em; text-align:center">
-    	<input type="button" class="btn1" value="保 存" onclick="deptadd();" />
+    	<input type="submit" class="btn1" value="保 存" />
 		<input type="button" class="btn1" value="返 回" onclick="javascript:history.back();" /> 
 	</div>
 	</div>
 </div>
 </s:form>
 </body>
+<!-- 
 <script language="javascript" type="text/javascript">
 	
 	function deptadd(){
@@ -60,9 +61,10 @@
 			document.getElementById("_name").focus();
 				return false;
 		}else{
-	 		document.forms[0].action="<%=request.getContextPath()%>/dept/key/editDept";
+	 		document.forms[0].action="<%//=request.getContextPath()%>/dept/key/editDept";
 			document.forms[0].submit();
 		}
 	}
 </script>
+ -->
 </html>

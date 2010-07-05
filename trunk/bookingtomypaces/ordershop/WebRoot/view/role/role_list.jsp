@@ -22,11 +22,11 @@
 			<tr>
 				<td >
 				    
-					用戶組名稱:<input type="text" class="inputsearch" name="name" />
+					用戶組名稱:<input type="text" class="inputsearch" name="name" value="<s:property value="role.name" />"  />
 					&nbsp;&nbsp;&nbsp;
-					用戶組備註:<input type="text" class="inputsearch" name="memo" />
+					用戶組備註:<input type="text" class="inputsearch" name="memo" value="<s:property value="role.memo" />"  />
 					&nbsp;&nbsp;&nbsp;
-					<input type="button" class="btn1" value="查 詢" /></td>
+					<input type="submit" class="btn1" value="查 詢" /></td>
 			</tr>
 		</table>	
 		</form>
@@ -89,7 +89,7 @@ function edit_jsp(id){
 	}
 function del_jsp(id){
 	var url_str="<%=request.getContextPath()%>/role/key/deleteRole?id="+id;
-		goURL3(url_str);
+		operate(url_str,"您確定要刪除此權限組？");
 	}
 </script>
 </html>

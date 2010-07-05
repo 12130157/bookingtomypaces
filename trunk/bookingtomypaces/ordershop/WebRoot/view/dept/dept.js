@@ -16,3 +16,12 @@ function isExistName(){
 		});
 	}
 }
+
+function checkf(){
+	if((document.getElementsByName("name"))[0].value==''){	
+	    alert("部門名稱不能為空,請重新輸入!");
+	    document.getElementsByName("name")[0].focus();
+	    return false;
+	 }
+	
+}

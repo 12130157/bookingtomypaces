@@ -15,7 +15,7 @@
 </head>
 
 <body class="maintable">
-<s:form action="addDept"  method="post"  theme="simple" onsubmit="return check(this);">
+<s:form action="editstore"  method="post"  theme="simple" onsubmit="return checkf(this);">
 <input type="hidden" name="id" value="<s:property value='store.id' />" />
 <input id="_isexist" type="hidden" value="0" />
 <div class="dclass_container" >
@@ -67,14 +67,14 @@
           </tr>
      </table>
     <div style="padding:0.3em; text-align:center">
-    	<input type="button" class="btn1" value="保 存" onclick="add();" />
+    	<input type="submit" class="btn1" value="保 存" />
 		<input type="button" class="btn1" value="返 回" onclick="javascript:history.back();" /> 
 	</div>
 	</div>
 </div>
 </s:form>
 </body>
-<script language="javascript" type="text/javascript">
+<!--<script language="javascript" type="text/javascript">
 	
 	function add(){
 		
@@ -82,9 +82,9 @@
 			document.getElementById("name").focus();
 				return false;
 		}else{
-	 		document.forms[0].action="<%=request.getContextPath()%>/store/key/editstore";
+	 		document.forms[0].action="<%//=request.getContextPath()%>/store/key/editstore";
 			document.forms[0].submit();
 		}
 	}
 </script>
-</html>
+--></html>

@@ -25,3 +25,49 @@ function isExistName(){
 		});
 	}
 }
+
+
+
+function checkf(){
+	if(document.getElementById("_isexist").value==1){
+		document.getElementById("userName").focus();
+		return false;
+	}
+	if((document.getElementsByName("userName"))[0].value==''){	
+	    alert("登錄帳號不能為空,請重新輸入!");
+	    document.getElementsByName("userName")[0].focus();
+	    return false;
+	 }
+	if((document.getElementsByName("passWord"))[0].value==''){	
+	    alert("密码不能為空,請重新輸入!");
+	    document.getElementsByName("passWord")[0].focus();
+	    return false;
+	 }
+	if((document.getElementsByName("mobile"))[0].value==''){	
+	    alert("手機不能為空,請重新輸入!");
+	    document.getElementsByName("mobile")[0].focus();
+	    return false;
+	 }
+	if((document.getElementsByName("realName"))[0].value==''){
+	    alert("姓名不能為空,請重新輸入!");
+	    
+	    document.getElementsByName("realName")[0].focus();
+	    return false;
+	 }
+	
+	if(document.getElementById("deptId").value==0){
+		alert("請選擇所屬部門!");
+		//document.getElementById("deptId").focus();
+	    return false;
+	}
+	if(document.getElementById("storeId").value==0){
+		alert("請選擇所屬店鋪!");
+		//document.getElementById("storeId").focus();
+	    return false;
+	}
+	if(document.getElementById("areaId").value==0){
+		alert("請選擇所屬區域!");
+		//document.getElementById("areaId").focus();
+	    return false;
+	}
+}
