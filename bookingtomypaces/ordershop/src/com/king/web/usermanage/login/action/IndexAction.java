@@ -20,6 +20,7 @@ import com.king.web.usermanage.user.service.IUserService;
 @ResultPath("/")
 //定义具体的页面及其对应的返回值。
 @Results({
+	@Result(name="index", location="index.jsp", type="redirect"),
 	@Result(name="login", location="view/login/login.jsp"),
 	@Result(name="home", location="main.jsp"),
 	@Result(name="menu", location="left.jsp")
@@ -40,7 +41,7 @@ public class IndexAction extends FrmAction{
 		
 		System.out.println("------home11111111111111---------");
 		if(null==getFrmUser()){
-			return "login";
+			return "index";
 		}
 		return "home";
 	}
@@ -52,6 +53,9 @@ public class IndexAction extends FrmAction{
 	 */
 	public String menu() throws KINGException {
 		System.out.println("------menu-111111111111111111--------");
+		if(null==getFrmUser()){
+			return "index";
+		}
 		setFunList(systemFunctionService.getSysFunByUserId(getFrmUser().getUserId()));
 		return "menu";
 	}

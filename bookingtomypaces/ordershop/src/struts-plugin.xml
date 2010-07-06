@@ -122,10 +122,10 @@
 
 		<global-results>
 			<result name="kingexception" type="dispatcher">
-				<param name="location">kingexception.jsp</param>
+				<param name="location">/kingexception.jsp</param>
 			</result>
 			<result name="exception" type="dispatcher">
-				<param name="location">exception.jsp</param>
+				<param name="location">/exception.jsp</param>
 			</result>
 		</global-results>  
 

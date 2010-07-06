@@ -42,7 +42,8 @@ import com.king.tools.PageVo;
 	@Result(name="editjsp", location="view/user/user_edit.jsp"),
 	@Result(name="resetpwdjsp", location="view/user/resetpwd.jsp"),
 	@Result(name="addjsp", location="view/user/user_add.jsp"),
-	@Result(name="funcjsp", location="view/user/func.jsp")
+	@Result(name="funcjsp", location="view/user/func.jsp"),
+	@Result(name="index", location="index.jsp", type="redirect")
 })
 
 public class UserAction extends FrmAction{
@@ -396,6 +397,11 @@ public class UserAction extends FrmAction{
 			}
 			return this.staticlist();
 		}
+	}
+	
+	
+	public String exceptions() throws KINGException {
+		return "index";
 	}
 	/**---------------------------get()-set()-----------------------------**/	
 
