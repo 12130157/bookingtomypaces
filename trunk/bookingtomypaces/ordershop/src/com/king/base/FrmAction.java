@@ -211,7 +211,7 @@ public abstract class FrmAction implements SessionAware, ServletRequestAware,
 		
 	}
 	/**
-	 * 打印系统异常。当异常为IETIPException异常时，需要取出
+	 * 打印系统异常。当异常为KINGException异常时，需要取出
 	 * 真正的异常堆栈信息
 	 * @param e
 	 * 		需要打印的异常

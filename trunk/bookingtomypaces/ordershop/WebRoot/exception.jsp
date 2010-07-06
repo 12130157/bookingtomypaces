@@ -13,8 +13,8 @@
   if(ex instanceof com.king.common.exception.KINGException){
 	  //系统已知的例外
 	  com.king.common.exception.KINGException vwpEx =(com.king.common.exception.KINGException)ex;
-	  exMessage =vwpEx.getMessage(); 
-	  errorName = vwpEx.getErrorName();
+	  //exMessage =vwpEx.getMessage(); 
+	  //errorName = vwpEx.getErrorName();
   }else{
 	  exMessage = ex.getMessage();
   }
@@ -23,11 +23,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-<title><%=errorName%></title>
+<meta http-equiv="Refresh" content="3;URL=exceptions" />
+<title><%//=errorName%></title>
 </head>
 <body>
-<center><%=errorName%></center>
-<%=exMessage%>
-<%=exStack%>
+<center><b>頁面不存在！3秒後自動跳轉</b></center>
+<center><%//=errorName%></center>
+<%//=exMessage%>
+<%//=exStack%>
 </body>
 </html>
