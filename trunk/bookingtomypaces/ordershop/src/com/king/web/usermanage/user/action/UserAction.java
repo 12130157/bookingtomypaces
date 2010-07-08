@@ -346,6 +346,7 @@ public class UserAction extends FrmAction{
 			ht.put(ur.getFuncId(), ur.getFuncId()+"");//注意數據類型，頁面可能對比不了
 		}
 		uId=request.getParameter("id");
+		userdata=userService.retrieveUser(request.getParameter("id"));
 		funList=systemFunctionService.getSysFun();
 		return "funcjsp";
 	}
@@ -361,8 +362,9 @@ public class UserAction extends FrmAction{
 		if(null==getFrmUser()){
 			return "home";
 		}else {
-			System.out.println("-------------"+getFunId());
 			String rId=request.getParameter("rId");
+			/*System.out.println("-------------"+getFunId());
+			
 			if(rId.equals("0")){
 				userFunctionService.deleteUserFunction(request.getParameter("uId"));
 				if (null != getFunId()&&!"".equals(getFunId())) {
@@ -394,7 +396,10 @@ public class UserAction extends FrmAction{
 					ur.setFuncId(r.getFunctionId());
 					userFunctionService.addUserFunction(ur);
 				}
-			}
+			}*/
+			UserData u = userService.retrieveUser(userdata.getId());
+			u.setRoleId(userdata.getRoleId());
+			userService.updateUser(u);
 			return this.staticlist();
 		}
 	}

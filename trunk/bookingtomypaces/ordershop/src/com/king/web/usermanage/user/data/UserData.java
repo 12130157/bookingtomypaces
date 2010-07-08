@@ -33,6 +33,7 @@ public class UserData extends FrmData {
 	private String areaId;//地區ID
 	private String shopId;//店面ID
 	private int isHeadOffice;//是否總店；1：總店，2：分店
+	private String roleId;  //角色ID
 	
 	/**
 	 * @return the unitId
@@ -189,6 +190,23 @@ public class UserData extends FrmData {
 	 */
 	public void setIsHeadOffice(int isHeadOffice) {
 		this.isHeadOffice = isHeadOffice;
+	}
+	/**   
+	 * roleId   
+	 *   
+	 * @return  the roleId   
+	 * @since   CodingExample Ver(编码范例查看) 1.0   
+	 */
+	@Column(length = 32,name = "roleId",nullable = true)
+	public String getRoleId() {
+		return roleId;
+	}
+	/**   
+	 * @param roleId the roleId to set   
+	 */
+	
+	public void setRoleId(String roleId) {
+		this.roleId = roleId;
 	}
 	
 	
