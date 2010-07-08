@@ -102,8 +102,8 @@ public class SystemFunctionService  extends FrmService implements ISystemFunctio
 	 */
 	public List<SystemFunctionData> getSysFunByUserId(String userId) throws KINGException{
 		StringBuffer hql  = new StringBuffer();
-		hql.append("select s from SystemFunctionData s where s.id in(select u.funcId from UserFunctionData u where u.userId='"
-						+ userId + "')" );
+		hql.append("select s from SystemFunctionData s where s.id  in (select r.functionId from RoleFunctionData1 r where r.roleId in(select u.roleId from UserData u where u.id='"
+						+ userId + "')" + ")");
 		hql.append(" order by s.seq asc,s.id asc");
 		List<SystemFunctionData> list = systemFunctionDao.search(hql.toString());
 		return list;

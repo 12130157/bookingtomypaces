@@ -33,7 +33,7 @@ document.getElementById("cdata").innerHTML = s;
 
 <body class="maintable" >
 <s:form  method="post"  theme="simple" onsubmit="return check(this);">
-<input type="hidden" name="uId" value="<s:property value='uId' />" />
+<input type="hidden" name="userdata.id" value="<s:property value='userdata.id' />" />
 <div class="dclass_container" >
 	<div class="dclass_container_header" >    	
         <div class="dclass_container_title">用戶權限分配</div>
@@ -43,10 +43,12 @@ document.getElementById("cdata").innerHTML = s;
          <tr>
             <td class="formtitle" width="10%" align="center">權限組:</td>
             <td class="formtd" width="90%" > 
-            	<s:select list="roleMap" name="rId"  headerKey="0" headerValue="未選擇" emptyOption="false" onchange="showfunc(this);" ></s:select>
+            	<s:select list="roleMap" name="userdata.roleId" key="<s:property value='userdata.roleId' />" headerKey="0" headerValue="未選擇" emptyOption="false" ></s:select>
             </td>
           
           </tr>
+          <!-- onchange="showfunc(this);"  -->
+          <!--
             <tr >
              <td id="fun1" valign="top"  class="formtitle" align="center">功能列表<div id="cdata" style="display:none"></div></td>
             
@@ -76,7 +78,7 @@ document.getElementById("cdata").innerHTML = s;
           
             </tr>
            
-     </table>
+     --></table>
     <div style="padding:0.3em; text-align:center">
     	<input type="button" class="btn1" value="保 存" onclick="useradd();" />
 		<input type="button" class="btn1" value="返 回" onclick="javascript:history.back();" /> 
