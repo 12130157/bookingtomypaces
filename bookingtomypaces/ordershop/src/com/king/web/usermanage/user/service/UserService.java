@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.king.base.FrmService;
 import com.king.common.exception.KINGException;
+import com.king.tools.DateTool;
 import com.king.tools.PageRoll;
 import com.king.web.usermanage.user.dao.IUserDAO;
 import com.king.web.usermanage.user.data.UserData;
@@ -112,8 +113,13 @@ public class UserService extends FrmService implements IUserService{
 	 * @throws KINGException
 	 */
 	public void loginLogUser(String ip, String lastTime, String uid) throws KINGException{
-		userDao.executeSQL("update UserInfo set lastIp='" + ip + "',lastTime='"
-				+ lastTime + "' where id='" + uid +"' ");
+//		userDao.executeSQL("update UserInfo set lastIp='" + ip + "',lastTime='"
+//				+ lastTime + "' where id='" + uid +"' ");
+		UserData u=userDao.retrieve(uid);
+		u.setLastIp(ip);
+		u.setLastTime(DateTool.getNowDate());
+		userDao.update(u);
+
 	}
 	
 	/**
