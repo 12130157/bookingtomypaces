@@ -118,8 +118,8 @@
 	function view(id){
 		//var url_str="client_info/key/view?id="+id;
 		var url_str="view?id="+id;
-		openLink_auto(url_str,'650','550');
-		//goURL3(url_str);
+//		openLink_auto(url_str,'650','550');
+		goURL3(url_str);
 	}
 	
 	//检查客户编号是否重复
