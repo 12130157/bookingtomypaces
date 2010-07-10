@@ -102,7 +102,7 @@
           </tr>
      </table>
     <div style="padding:0.3em; text-align:center">
-		<input type="button" class="btn1" value="關 閉" onclick="javascript:history.back();" /> 
+		<input type="button" class="btn1" value="返 回" onclick="javascript:history.back();" /> 
 	</div>
 	</div>
 </div>
