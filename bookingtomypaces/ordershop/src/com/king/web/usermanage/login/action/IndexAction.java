@@ -43,6 +43,7 @@ public class IndexAction extends FrmAction{
 		if(null==getFrmUser()){
 			return "index";
 		}
+		setFunList(systemFunctionService.getSysFunByUserId(getFrmUser().getUserId()));
 		return "home";
 	}
 	
