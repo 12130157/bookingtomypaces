@@ -93,7 +93,10 @@ public class UserService extends FrmService implements IUserService{
 		System.out.println("7.用户登录====================="+name+"      pwd===="+pwd);
 		String hql = "select u FROM UserData u WHERE u.userName='"
 			+ name + "' and u.passWord='" + pwd + "'";
-		List<UserData> list=userDao.search(hql);
+		PageRoll p1 =new PageRoll();
+		p1.setPageSize(10);
+		p1.setStartRow(1);
+		List<UserData> list=userDao.searchlist(p1,hql);
 		UserData u = new UserData();
 		System.out.println("list.size()==="+list.size());
 		if(list.size()>0){
@@ -129,8 +132,12 @@ public class UserService extends FrmService implements IUserService{
 	 * @throws KINGException
 	 */
 	public int userExistRole(String uid) throws KINGException{
+		PageRoll p1 =new PageRoll();
+		p1.setPageSize(10);
+		p1.setStartRow(1);
 		String hql = "select u from UserFunctionData u where u.userId='" +uid+ "'";
-		return userDao.search(hql).size();
+		List<UserData> list=userDao.searchlist(p1,hql);
+		return list.size();
 	}
 
 	public IUserDAO getUserDao() {
