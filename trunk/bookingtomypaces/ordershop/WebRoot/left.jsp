@@ -4,12 +4,51 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html lang="zh">
+<style>
+html, body {
+	width : 100%;
+	height : 100%;
+	padding : 0;
+	margin : 0;
+	overflow : hidden;
+}
+
+
+</style>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="<%=request.getContextPath()%>/css/style.css" rel="stylesheet" type="text/css">
 <script src="<%=request.getContextPath()%>/js/common.js" type="text/javascript"></script>
-<script>
-var lastObj
+<link href="<%=request.getContextPath()%>/css/core.css" rel="stylesheet" type="text/css"/>
+<link href="<%=request.getContextPath()%>/css/TabPanel.css" rel="stylesheet" type="text/css"/>
+<link href="<%=request.getContextPath()%>/css/Toolbar.css" rel="stylesheet" type="text/css"/>
+<link href="<%=request.getContextPath()%>/css/WindowPanel.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/jquery.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/Fader.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/TabPanel.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/Math.uuid.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/Toolbar.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/WindowPanel.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/Drag.js"></script>
+<script type="text/javascript">
+var lastObj;
+var tabpanel;
+$(document).ready(function(){
+ tabpanel = new TabPanel({
+		renderTo:'tab',
+		autoResizable:true,
+		border:'none',
+		active : 0,
+		maxLength : 10,
+		items : [{
+			id:'toolbarPlugin',
+			title:'我是一个很长很长的选项卡',
+			icon:'image/read-n.gif',
+			html:'<iframe id="callIframe" src="" width="100%" height="100%" frameborder="0"></iframe>',
+			closable: false
+		}]
+	});
+});
 function showlinks(obj) {
 
   if(lastObj){
@@ -19,6 +58,10 @@ function showlinks(obj) {
   if (obj.style.display=="none") obj.style.display="";else obj.style.display="none"
   lastObj=obj
 
+}
+
+function addt(name,url){
+  tabpanel.addTab({title:name, html:"<iframe src='"+url+"' width='100%' height='100%' frameborder='0'></iframe>"})
 }
 </script>
 <title>订单业务平台</title>
@@ -67,7 +110,7 @@ function showlinks(obj) {
 						<table width="150" border="0" cellpadding="0" cellspacing="0">
 						 <s:iterator value="funList.{?#this.perfunc==#f.id}">
            				 <s:if test="url.length()>2">
-						    <tr><td height="20">· <a href="####" onClick="linkURL('<%=request.getContextPath()%>/<s:property value='url' />?s='+Math.random())" class="menu2"><font color=""><s:property value='funcname' /></font></a></td></tr>
+						    <tr><td height="20">· <a href="####" onClick="addt('<s:property value='funcname' />','<%=request.getContextPath()%>/<s:property value='url' />?s='+Math.random())" class="menu2"><font color=""><s:property value='funcname' /></font></a></td></tr>
 						   </s:if>
             			</s:iterator>
 					</table>					
