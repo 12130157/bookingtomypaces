@@ -191,6 +191,13 @@ public class UserAction extends FrmAction{
 		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
 		String urlStr = Constants.ProjectName+"/user/key/list?curPage=";
 		ServletActionContext.getRequest().setAttribute("url", urlStr);
+		/*for(UserData b:userList){
+			userService.addUserOne(b);
+		}
+		List<UserData> aa=userService.searchUserOneList(p, withsql);
+		for(UserData a:aa){
+			System.out.println("::::::::::::::::::::::::::::"+a.getId()+"-"+a.getRealName());
+		}*/
 		return "list";
 	}
 	

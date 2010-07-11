@@ -9,11 +9,13 @@
            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
 	<!-- DAO -->
 	<bean id="userDao" class="com.king.web.usermanage.user.dao.UserDAO"></bean>
+	<bean id="userOneDao" class="com.king.web.usermanage.user.dao.OneUserDAO"></bean>
 	<bean id="userFunctionDAO" class="com.king.web.usermanage.user.dao.UserFunctionDAO"></bean>
 
 	<!-- SERVICE -->
 	<bean id="userService" class="com.king.web.usermanage.user.service.UserService">
 		<property name="userDao" ref="userDao"></property>
+		<property name="userOneDao" ref="userOneDao"></property>
 	</bean>
 	<bean id="userFunctionService" class="com.king.web.usermanage.user.service.UserFunctionService">
 		<property name="userFunctionDAO" ref="userFunctionDAO"></property>
