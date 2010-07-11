@@ -121,12 +121,17 @@ public class HibernateDao extends HibernateDaoSupport implements IDao {
 	}
 
 	public List<? extends IData> search(String hql) {
-		// TODO Auto-generated method stub
+		Session session = null;
 		try {
-			return getHibernateTemplate().find(hql);
+			session = getHibernateTemplate().getSessionFactory().openSession();
+			Query query = session.createQuery(hql);
+			return query.list();
 		} catch (DataAccessException ex1) {
 			ex1.printStackTrace();
-			throw new KINGError("hibernate_search_hql", ex1);
+			throw new KINGError("hibernate_search_hql....search(String hql)....", ex1);
+		} finally {
+			session.flush();
+			session.close();
 		}
 	}
 
