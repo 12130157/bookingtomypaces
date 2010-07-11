@@ -186,7 +186,7 @@ public class HibernateDao extends HibernateDaoSupport implements IDao {
 					if (pageRoll.getPageSize() > 0) {
 						query.setFirstResult((pageRoll.getStartRow() - 1) * pageRoll.getPageSize())
 						.setMaxResults(pageRoll.getPageSize());
-						query.setCacheable(true);//利用缓存
+//						query.setCacheable(true);//利用缓存
 						//query.setFirstResult(pageRoll.getStartRow());
 						//query.setMaxResults(pageRoll.getPageSize());
 					}
