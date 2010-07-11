@@ -1,6 +1,5 @@
 /**
  * 选项卡类
- * Marker.King
  */
 TabPanel = function(config){
   this.renderTo = config.renderTo || $(document.body);//承载容器
@@ -385,7 +384,7 @@ TabPanel.prototype = {
       tab.appendTo(this.tabpanel_mover);
   
       //添加title元素
-      var title = $('<DIV></DIV>');
+      var title = $('<DIV style="border:0;"></DIV>');
       title.text(tabitem.title);
       title.appendTo(tab);
 
