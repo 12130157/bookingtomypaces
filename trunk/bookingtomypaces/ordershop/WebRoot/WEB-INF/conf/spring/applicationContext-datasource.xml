@@ -7,6 +7,11 @@
             <ref bean="dataSource"/>
         </property>
     </bean>
+    <bean id="transactionOneManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource">
+            <ref bean="oneDataSource"/>
+        </property>
+    </bean>
     <!--hibernate属性配置-->
     <bean id="hibernateProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean"> 
 	  <property name="properties"> 
@@ -15,6 +20,18 @@
 			<!--<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>   -->
 			<!--<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop>  -->
 			<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop> 
+			<prop key="hibernate.show_sql">true</prop>
+			<prop key="hibernate.hbm2ddl.auto">update</prop>
+ 		</props> 
+      </property> 
+    </bean> 
+    <bean id="hibernatePropertiesOne" class="org.springframework.beans.factory.config.PropertiesFactoryBean"> 
+	  <property name="properties"> 
+		<props> 
+			<!--<prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>   -->
+			<!--<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>   -->
+			<!--<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>  -->
+			<prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</prop> 
 			<prop key="hibernate.show_sql">true</prop>
 			<prop key="hibernate.hbm2ddl.auto">update</prop>
  		</props> 
@@ -54,12 +71,37 @@
 		</property>
         
     </bean>
+    
+    <bean id="sessionFactoryOne" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="oneDataSource"/>
+		</property>
+		<property name="annotatedClasses">
+			<list>
+				
+				<value>com.king.web.usermanage.user.data.UserData</value>
+				
+			</list>
+		</property>
+		
+		<!--此处定义hibernate的属性配置。-->	 
+		<property name="hibernateProperties"> 
+			<ref bean="hibernatePropertiesOne" /> 
+		</property>
+        
+    </bean>
+    
+    
     <bean id="hibernate" class="com.king.base.HibernateDao">
         <property name="sessionFactory">
             <ref bean="sessionFactory"/>
         </property>
     </bean>
-    
+    <bean id="hibernateone" class="com.king.base.HibernateDao">
+        <property name="sessionFactory">
+            <ref bean="sessionFactoryOne"/>
+        </property>
+    </bean>
      <bean id="jdbc" class="com.king.base.JdbcDao">
     	<property name="dataSource">
       		<ref bean="dataSource"></ref>
@@ -72,13 +114,16 @@
                 <entry key="hibernate">
                 		<ref bean="hibernate"/>
                 </entry>
+                <entry key="hibernateone">
+                		<ref bean="hibernateone"/>
+                </entry>
                 <entry key="jdbc">
                     <ref bean="jdbc"/>
                 </entry>
             </map>
         </property>
     </bean>
-    <!--事务管理器，在以Business为后缀的接口里运行-->
+    <!--事务管理器，在以Service为后缀的接口里运行-->
     <bean id="transPropagation"
 		class="org.springframework.transaction.interceptor.TransactionInterceptor">
 		<property name="transactionManager" ref="transactionManager" />
@@ -92,6 +137,25 @@
 		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
 		<property name="interceptorNames">
 			<value>transPropagation</value>
+		</property>
+		<property name="beanNames">
+			<value>*Service</value>
+		</property>
+	</bean>
+	
+	<bean id="transOnePropagation"
+		class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager" ref="transactionOneManager" />
+		<property name="transactionAttributes">
+			<props>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="transactionOneProxy"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="interceptorNames">
+			<value>transOnePropagation</value>
 		</property>
 		<property name="beanNames">
 			<value>*Service</value>

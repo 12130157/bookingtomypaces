@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
+	<!-- main -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
         <!--
         <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />  
@@ -13,6 +14,32 @@
         <property name="username" value="root" />
         <property name="password" value="root" />
 
+        <property name="maxActive">
+            <value>30</value>
+        </property>
+        <property name="initialSize">
+            <value>10</value>
+        </property>
+        <property name="maxWait">
+            <value>20000</value>
+        </property>
+        <property name="minIdle">
+            <value>10</value>
+        </property>
+    </bean>
+    
+    <!-- other -->
+    <bean id="oneDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <!--
+        <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />  
+        <property name="url" value="jdbc:sqlserver://127.0.0.1:1433;databaseName=one" />
+        <property name="username" value="sa" />
+        <property name="password" value="sa" />
+		-->
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/test" />
+        <property name="username" value="root" />
+        <property name="password" value="root" />
         <property name="maxActive">
             <value>30</value>
         </property>
