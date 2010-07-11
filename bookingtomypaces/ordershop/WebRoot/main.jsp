@@ -50,10 +50,10 @@ $(document).ready(function(){
 		maxLength : 10,
 		items : [{
 			id:'toolbarPlugin',
-			title:'歡迎進入本系統',
-			icon:'image/read-n.gif',
+			title:'歡迎頁',
+			//icon:'<%=request.getContextPath()%>/image/read-n.gif',
 			html:'<iframe id="callIframe" src="<%=request.getContextPath()%>/welcome.html" width="100%" height="100%" frameborder="0"></iframe>',
-			closable: false
+			closable: true
 		}]
 	});
 });
@@ -76,14 +76,18 @@ function addt(name,url){
 	<script>
 		
 	</script>
-<title>订单业务平台</title>
+<title>BannerShop Integration Platform</title>
 </head>
 
 <body>
 
 <body class="easyui-layout">
-	<div region="north" border="false" style="height:60px;background:#B3DFDA;">north region</div>
-	<div region="west" split="true" title="West" style="width:240px;padding:10px;">
+	<div region="north" border="false" style="overflow:hidden;height:70px;background:#fff;">
+			<br/>
+			<br/>
+			<h2>BannerShop Integration Platform</h2>
+		</div>
+	<div region="west" split="true" title="菜單" style="width:220px;padding:3px;">
 			<table width="200" height="100%" border="0" cellpadding="0" cellspacing="0">
 		    <tr>
 		      <td valign="top" class="lefttable"><table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -194,10 +198,13 @@ function addt(name,url){
 		    </tr>
 		  </table>
 	</div>
-	<div region="south" border="false" style="height:50px;background:#A9FACD;padding:10px;">south region</div>
+	<div region="south" split="true" style="height:35px;background:#efefef;">
+	<div align="center" style="padding-top:5px;">BannerShop 版權所有 @2010</div>
+		</div>
 	<!--<div region="east" split="true" title="East" style="width:100px;padding:10px;">east region</div>
-	--><div  region="center" title="Main Title">
-	<div id="tab" width="100%" height="100%" padding="10px"></div>
+	-->
+	<div  region="center" title="內容">
+	<div id="tab" ></div>
 	</div>
 </body>
 </body>
