@@ -85,4 +85,24 @@ public interface IUserService {
 	 * @throws KINGException
 	 */
 	public int userExistRole(String uid) throws KINGException;
+	
+	
+	/**
+	 * 查询用户 基本信息
+	 * @param pageRoll 分页所需要的对象
+	 * @param jsonu JSON对象
+	 * @return 用户 基本信息集合
+	 * @throws KINGException
+	 */
+	public List<UserData> searchUserOneList(PageRoll pageRoll,String withhql) throws KINGException;
+	
+	
+	/**
+	 * 添加用户 基本信息
+	 * @param u 用户 基本信息
+	 * @return 用户 基本信息
+	 * @throws KINGException
+	 */
+	public UserData addUserOne(UserData u) throws KINGException;
+	
 }

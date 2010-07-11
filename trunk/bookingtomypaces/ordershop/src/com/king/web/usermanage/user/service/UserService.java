@@ -6,12 +6,14 @@ import com.king.base.FrmService;
 import com.king.common.exception.KINGException;
 import com.king.tools.DateTool;
 import com.king.tools.PageRoll;
+import com.king.web.usermanage.user.dao.IOneUserDAO;
 import com.king.web.usermanage.user.dao.IUserDAO;
 import com.king.web.usermanage.user.data.UserData;
 
 public class UserService extends FrmService implements IUserService{
 
 	private IUserDAO userDao;
+	private IOneUserDAO userOneDao;
 	
 	/**
 	 * 1.添加用户 基本信息
@@ -133,6 +135,38 @@ public class UserService extends FrmService implements IUserService{
 		return userDao.search(hql).size();
 	}
 
+	
+	/**
+	 * 查询用户 基本信息
+	 * @param pageRoll 分页所需要的对象
+	 * @param jsonu JSON对象
+	 * @return 用户 基本信息集合
+	 * @throws KINGException
+	 */
+	public List<UserData> searchUserOneList(PageRoll pageRoll,String withhql) throws KINGException{
+		StringBuffer hql  = new StringBuffer();
+		hql.append("from UserData ");
+		String CountSQL = "select count(*) " + hql.toString();
+		pageRoll.setCountSQL(CountSQL);
+		pageRoll.setSearchSQL(hql.toString());
+		List list = userOneDao.searchlist(pageRoll,withhql);
+		System.out.println("-----list.size()="+list.size());
+		return list;
+	}
+	
+	
+	/**
+	 * 添加用户 基本信息
+	 * @param u 用户 基本信息
+	 * @return 用户 基本信息
+	 * @throws KINGException
+	 */
+	public UserData addUserOne(UserData u) throws KINGException{
+		userOneDao.add(u);
+		return u;
+	}
+	
+	
 	public IUserDAO getUserDao() {
 		return userDao;
 	}
@@ -141,6 +175,26 @@ public class UserService extends FrmService implements IUserService{
 		this.userDao = userDao;
 	}
 
+	/**   
+	 * userOneDao   
+	 *   
+	 * @return  the userOneDao   
+	 * @since   CodingExample Ver(编码范例查看) 1.0   
+	 */
+	
+	public IOneUserDAO getUserOneDao() {
+		return userOneDao;
+	}
+
+	/**   
+	 * @param userOneDao the userOneDao to set   
+	 */
+	
+	public void setUserOneDao(IOneUserDAO userOneDao) {
+		this.userOneDao = userOneDao;
+	}
+
+	
 
 
 }
