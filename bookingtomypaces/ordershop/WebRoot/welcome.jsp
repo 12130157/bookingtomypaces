@@ -17,9 +17,7 @@
 
  -->
  <div id="tab" style="width:400px;"></div>
-<br />
-<br />
-<br />
+
 <table width="761" height="100%" border="0" align="center" cellpadding="0" cellspacing="0">
   <tr>
     <td width="400" height="280" background="<%=request.getContextPath()%>/images/welcome_04.gif"><table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0">
