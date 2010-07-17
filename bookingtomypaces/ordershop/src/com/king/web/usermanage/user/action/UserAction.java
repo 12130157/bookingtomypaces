@@ -43,7 +43,8 @@ import com.king.tools.PageVo;
 	@Result(name="resetpwdjsp", location="view/user/resetpwd.jsp"),
 	@Result(name="addjsp", location="view/user/user_add.jsp"),
 	@Result(name="funcjsp", location="view/user/func.jsp"),
-	@Result(name="index", location="index.jsp", type="redirect")
+	@Result(name="index", location="index.jsp", type="redirect"),
+	@Result(name="open_user_list", location="view/user/open_user_list.jsp")
 })
 
 public class UserAction extends FrmAction{
@@ -411,6 +412,79 @@ public class UserAction extends FrmAction{
 		}
 	}
 	
+	/**
+	 * 弹出用户列表
+	 * @return
+	 * @throws KINGException
+	 */
+	public String open_user_list() throws KINGException {
+		if(null==getFrmUser()){
+			return "home";
+		}
+		//區域信息
+		areaMap=CacheUtil.getInstance().getCacheMap("SystemArea");//in conf->cache->data->data.xml
+		//店鋪資料
+		PageRoll p2 =new PageRoll();
+		p2.setPageSize(1000);
+		p2.setStartRow(1);
+		List<StoreData> liststore=storeService.searchStores(p2, " where 1=1 and status =0 ");
+		for(StoreData s:liststore){
+			storeMap.put(s.getId(), s.getName());
+		}
+		//部門信息
+		PageRoll p1 =new PageRoll();
+		p1.setPageSize(1000);
+		p1.setStartRow(1);
+		List<DeptData> listdept=deptService.searchDept(p1, " where 1=1 and status =0 ");
+		for(DeptData d:listdept){
+			deptMap.put(d.getId(), d.getName());
+		}
+		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
+		String deptId = request.getParameter("deptId")==null?"0":request.getParameter("deptId").toString();
+		String userName = request.getParameter("userName")==null?"":request.getParameter("userName").toString();
+		String realName = request.getParameter("realName")==null?"":request.getParameter("realName").toString();
+		String mobile = request.getParameter("mobile")==null?"":request.getParameter("mobile").toString();
+		String areaId = request.getParameter("areaId")==null?"0":request.getParameter("areaId").toString();
+		String shopId = request.getParameter("shopId")==null?"0":request.getParameter("shopId").toString();
+		Integer status=request.getParameter("status")==null?-1:Integer.parseInt(request.getParameter("status").toString());
+		PageRoll p =new PageRoll();
+		p.setPageSize(Constants.PAGE_SIZE);
+		p.setStartRow(curPage);
+		String withsql=" where 1=1 and userName<>'admin' ";
+		if(!"0".equals(deptId)){
+			withsql+=" and deptId = '"+deptId+"' ";
+		}
+		if(!"".equals(userName)){
+			withsql+=" and userName like '%"+userName+"%' ";
+		}
+		if(!"".equals(mobile)){
+			withsql+=" and mobile like '%"+mobile+"%' ";
+		}
+		if(!"0".equals(areaId)){
+			withsql+=" and areaId = '"+areaId+"' ";
+		}
+		if(!"0".equals(shopId)){
+			withsql+=" and shopId = '"+shopId+"' ";
+		}
+		if(!"".equals(realName)){
+			withsql+=" and realName like '%"+realName+"%' ";
+		}
+		if(status>-1){
+			withsql+=" and status = "+status;
+		}
+		userdata.setAreaId(areaId);
+		userdata.setDeptId(deptId);
+		userdata.setShopId(shopId);
+		userdata.setRealName(realName);
+		userdata.setUserName(userName);
+		userdata.setStatus(status);
+		userdata.setMobile(mobile);
+		userList =userService.searchUsersList(p, withsql);
+		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
+		String urlStr = Constants.ProjectName+"/user/key/open_user_list?curPage=";
+		ServletActionContext.getRequest().setAttribute("url", urlStr);
+		return "open_user_list";
+	}
 	
 	public String exceptions() throws KINGException {
 		return "index";
