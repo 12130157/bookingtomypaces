@@ -10,6 +10,7 @@
 <title>客戶資料管理</title>
 </head>
 <script type="text/javascript"  src="<%=request.getContextPath()%>/view/clientInfo/clientInfo.js"  ></script>
+
 <body class="maintable">
 <form action="list" method="post">
 <div class="dclass_container dclass_container_collapsible" >
@@ -22,7 +23,15 @@
 			<tr>
 				<td >
 				    
-					客戶編號/公司簡稱:<input type="text" class="inputsearch" name="find_str" value="${find_str }"/>
+					客戶編號:<input type="text" class="inputsearch" name="find_num" value="${find_num }"/>
+					&nbsp;
+					公司簡稱:<input type="text" class="inputsearch" name="find_comp" value="${find_comp }"/>
+					&nbsp;
+					公司電話:<input type="text" class="inputsearch" name="find_comphone" value="${find_comphone }"/>
+					&nbsp;
+					聯繫人:<input type="text" class="inputsearch" name="find_linkman" value="${find_linkman }"/>
+					&nbsp;
+					負責職員:<input type="text" class="inputsearch" name="find_functionary" value="${find_functionary }"/>
 					&nbsp;
 					<input name="sb" type="submit" class="btn1" value="查 詢" /></td>
 			</tr>
