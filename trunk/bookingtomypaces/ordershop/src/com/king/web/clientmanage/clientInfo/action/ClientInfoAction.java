@@ -24,6 +24,7 @@ import com.king.web.clientmanage.clientInfo.service.IClientInfoService;
 	@Result(name="list", location="view/clientInfo/clientInfo_list.jsp"),
 	@Result(name="edit", location="view/clientInfo/clientInfo_edit.jsp"),
 	@Result(name="add", location="view/clientInfo/clientInfo_add.jsp"),
+//	@Result(name="add", location="view/clientInfo/viewlist.jsp"),
 	@Result(name="view", location="view/clientInfo/clientInfo_view.jsp")
 })
 
@@ -44,9 +45,25 @@ public class ClientInfoAction extends FrmAction{
 			return "home";
 		}
 		String withsql=" where 1=1 and state!='2' ";
-		String find_str = request.getParameter("find_str")==null?"":request.getParameter("find_str").toString();
-		if(!"".equals(find_str)){
-			withsql+=" and (clientNum like '%"+find_str+"%' or companyShortname like '%"+find_str+"%') ";
+		String find_num = request.getParameter("find_num")==null?"":request.getParameter("find_num").toString();
+		String find_comp = request.getParameter("find_comp")==null?"":request.getParameter("find_comp").toString();
+		String find_comphone = request.getParameter("find_comphone")==null?"":request.getParameter("find_comphone").toString();
+		String find_linkman = request.getParameter("find_linkman")==null?"":request.getParameter("find_linkman").toString();
+		String find_functionary = request.getParameter("find_functionary")==null?"":request.getParameter("find_functionary").toString();
+		if(!"".equals(find_num)){
+			withsql+=" and clientNum like '%"+find_num+"%' ";
+		}
+		if(!"".equals(find_comp)){
+			withsql+=" and company_shortname like '%"+find_comp+"%' ";
+		}
+		if(!"".equals(find_comphone)){
+			withsql+=" and comp_phone like '%"+find_comphone+"%' ";
+		}
+		if(!"".equals(find_linkman)){
+			withsql+=" and linkman_one like '%"+find_linkman+"%' ";
+		}
+		if(!"".equals(find_functionary)){
+			withsql+=" and functionary like '%"+find_functionary+"%' ";
 		}
 		System.out.println("withsql: "+withsql);
 		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
@@ -57,7 +74,11 @@ public class ClientInfoAction extends FrmAction{
 		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
 		String urlStr = Constants.ProjectName+"/client_info/key/list?curPage=";
 		ServletActionContext.getRequest().setAttribute("url", urlStr);
-		ServletActionContext.getRequest().setAttribute("find_str", find_str);
+		ServletActionContext.getRequest().setAttribute("find_num", find_num);
+		ServletActionContext.getRequest().setAttribute("find_comp", find_comp);
+		ServletActionContext.getRequest().setAttribute("find_comphone", find_comphone);
+		ServletActionContext.getRequest().setAttribute("find_linkman", find_linkman);
+		ServletActionContext.getRequest().setAttribute("find_functionary", find_functionary);
 		return "list";
 	}
 	
