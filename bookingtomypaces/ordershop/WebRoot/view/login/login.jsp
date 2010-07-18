@@ -59,7 +59,7 @@
       <tr>
         <td height="90" align="center"><table width="498" height="95" border="0" cellpadding="0" cellspacing="0">
           <tr>
-            <td align="center" valign="bottom"><p class="style1 style2">BannerShop Integration Platform</p>
+            <td align="center" valign="bottom"><p class="style1 style2">BannerShop</p>
               <p class="style1">&nbsp;</p></td>
           </tr>
         </table></td>
