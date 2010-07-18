@@ -22,8 +22,10 @@ import com.king.web.clientmanage.clientInfo.service.IClientInfoService;
 @Results({
 	@Result(name="home", location="user/key/home",type="redirectAction"),
 	@Result(name="list", location="view/clientInfo/clientInfo_list.jsp"),
+//	@Result(name="list", location="view/clientInfo/MyJsp.jsp"),
 	@Result(name="edit", location="view/clientInfo/clientInfo_edit.jsp"),
 	@Result(name="add", location="view/clientInfo/clientInfo_add.jsp"),
+//	@Result(name="add", location="lhgdialog/index_d.jsp"),
 //	@Result(name="add", location="view/clientInfo/viewlist.jsp"),
 	@Result(name="view", location="view/clientInfo/clientInfo_view.jsp")
 })

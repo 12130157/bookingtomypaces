@@ -23,6 +23,7 @@ public class ClientInfoVo {
 	private String prompt;
 	private String rebate;
 	private String functionary;
+	private String functionaryUserId;
 	
 	private String state;
 	private String create_time;
@@ -157,5 +158,11 @@ public class ClientInfoVo {
 	}
 	public void setCreate_time(String createTime) {
 		create_time = createTime;
+	}
+	public String getFunctionaryUserId() {
+		return functionaryUserId;
+	}
+	public void setFunctionaryUserId(String functionaryUserId) {
+		this.functionaryUserId = functionaryUserId;
 	}
 }
