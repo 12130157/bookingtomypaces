@@ -78,7 +78,7 @@
 	<div region="north" border="false" style="overflow:hidden;height:70px;">
 			<br/>
 			
-			<h2>BannerShop Integration Platform</h2>
+			<h2>BannerShop</h2>
 		</div>
 	<div region="west" split="true" title="菜單" style="width:220px;padding:3px;">
 			<table width="200" height="100%" border="0" cellpadding="0" cellspacing="0">
