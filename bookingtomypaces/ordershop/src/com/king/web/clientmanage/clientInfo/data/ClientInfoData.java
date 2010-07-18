@@ -36,6 +36,7 @@ public class ClientInfoData  extends FrmData{
 	private int prompt;
 	private int rebate;
 	private String functionary;
+	private String functionaryUserId;
 	
 	private String state;
 	private Date createTime;
@@ -187,6 +188,12 @@ public class ClientInfoData  extends FrmData{
 	}
 	public void setCreateTime(Date createTime) {
 		this.createTime = createTime;
+	}
+	public String getFunctionaryUserId() {
+		return functionaryUserId;
+	}
+	public void setFunctionaryUserId(String functionaryUserId) {
+		this.functionaryUserId = functionaryUserId;
 	}
 	
 	
