@@ -8,6 +8,8 @@
 <title>客戶資料修改</title>
 </head>
 <script type="text/javascript"  src="<%=request.getContextPath()%>/view/clientInfo/clientInfo.js"  ></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/lhgcore/lhgcore.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/js/lhgcore/lhgdialog.js"></script>
 <body class="maintable">
 <s:form action="edit"  method="post"  theme="simple" >
 <input id="_isexist" type="hidden" value="0" />
@@ -86,7 +88,11 @@
           </tr>
           <tr>           
             <td width="15%" class="formtitle">負責員工:</td>
-            <td width="35%" class="formtd"> <input name="clientinfodata.functionary" type="text" class="inputform" value="${clientinfodata.functionary }"></td>
+            <td width="35%" class="formtd"> 
+            	<input name="clientinfodata.functionary" type="text" class="inputform" value="${clientinfodata.functionary }">
+            	<input name="clientinfodata.functionaryUserId" type="hidden" class="inputform" value="${clientinfodata.functionaryUserId }">          
+            	<input id="c" type="button" name="bc" class="btn1" value="選 擇" onclick="openDialog('open_userlist','員工列表','<%=request.getContextPath()%>/user/key/open_user_list',800,500);" />       	          	
+            </td>
 			<td class="formtitle">狀態:</td>
             <td class="formtd">
             	<select type="text" name="clientinfodata.state" >
