@@ -113,3 +113,36 @@ function checkf(){
 	    return false;
 	}
 }
+
+
+//獲取選中的員工
+var P = window.parent, D = P.loadinndlg();  
+function getCheckBoxsValues(checkName){
+	var adminID = "";
+	obj = document.getElementsByName(checkName);
+	var t = 0;
+	for(var i=0; i<obj.length; i++){
+		if(obj[i].checked){
+			if(t==0){
+				adminID = obj[i].value;
+			}else{
+				alert("只能選擇一個員工");
+				return false;
+			}
+			t++;
+		}
+	}
+	if(adminID!=""){
+	    var varArray = "";
+			if(adminID.indexOf("&") != -1){
+				varArray = adminID.split("&")
+			}
+			//alert(varArray[0]+"---"+varArray[1])			
+			D.return_openselect(varArray[0],varArray[1]);			
+			P.reload('#','#'); 
+			
+	}else{
+		alert("請選擇一個員工");
+		return false;
+	}
+}
