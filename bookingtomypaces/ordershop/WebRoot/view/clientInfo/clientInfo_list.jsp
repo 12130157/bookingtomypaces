@@ -64,13 +64,14 @@
 				<th >聯繫人電話</th>
 				<th >地址</th>
 				<th >狀態</th>
+				<th >負責職員</th>
 				<th >操作</th>
 			</tr>
 		</thead>
 		<tdoby>
 		<s:iterator  value="clientInfoList" status="flag" >
 		<tr title="双击查看详细内容" onDblClick="view('<s:property value="id"/>');">			
-			<td align="center"><input type="checkbox" name="checkbox"  value="<s:property value="id"/>"></td>
+			<td align="center"><input type="checkbox" name="checkbox" <s:if test="state==0">disabled</s:if>  value="<s:property value="id"/>"></td>
 			<td><a href="#"><s:property value="clientNum"/></a></td>
 			<td><s:property value="companyShortname"/></td>
 			<td><s:property value="compPhone"/></td>
@@ -81,6 +82,7 @@
 				<s:if test="0==state">啟用</s:if>
 				<s:if test="1==state"><span class="fontred">禁用</span></s:if>
 			</td>	
+			<td><s:property value="functionary"/></td>	
 			<td >
 				<a href="#" onclick="edit_jsp('<s:property value="id"/>')" class='linkorange'>编辑</a>
 				<s:if test="0==state"><a href="#" onclick="update_down('<s:property value="id"/>','1')" class='linkorange'>禁用</a></s:if>
@@ -89,7 +91,7 @@
 		</tr>
 		</s:iterator>
 		<tr>
-              <td colspan="9" align="right" class="backwhite" height="30">
+              <td colspan="10" align="right" class="backwhite" height="30">
               <tools:pageUrl url="${url}" count="${page.count}" curPage="${page.curPage}" pageSize="${page.pageSize}" />			  
 			  </td>
       </tr>	

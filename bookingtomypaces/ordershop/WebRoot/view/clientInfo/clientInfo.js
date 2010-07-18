@@ -188,4 +188,13 @@
 				  }
 		  }
    } 
-	
+
+	//选择负责职员返回值
+	function return_openselect(str_id,str_name){
+		//alert(str_id+"---1--"+str_name)
+		document.getElementById("clientinfodata.functionary").value=str_name;
+		document.getElementById("clientinfodata.functionaryUserId").value=str_id;
+	}
+	function openDialog(idd,ti,url,w,h){
+			J.dialog.get({ id:idd, title: ti, width: w, height:h, page: url, cover:false});
+	}
