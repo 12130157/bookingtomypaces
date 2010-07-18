@@ -43,9 +43,14 @@ table.dclass_data td, table.dclass_data th{
 	padding:0.5em 0.3em;
 }
 table.dclass_data th{
-	background-color:#C1DDF8;	
-	color:#064E88;
-	font-weight:normal;
+
+	 border-left:1px solid #ffffff;
+	 border-right:1px solid #C8E2FB;
+	 border-top:1px solid #ffffff;
+	 text-align:center;
+	 background-color:#C1DDF8;	
+	 color:#064E88;
+	 font-weight:normal;
 }
 table.dclass_data tr.dclass_data_odd{
 	background-color:WHITE;
