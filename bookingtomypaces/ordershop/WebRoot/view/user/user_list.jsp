@@ -13,7 +13,7 @@
 <body class="maintable">
 <div class="dclass_container dclass_container_collapsible" >
 	<div class="dclass_container_header" >    	
-        <div class="dclass_container_title">用戶資料搜索條件<s:property value='userdata.deptId' /></div>
+        <div class="dclass_container_title">用戶資料搜索條件</div>
     </div>
     <div class="dclass_container_content">
 	<div class="search">
@@ -93,7 +93,7 @@
 				<s:if test="status==0"><a href="#" onclick="updaten('<s:property value="id"/>');" ><font color=red>禁用</font></a></s:if>
 				<s:else><a href="#" onclick="updatey('<s:property value="id"/>');" ><font color=blue>啟用</font></a></s:else>
 			</td>
-		</tr
+		</tr>
 		</s:iterator>
 		<tr>
               <td colspan="11" align="right" class="backwhite" height="30">
