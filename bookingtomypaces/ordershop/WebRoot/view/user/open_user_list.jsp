@@ -11,20 +11,6 @@
 
 <title>用戶資料管理</title>
 </head>
-<script type="text/javascript">
-var dg = frameElement.dg;
-
-window.onload = function()
-{
-	document.getElementById('a').innerHTML = dg.win.document.getElementById('clientinfodata.functionary').value;
-}
-function ok()
-{
-//getCheckBoxsValues('checkbox')
-    //dg.win.document.getElementById('clientinfodata.functionary').value = document.getElementById('bt').value;
-	//dg.cancel();
-}
-	</script>
 <body class="maintable">
 <div class="dclass_container dclass_container_collapsible" >
 	<div class="dclass_container_header" >    	
@@ -69,6 +55,8 @@ function ok()
 	<div class="actions">
 		<input name="Submit" id="bt" type="button" class="btn1" value="選 中" onclick="getCheckBoxsValues('checkbox')"/>		
 	</div>	
+	</div>	
+	 <div class="dclass_container_content1">
 	<table class="dclass_data" >
 		<thead>
 			<tr>		

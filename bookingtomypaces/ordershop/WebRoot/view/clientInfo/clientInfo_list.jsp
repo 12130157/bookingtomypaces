@@ -52,7 +52,8 @@
 		<input name="Submit" type="button" class="btn1" value="新 增" onClick="goURL3('<%=request.getContextPath()%>/client_info/key/addjsp');"/>
 		<input name="delbt" type="button" class="btn1" value="刪 除" onClick="del();"/>		
 	</div>	
-	
+	</div>	
+	 <div class="dclass_container_content1">
 	<table class="dclass_data" >
 		<thead>
 			<tr>
@@ -68,9 +69,9 @@
 				<th >操作</th>
 			</tr>
 		</thead>
-		<tdoby>
+		
 		<s:iterator  value="clientInfoList" status="flag" >
-		<tr title="双击查看详细内容" onDblClick="view('<s:property value="id"/>');">			
+		<tr title="双击查看详细内容" onDblClick="view('<s:property value="id"/>');" class="listtd1">			
 			<td align="center"><input type="checkbox" name="checkbox" <s:if test="state==0">disabled</s:if>  value="<s:property value="id"/>"></td>
 			<td><a href="#"><s:property value="clientNum"/></a></td>
 			<td><s:property value="companyShortname"/></td>
@@ -95,7 +96,7 @@
               <tools:pageUrl url="${url}" count="${page.count}" curPage="${page.curPage}" pageSize="${page.pageSize}" />			  
 			  </td>
       </tr>	
-		</tbody>
+		
 	</table>
 
 	
