@@ -50,7 +50,8 @@
 	<div class="actions">
 		<input name="Submit" type="button" class="btn1" value="新 增" onClick="goURL3('<%=request.getContextPath()%>/store/key/addjsp');"/>		
 	</div>	
-	
+	</div>	
+	 <div class="dclass_container_content1">
 	<table class="dclass_data" >
 		<thead>
 			<tr>

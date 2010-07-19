@@ -21,6 +21,11 @@ div.dclass_container div.dclass_container_content {
 	border-top:0;
 	padding:0;	
 }
+div.dclass_container div.dclass_container_content1 {
+
+	border-top:0;
+	padding:0;	
+}
 div.dclass_container_collapsible div.dclass_container_title {	
 	cursor:pointer;
 	background-image:url(../images/arrow_up.gif);
@@ -38,15 +43,19 @@ table.dclass_data{
 	border-spacing: 0;
 	text-align:left;
 }
-table.dclass_data td, table.dclass_data th{
+table.dclass_data td{
+	border:1px solid #9FD6FF;
+	padding:0.5em 0.3em;
+}
+table.dclass_data th{
 	border:1px solid #9FD6FF;
 	padding:0.5em 0.3em;
 }
 table.dclass_data th{
 
-	 border-left:1px solid #ffffff;
-	 border-right:1px solid #C8E2FB;
-	 border-top:1px solid #ffffff;
+	 border-left:1px solid #9FD6FF;
+	 border-right:1px solid #9FD6FF;
+	 border-top:0;
 	 text-align:center;
 	 background-color:#C1DDF8;	
 	 color:#064E88;
@@ -69,8 +78,12 @@ table.dclass_data caption{
 /* pager
 ==========================================================================*/
 div.dclass_pager{	
-	margin:0.5em 2em 0.5em 0.5em;
+	 border-left:1px solid #9FD6FF;
+	 border-right:1px solid #9FD6FF;
+	 border-bottom:1px solid #9FD6FF;
+	height:22px;
+	line-height:22px;
 	text-align:right;
 	font-size:0.9em;
-	color:#666666;
+	
 }
