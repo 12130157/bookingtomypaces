@@ -87,3 +87,10 @@ div.dclass_pager{
 	font-size:0.9em;
 	
 }
+div.dclass_bt{	
+	 border-left:1px solid #9FD6FF;
+	 border-right:1px solid #9FD6FF;
+	 border-bottom:1px solid #9FD6FF;
+	padding:0.3em; 
+	text-align:center	
+}

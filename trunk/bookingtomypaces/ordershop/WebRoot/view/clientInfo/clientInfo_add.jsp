@@ -24,7 +24,7 @@
 	<div class="dclass_container_header" >    	
         <div class="dclass_container_title">客戶資料增加</div>
     </div>
-    <div class="dclass_container_content">
+    <div class="dclass_container_content1">
 	<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#9FD6FF">
 		  <tr>
             <td class="formtd" colspan="4"><span class="fontred">客戶</span></td>
@@ -92,8 +92,8 @@
           <tr>           
             <td width="15%" class="formtitle">負責員工:</td>
             <td width="35%" class="formtd"> 
-            	<input name="clientinfodata.functionary" type="text" class="inputform" value="">  
-            	<input name="clientinfodata.functionaryUserId" type="hidden" class="inputform" value="">          
+            	<input id="clientinfodata.functionary" name="clientinfodata.functionary" type="text" class="inputform" value="">  
+            	<input id="clientinfodata.functionaryUserId" name="clientinfodata.functionaryUserId" type="hidden" class="inputform" value="">          
             	<input id="c" type="button" name="bc" class="btn1" value="選 擇" onclick="openDialog('open_userlist','員工列表','<%=request.getContextPath()%>/user/key/open_user_list',800,500);" />       	          	
             </td>
 			<td class="formtitle">狀態:</td>
@@ -110,7 +110,7 @@
           </tr>
    
      </table>
-    <div style="padding:0.3em; text-align:center">
+    <div class="dclass_bt">
     	<input type="button" name="bc" class="btn1" value="保 存" onclick="javascript:add();" />
 		<input type="button" name="fh" class="btn1" value="返 回" onclick="javascript:history.back();" /> 
 	</div>
