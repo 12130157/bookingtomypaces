@@ -21,7 +21,7 @@
 	<div class="dclass_container_header" >    	
         <div class="dclass_container_title">用戶资料增加</div>
     </div>
-    <div class="dclass_container_content">
+    <div class="dclass_container_content1">
 	<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="#9FD6FF">
          
 		   <tr>
@@ -86,7 +86,7 @@
 		  
 		  
      </table>
-    <div style="padding:0.3em; text-align:center">
+    <div class="dclass_bt">
     	<input type="submit" name="bt" class="btn1" value="保 存"  />
 		<input type="button" class="btn1" value="返 回" onclick="javascript:history.back();" /> 
 	</div>

@@ -101,7 +101,7 @@
             <td class="formtd"></td>			 
           </tr>
      </table>
-    <div style="padding:0.3em; text-align:center">
+    <div class="dclass_bt">
 		<input type="button" class="btn1" value="返 回" onclick="javascript:history.back();" /> 
 	</div>
 	</div>
