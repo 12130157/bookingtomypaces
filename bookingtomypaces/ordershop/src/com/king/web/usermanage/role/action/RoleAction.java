@@ -48,7 +48,7 @@ public class RoleAction extends FrmAction{
 	private RoleData role =new RoleData();
 	private HashMap ht = new HashMap();
 	public Common common=new Common();
-	
+	public String s1;
 	
 	
 	public String list() throws KINGException{
@@ -280,4 +280,16 @@ public class RoleAction extends FrmAction{
 	public void setRoleList(List<RoleData> roleList) {
 		this.roleList = roleList;
 	}
+
+	public String getS1() {
+		return s1;
+	}
+
+	public void setS1(String s1) {
+		this.s1 = s1;
+	}
+
+	
+	
+	
 }
