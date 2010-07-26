@@ -65,13 +65,13 @@ document.getElementById("cdata").innerHTML = s;
 	              </tr>
 	               <s:iterator id="f" value="funList.{?#this.perfunc==0}">
 				  <tr>
-				  <td  class="ranktit"><input type="checkbox" id="<s:property value='id' />m" onclick="checkbox.selectAll('<s:property value='id' />s','<s:property value='id' />m');setValue();" value="<s:property value='id' />" /><s:property value="funcname" /></td>
+				  <td  class="ranktit"><input type="checkbox" id="<s:property value='id' />m" onclick="checkbox.selectAll('s<s:property value='id' />','<s:property value='id' />m');setValue();" value="<s:property value='id' />" /><s:property value="funcname" /></td>
 				  </tr>
 	              <tr>
 	                <td class="rankbottomline">
 	                	<s:iterator value="funList.{?#this.perfunc==#f.id}">
 	                		 <s:if test="null!=url">
-	                			<input type="checkbox" id="<s:property value='id' />c" name="<s:property value='perfunc' />s" onclick="checkbox.selectMax('<s:property value='perfunc' />s','<s:property value='#f.id' />m');setValue();" value="<s:property value='id' />" /><s:property value="funcname" />
+	                			<input type="checkbox" id="<s:property value='id' />c" name="s<s:property value='perfunc' />" onclick="checkbox.selectMax('<s:property value='perfunc' />s','<s:property value='#f.id' />m');setValue();" value="<s:property value='id' />" /><s:property value="funcname" />
 	                	 	</s:if>
 	                	</s:iterator>
 	                </td>							               
