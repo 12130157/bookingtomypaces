@@ -32,7 +32,7 @@ document.getElementById("cdata").innerHTML = s;
 </head>
 
 <body class="maintable" >
-<s:form  method="post"  theme="simple" onsubmit="return check(this);">
+<s:form  method="post"  theme="simple" namespace="user"  onsubmit="return check(this);">
 <input type="hidden" name="userdata.id" value="<s:property value='userdata.id' />" />
 <div class="dclass_container" >
 	<div class="dclass_container_header" >    	
