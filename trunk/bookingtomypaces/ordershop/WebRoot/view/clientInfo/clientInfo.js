@@ -196,5 +196,5 @@
 		document.getElementById("clientinfodata.functionaryUserId").value=str_id;
 	}
 	function openDialog(idd,ti,url,w,h){
-			J.dialog.get({ id:idd, title: ti, width: w, height:h, page: url, cover:false});
+			J.dialog.get({ id:idd, title: ti, width: w, height:h, link: url, cover:false});
 	}
