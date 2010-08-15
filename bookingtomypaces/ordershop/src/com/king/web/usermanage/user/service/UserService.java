@@ -131,7 +131,8 @@ public class UserService extends FrmService implements IUserService{
 	 * @throws KINGException
 	 */
 	public int userExistRole(String uid) throws KINGException{
-		String hql = "select u from UserFunctionData u where u.userId='" +uid+ "'";
+		//String hql = "select u from UserFunctionData u where u.userId='" +uid+ "'";
+		String hql = "select roleId from UserData u where u.id='" +uid+ "' and roleId is not null";
 		return userDao.search(hql).size();
 	}
 
