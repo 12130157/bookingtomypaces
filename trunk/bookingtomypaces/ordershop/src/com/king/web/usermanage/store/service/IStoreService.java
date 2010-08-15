@@ -93,6 +93,14 @@ public interface IStoreService {
 	 */
 	public List<StoreData> searchStores(PageRoll pageRoll,String withsql) throws KINGException;
 	
+	/**
+	 * 【新增订单】查询所有状态为0的店鋪信息
+	 * @param withsql
+	 * @return 店鋪信息集合
+	 * @throws KINGException
+	 */
+	public List<StoreData> searchAllStores(String withsql) throws KINGException;
+	
 
 	
 	

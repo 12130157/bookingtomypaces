@@ -124,6 +124,19 @@ public class StoreService  extends FrmService implements IStoreService {
 		List list = storeDao.searchlist(pageRoll,withsql);
 		return list;
 	}
+	
+	/**
+	 * 【新增订单】查询所有状态为0的店鋪信息
+	 * @param withsql
+	 * @return 店鋪信息集合
+	 * @throws KINGException
+	 */
+	public List<StoreData> searchAllStores(String withsql) throws KINGException{
+		StringBuffer hql  = new StringBuffer();
+		hql.append("from StoreData "+withsql);
+		List list = storeDao.search(hql.toString());
+		return list;
+	}
 	/**   
 	 * storeDao   
 	 *   
