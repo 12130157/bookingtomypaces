@@ -48,7 +48,8 @@ import com.king.tools.PageVo;
 	@Result(name="home", location="store/key/home",type="redirectAction"),
 	@Result(name="login", location="view/store/login.jsp"),
 	@Result(name="addview", location="view/store/store_add.jsp"),
-	@Result(name="editview", location="view/store/store_edit.jsp")
+	@Result(name="editview", location="view/store/store_edit.jsp"),
+	@Result(name="open_store_list", location="view/store/open_store_list.jsp")
 })
 public class StoreAction extends FrmAction{
 
@@ -239,6 +240,16 @@ public class StoreAction extends FrmAction{
 		return p.getTotalRows();
 	}
 	
+	/**
+	 * 【下订单】弹出店铺选择列表   
+	 * 
+	 */
+	public String open_store_list()throws KINGException {
+		String withsql=" where status=0 ";
+		storeList =storeService.searchAllStores(withsql);
+		ServletActionContext.getRequest().setAttribute("storeList",storeList);
+		return "open_store_list";
+	}
 	
 	/**   
 	 * storeService   
