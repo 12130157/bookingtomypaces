@@ -189,20 +189,41 @@
 		  }
    } 
 
-	//接收选择负责职员返回值
-	function return_openselect(str_id,str_name){
+	//获取 选择客户信息返回的值
+	function return_ClientOpenselect(clientNum,companyName,compPhone,compFax,e_mail,remark,linkmanOne,phoneOne,addressOne){
 		//alert(str_id+"---1--"+str_name)
-//		document.getElementById("clientinfodata.functionary").value=str_name;
-//		document.getElementById("clientinfodata.functionaryUserId").value=str_id;
-		document.getElementsByName("clientinfodata.functionary")[0].value=str_name;
-		document.getElementsByName("clientinfodata.functionaryUserId")[0].value=str_id;
-	}
-	function openDialog(idd,ti,url,w,h){
-			J.dialog.get({ id:idd, title: ti, width: w, height:h, link: url, cover:false});
+		document.getElementsByName("orderclientinfo.clientNum")[0].value=clientNum;
+		document.getElementsByName("orderinfodata.clientCompName")[0].value=companyName;
+		document.getElementsByName("orderinfodata.clientCompPhone")[0].value=compPhone;
+		document.getElementsByName("orderclientinfo.clientCompFax")[0].value=compFax;
+		document.getElementsByName("orderclientinfo.clientE_mail")[0].value=e_mail;
+		document.getElementsByName("orderclientinfo.clientRemark")[0].value=remark;
+		document.getElementsByName("orderinfodata.clientLinkman")[0].value=linkmanOne;
+		document.getElementsByName("orderinfodata.clientMobile")[0].value=phoneOne;
+		document.getElementsByName("orderclientinfo.clientCompAddress")[0].value=addressOne;
+		
+		var o=document.getElementById("deliverType");
+		var idvalue=o.options[o.selectedIndex].value;
+		if(idvalue==2){//需送货
+			document.getElementsByName("orderclientinfo.deliverCompany")[0].value=companyName;
+			document.getElementsByName("orderclientinfo.deliverMan")[0].value=linkmanOne;
+			document.getElementsByName("orderclientinfo.deliverPhone")[0].value=compPhone;
+			document.getElementsByName("orderclientinfo.deliverMobile")[0].value=phoneOne;
+			document.getElementsByName("orderclientinfo.deliveAddress")[0].value=addressOne;
+			document.getElementsByName("orderclientinfo.deliverRemark")[0].value=remark;
+		}
+		document.getElementsByName("clientMobile")[0].value=phoneOne;
+		
 	}
 	
-	//弹出查看页面
-	function open_view(id){
-		var url_str="openview?id="+id;
-		goURL3(url_str);
+	//获取 选择店铺信息返回的值
+	function return_StoreOpenselect(str_id,str_name,str_shortName){
+		//alert(str_id+"---1--"+str_name)
+		document.getElementsByName("orderinfodata.operatStoreId")[0].value=str_id;
+		document.getElementsByName("orderinfodata.operatStoreName")[0].value=str_name;
+		document.getElementsByName("operatStore_shortName")[0].value=str_shortName;	
+	}
+	
+	function openDialog(idd,ti,url,w,h){
+			J.dialog.get({ id:idd, title: ti, width: w, height:h, link: url, cover:false});
 	}
