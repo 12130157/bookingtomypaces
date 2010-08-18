@@ -62,6 +62,9 @@
 				<value>com.king.web.usermanage.user.data.UserFunctionData</value>
 				<value>com.king.web.clientmanage.clientInfo.data.ClientInfoData</value>
 				<value>com.king.web.usermanage.store.data.StoreData</value>
+				<value>com.king.web.productmanage.product.data.ProductData</value>
+				<value>com.king.web.productmanage.type.data.TypeData</value>
+				<value>com.king.web.productmanage.unit.data.UnitData</value>
 			</list>
 		</property>
 		
