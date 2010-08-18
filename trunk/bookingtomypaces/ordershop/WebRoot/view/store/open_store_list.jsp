@@ -9,7 +9,15 @@
 <jsp:include page="../../head.jsp" />
 <title>店鋪資料管理</title>
 </head>
-
+<script language="javascript" type="text/javascript">
+			//選中的店铺信息
+			var P = window.parent, D = P.loadinndlg();  
+				
+			function getStoreInfo(str_id,str_name,str_shortName){	
+				D.return_StoreOpenselect(str_id,str_name,str_shortName);			
+				P.reload('#','#'); 
+			}		
+	</script>
 <body class="maintable">
 
 <br style="line-height:5px;"/>
@@ -47,7 +55,7 @@
 			<td align="center"><s:property value="managerMobile"/></td>
 			
 			<td align="center">
-				<a href="#" onclick="edit_jsp('<s:property value="id"/>');" class='linkorange'>確定</a>
+				<a href="#" onclick="getStoreInfo('<s:property value="id"/>','<s:property value="name"/>','<s:property value="shortName"/>');" class='linkorange'>確定</a>
 			</td>
 		</tr>
 		</s:iterator>
