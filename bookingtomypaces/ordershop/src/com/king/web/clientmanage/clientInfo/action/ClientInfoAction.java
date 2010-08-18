@@ -22,12 +22,11 @@ import com.king.web.clientmanage.clientInfo.service.IClientInfoService;
 @Results({
 	@Result(name="home", location="user/key/home",type="redirectAction"),
 	@Result(name="list", location="view/clientInfo/clientInfo_list.jsp"),
-//	@Result(name="list", location="view/clientInfo/MyJsp.jsp"),
 	@Result(name="edit", location="view/clientInfo/clientInfo_edit.jsp"),
 	@Result(name="add", location="view/clientInfo/clientInfo_add.jsp"),
-//	@Result(name="add", location="lhgdialog/index_d.jsp"),
-//	@Result(name="add", location="view/clientInfo/viewlist.jsp"),
-	@Result(name="view", location="view/clientInfo/clientInfo_view.jsp")
+	@Result(name="view", location="view/clientInfo/clientInfo_view.jsp"),
+	@Result(name="openview", location="view/clientInfo/open_clientInfo_view.jsp"),
+	@Result(name="openClientInfoList", location="view/clientInfo/open_clientInfo_list.jsp")
 })
 
 public class ClientInfoAction extends FrmAction{
@@ -215,6 +214,72 @@ public class ClientInfoAction extends FrmAction{
 		return this.staticlist();
 	}
 	
+	/**
+	 * 弹出客户列表
+	 * @return
+	 * @throws KINGException
+	 */
+	public String openClientInfoList() throws KINGException {
+		if(null==getFrmUser()){
+			return "home";
+		}
+		String withsql=" where 1=1 and state!='2' ";
+		String find_num = request.getParameter("find_num")==null?"":request.getParameter("find_num").toString();
+		String find_comp = request.getParameter("find_comp")==null?"":request.getParameter("find_comp").toString();
+		String find_comphone = request.getParameter("find_comphone")==null?"":request.getParameter("find_comphone").toString();
+		String find_linkman = request.getParameter("find_linkman")==null?"":request.getParameter("find_linkman").toString();
+		String find_functionary = request.getParameter("find_functionary")==null?"":request.getParameter("find_functionary").toString();
+		if(!"".equals(find_num)){
+			withsql+=" and clientNum like '%"+find_num+"%' ";
+		}
+		if(!"".equals(find_comp)){
+			withsql+=" and company_shortname like '%"+find_comp+"%' ";
+		}
+		if(!"".equals(find_comphone)){
+			withsql+=" and comp_phone like '%"+find_comphone+"%' ";
+		}
+		if(!"".equals(find_linkman)){
+			withsql+=" and linkman_one like '%"+find_linkman+"%' ";
+		}
+		if(!"".equals(find_functionary)){
+			withsql+=" and functionary like '%"+find_functionary+"%' ";
+		}
+		System.out.println("withsql: "+withsql);
+		Integer curPage=request.getParameter("curPage")==null?1:Integer.parseInt(request.getParameter("curPage").toString());
+		PageRoll p =new PageRoll();
+		p.setPageSize(Constants.PAGE_SIZE);
+		p.setStartRow(curPage);
+		clientInfoList =clientInfoService.searchClientInfoList(p, withsql);
+		ServletActionContext.getRequest().setAttribute("page",new PageVo(p.getTotalRows(), curPage, p.getPageSize()));
+		String urlStr = Constants.ProjectName+"/client_info/key/openClientInfoList?curPage=";
+		ServletActionContext.getRequest().setAttribute("url", urlStr);
+		ServletActionContext.getRequest().setAttribute("find_num", find_num);
+		ServletActionContext.getRequest().setAttribute("find_comp", find_comp);
+		ServletActionContext.getRequest().setAttribute("find_comphone", find_comphone);
+		ServletActionContext.getRequest().setAttribute("find_linkman", find_linkman);
+		ServletActionContext.getRequest().setAttribute("find_functionary", find_functionary);
+		return "openClientInfoList";
+	}
+	
+	/**
+	 * 弹出查看客户资料
+	 * @return
+	 * @throws KINGException
+	 */
+	public String openview()throws KINGException{
+		if(null==getFrmUser()){
+			return "home";
+		}
+		System.out.println("id=="+request.getParameter("id"));
+		clientinfodata=clientInfoService.retrieveClientInfo(request.getParameter("id"));
+		return "openview";
+	}
+	
+	/**
+	 *更新操作
+	 * @return
+	 * @throws KINGException
+	 */
 	public String updateClientInfoByid() throws KINGException{
 		if(null==getFrmUser()){
 			return "home";
