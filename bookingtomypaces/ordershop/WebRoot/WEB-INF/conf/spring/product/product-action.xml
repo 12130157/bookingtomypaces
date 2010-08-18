@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+
+<beans>
+	
+	<!--產品相關-->
+	<bean id="productAction" class="com.king.web.productmanage.product.action.ProductAction">
+		<property name="productService" ref="productService"/>
+		<property name="typeService" ref="typeService"/>
+		<property name="unitService" ref="unitService"/>
+	</bean>
+	<bean id="typeAction" class="com.king.web.productmanage.type.action.TypeAction">
+		<property name="typeService" ref="typeService"/>
+	</bean>
+	<bean id="unitAction" class="com.king.web.productmanage.unit.action.UnitAction">
+		<property name="unitService" ref="unitService"/>
+	</bean>
+</beans>
